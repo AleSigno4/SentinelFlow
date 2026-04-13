@@ -1,4 +1,4 @@
-package com.example.sentinelflow;
+package com.example.sentinelflow.config;
 
 import org.h2.server.web.JakartaWebServlet;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
