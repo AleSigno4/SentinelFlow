@@ -25,4 +25,11 @@ public class Transaction {
     private String description;
     private String category;
     private LocalDateTime timestamp;
+
+    public Transaction(BigDecimal amount, String description, String category, LocalDateTime timestamp) {
+        this.amount = amount;
+        this.description = description;
+        this.category = category;
+        this.timestamp = timestamp;
+    }
 }
