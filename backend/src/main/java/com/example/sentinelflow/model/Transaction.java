@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -21,15 +23,20 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long id;
+    private Long userId;
     private BigDecimal amount;
     private String description;
     private String category;
+    @Enumerated(EnumType.STRING)
+    private TransactionStatus status;
     private LocalDateTime timestamp;
 
-    public Transaction(BigDecimal amount, String description, String category, LocalDateTime timestamp) {
+    public Transaction(Long userId, BigDecimal amount, String description, String category, TransactionStatus status, LocalDateTime timestamp) {
+        this.userId = userId;
         this.amount = amount;
         this.description = description;
         this.category = category;
+        this.status = status;
         this.timestamp = timestamp;
     }
 }

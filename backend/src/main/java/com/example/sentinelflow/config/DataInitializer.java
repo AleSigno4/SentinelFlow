@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.example.sentinelflow.model.Transaction;
+import com.example.sentinelflow.model.TransactionStatus;
 import com.example.sentinelflow.repository.TransactionRepository;
 
 @Configuration
@@ -22,11 +23,11 @@ public class DataInitializer {
     @Bean
     public CommandLineRunner initDatabase() {
         return args -> {
-            Transaction t1 = new Transaction(new BigDecimal("50.00"), "Grocery shopping", "Food", LocalDateTime.now().minusDays(1));
-            Transaction t2 = new Transaction(new BigDecimal("20.00"), "Movie ticket", "Entertainment", LocalDateTime.now().minusDays(2));
-            Transaction t3 = new Transaction(new BigDecimal("100.00"), "Electricity bill", "Utilities", LocalDateTime.now().minusDays(3));
-            Transaction t4 = new Transaction(new BigDecimal("150.00"), "New shoes", "Clothing", LocalDateTime.now().minusDays(4));
-            Transaction t5 = new Transaction(new BigDecimal("100.00"), "Grocery shopping", "Food", LocalDateTime.now().minusDays(4));
+            Transaction t1 = new Transaction(1L, new BigDecimal("50.00"), "Grocery shopping", "Food", TransactionStatus.PENDING, LocalDateTime.now().minusDays(1));
+            Transaction t2 = new Transaction(2L, new BigDecimal("20.00"), "Movie ticket", "Entertainment", TransactionStatus.CONFIRMED, LocalDateTime.now().minusDays(2));
+            Transaction t3 = new Transaction(3L, new BigDecimal("100.00"), "Electricity bill", "Utilities", TransactionStatus.REJECTED, LocalDateTime.now().minusDays(3));
+            Transaction t4 = new Transaction(4L, new BigDecimal("150.00"), "New shoes", "Clothing", TransactionStatus.PENDING, LocalDateTime.now().minusDays(4));
+            Transaction t5 = new Transaction(5L, new BigDecimal("100.00"), "Grocery shopping", "Food", TransactionStatus.CONFIRMED, LocalDateTime.now().minusDays(4));
 
             transactionRepository.saveAll(List.of(t1, t2, t3, t4, t5));
 
