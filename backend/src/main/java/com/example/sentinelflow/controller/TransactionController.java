@@ -13,9 +13,6 @@ import com.example.sentinelflow.model.Transaction;
 import com.example.sentinelflow.model.TransactionStatus;
 import com.example.sentinelflow.repository.TransactionRepository;
 
-
-
-
 @RestController
 @RequestMapping("/api/transactions")
 public class TransactionController {
