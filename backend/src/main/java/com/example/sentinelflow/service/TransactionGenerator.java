@@ -30,11 +30,25 @@ public class TransactionGenerator {
 
     @Scheduled(fixedRate = 5000)
     public void generateTransaction() {
-        String category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
-        String description = categories.get(category).get(random.nextInt(categories.get(category).size()));
-        double amount = Math.round((random.nextDouble() * 1000) + 1);
-        Long userId = (long) (random.nextInt(10) + 1);
+        String category = "";
+        String description = "";
+        double amount = 0.0;
+        Long userId = 0L;
 
+        int chance = random.nextInt(100);
+
+        if (chance < 5) {
+            category = "CYBER";
+            description = "DARKWEB ENTRY";
+            amount = Math.round((random.nextDouble() * 10000) + 5000);
+            userId = 99L;
+            System.out.println("⚠️ ALERT: Generata transazione sospetta!");
+        } else {
+            category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
+            description = categories.get(category).get(random.nextInt(categories.get(category).size()));
+            amount = Math.round((random.nextDouble() * 1000) + 1);
+            userId = (long) (random.nextInt(10) + 1);
+        }
         Transaction transaction = new Transaction(
             userId,
             java.math.BigDecimal.valueOf(amount),
