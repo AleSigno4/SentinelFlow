@@ -1,3 +1,4 @@
+<p>Transazioni: {{ transactions.length }}</p>
 <table>
     <thead>
         <tr>
@@ -11,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-        @for (transaction of transactions; track transaction.id) {
+        @for (transaction of transactions; track $index) {
             <tr>
                 <td>{{ transaction.id }}</td>
                 <td>{{ transaction.userId }}</td>
