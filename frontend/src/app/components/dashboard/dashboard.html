@@ -1,0 +1,28 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>User ID</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Timestamp</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (transaction of transactions; track transaction.id) {
+            <tr>
+                <td>{{ transaction.id }}</td>
+                <td>{{ transaction.userId }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.description }}</td>
+                <td>{{ transaction.category }}</td>
+                <td>{{ transaction.status }}</td>
+                <td>{{ transaction.timestamp }}</td>
+            </tr>
+        } @empty {
+            <tr><td colspan="7">Non ci sono transazioni da mostrare.</td></tr>
+        }
+    </tbody>
+</table>
