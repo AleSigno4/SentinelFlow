@@ -1,29 +1,33 @@
-<p>Transazioni: {{ transactions.length }}</p>
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>User ID</th>
-            <th>Amount</th>
-            <th>Description</th>
-            <th>Category</th>
-            <th>Status</th>
-            <th>Timestamp</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for (transaction of transactions; track $index) {
-            <tr>
-                <td>{{ transaction.id }}</td>
-                <td>{{ transaction.userId }}</td>
-                <td>{{ transaction.amount }}</td>
-                <td>{{ transaction.description }}</td>
-                <td>{{ transaction.category }}</td>
-                <td>{{ transaction.status }}</td>
-                <td>{{ transaction.timestamp }}</td>
-            </tr>
-        } @empty {
-            <tr><td colspan="7">Non ci sono transazioni da mostrare.</td></tr>
-        }
-    </tbody>
-</table>
+<div class="bg-gray-100 min-h-screen p-8">
+    <h1 class="text-2xl font-bold mb-4">Dashboard Transazioni</h1>
+    <div class="p-4 bg-white shadow-md rounded-lg overflow-hidden border border-gray-200">
+        <table>
+            <thead class="text-center border-b border-gray-300 font-semibold text-gray-700 uppercase text-sm">
+                <tr>
+                    <th class="px-6 py-2">ID</th>
+                    <th class="px-6 py-2">User ID</th>
+                    <th class="px-6 py-2">Amount</th>
+                    <th class="px-6 py-2">Description</th>
+                    <th class="px-6 py-2">Category</th>
+                    <th class="px-6 py-2">Status</th>
+                    <th class="px-6 py-2">Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (transaction of transactions; track $index) {
+                    <tr>
+                        <td>{{ transaction.id }}</td>
+                        <td>{{ transaction.userId }}</td>
+                        <td>{{ transaction.amount }}</td>
+                        <td>{{ transaction.description }}</td>
+                        <td>{{ transaction.category }}</td>
+                        <td>{{ transaction.status }}</td>
+                        <td>{{ transaction.timestamp }}</td>
+                    </tr>
+                } @empty {
+                    <tr><td colspan="7">Non ci sono transazioni da mostrare.</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

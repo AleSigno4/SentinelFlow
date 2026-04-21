@@ -30,7 +30,7 @@ export class Dashboard implements OnInit, OnDestroy {
         next: (data) => {
           //console.log('Dati ricevuti con successo:', data);
           this.transactions = [...data];
-          this.cdr.detectChanges(); // Forza il refresh della grafica
+          this.cdr.detectChanges();
         },
         error: (err) => {
           console.error('ERRORE NEL FLUSSO:', err);
