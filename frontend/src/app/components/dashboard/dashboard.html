@@ -25,20 +25,22 @@
     </div>
   </div>
 
-  <div class="bg-white shadow-xl rounded-xl border border-gray-200 p-6 mb-8">
-    <apx-chart
-      [series]="chartOptions.series"
-      [chart]="chartOptions.chart"
-      [xaxis]="chartOptions.xaxis"
-      [yaxis]="chartOptions.yaxis"
-      [stroke]="chartOptions.stroke"
-      [tooltip]="chartOptions.tooltip"
-      [dataLabels]="chartOptions.dataLabels"
-      [fill]="chartOptions.fill"
-      [colors]="chartOptions.colors"
-      [grid]="chartOptions.grid"
-    ></apx-chart>
-  </div>
+  @if (transactions.length > 0) {
+    <div class="bg-white shadow-xl rounded-xl border border-gray-200 p-6 mb-8">
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [xaxis]="chartOptions.xaxis"
+        [yaxis]="chartOptions.yaxis"
+        [stroke]="chartOptions.stroke"
+        [tooltip]="chartOptions.tooltip"
+        [dataLabels]="chartOptions.dataLabels"
+        [fill]="chartOptions.fill"
+        [colors]="chartOptions.colors"
+        [grid]="chartOptions.grid"
+      ></apx-chart>
+    </div>
+  }
 
   <div
     class="bg-white shadow-xl rounded-xl border border-gray-200 overflow-hidden max-h-[420px] overflow-y-auto block"
