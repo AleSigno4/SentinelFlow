@@ -8,10 +8,11 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.example.sentinelflow.model.Transaction;
+import com.example.sentinelflow.model.TransactionStatus;
 import com.example.sentinelflow.repository.TransactionRepository;
 
 @Service
-public class TransactionGenerator {
+public class TransactionService {
     private final TransactionRepository transactionRepository;
     Random random = new Random();
 
@@ -25,7 +26,7 @@ public class TransactionGenerator {
         "Health", List.of("Pharmacy", "Doctor Visit", "Gym Membership", "Yoga Class", "Health Insurance", "Vitamin Store", "Therapy Session", "Dental Checkup", "Optician Visit", "Massage Therapy", "Personal Trainer Session")
     );
 
-    public TransactionGenerator(TransactionRepository transactionRepository) {
+    public TransactionService(TransactionRepository transactionRepository) {
         this.transactionRepository = transactionRepository;
     }
 
@@ -60,5 +61,12 @@ public class TransactionGenerator {
         );
 
         this.transactionRepository.save(transaction);
+    }
+
+    public Transaction updateStatus(Long id, TransactionStatus status) {
+        Transaction transaction = transactionRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Transaction not found"));
+        transaction.setStatus(status);
+        return transactionRepository.save(transaction);
     }
 }

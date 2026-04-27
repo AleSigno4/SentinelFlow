@@ -104,13 +104,18 @@ export class Dashboard implements OnInit, OnDestroy {
             new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
           );
 
-          //console.log('Dati ricevuti con successo:', data);
-          this.transactions = [...data];
-          this.totalAmount = this.transactions.reduce((sum, tx) => sum + tx.amount, 0);
-          this.averageAmount = this.transactions.length > 0 ? this.totalAmount / this.transactions.length : 0;
-          this.pendingTransactions = this.transactions.filter(tx => tx.status === 'PENDING');
-          const rejectedCount = this.transactions.filter(tx => tx.status === 'REJECTED').length;
-          this.rejectionRate = this.transactions.length > 0 ? (rejectedCount / this.transactions.length) * 100 : 0;
+          // 2. Marca le nuove transazioni
+          sortedData.forEach(tran => {
+            const exists = this.transactions.some(t => t.id === tran.id);
+            if (!exists && tran.status === 'PENDING') {
+              tran.isProcessing = true;
+            }
+          });
+
+          // 3. Sovrascrivi l'array della classe
+          this.transactions = sortedData;
+
+          this.updateTotals();
 
           this.chartOptions.series = [{
             name: 'Importo Transazione',
@@ -121,6 +126,16 @@ export class Dashboard implements OnInit, OnDestroy {
           }];
 
           this.cdr.detectChanges();
+
+          setTimeout(() => {
+            this.transactions.forEach(t => {
+              if (t.isProcessing) {
+                t.isProcessing = false;
+              }
+            });
+            // Forza la sparizione degli spinner e l'apparizione dei bottoni
+            this.cdr.detectChanges();
+          }, 1000);
         },
         error: (err) => {
           console.error('ERRORE NEL FLUSSO:', err);
@@ -130,5 +145,31 @@ export class Dashboard implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub?.unsubscribe();
+  }
+
+  private updateTotals() {
+    this.totalAmount = this.transactions.reduce((sum, tx) => sum + tx.amount, 0);
+    this.averageAmount = this.transactions.length > 0 ? this.totalAmount / this.transactions.length : 0;
+    this.pendingTransactions = this.transactions.filter(tx => tx.status === 'PENDING');
+
+    const rejectedCount = this.transactions.filter(tx => tx.status === 'REJECTED').length;
+    this.rejectionRate = this.transactions.length > 0 ? (rejectedCount / this.transactions.length) * 100 : 0;
+  }
+
+  updateTransactionStatus(transaction: Transaction, newStatus: 'CONFIRMED' | 'REJECTED') {
+    transaction.isProcessing = true;
+
+    this.service.updateTransactionStatus(transaction.id, newStatus).subscribe({
+      next: () => {
+        transaction.status = newStatus;
+        transaction.isProcessing = false;
+        this.updateTotals();
+        this.cdr.detectChanges();
+      },
+      error: (err) => {
+        transaction.isProcessing = false;
+        console.error(err);
+      }
+    });
   }
 }

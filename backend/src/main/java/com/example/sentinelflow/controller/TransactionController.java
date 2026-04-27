@@ -1,5 +1,8 @@
 package com.example.sentinelflow.controller;
 
+import java.util.Map;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -12,13 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.sentinelflow.model.Transaction;
 import com.example.sentinelflow.model.TransactionStatus;
 import com.example.sentinelflow.repository.TransactionRepository;
+import com.example.sentinelflow.service.TransactionService;
 
 @RestController
 @RequestMapping("/api/transactions")
 public class TransactionController {
+    private final TransactionService transactionService; // Usa il servizio rinominato
     private final TransactionRepository transactionRepository;
 
-    public TransactionController(TransactionRepository transactionRepository) {
+    public TransactionController(TransactionService transactionService, TransactionRepository transactionRepository) {
+        this.transactionService = transactionService;
         this.transactionRepository = transactionRepository;
     }
 
@@ -38,11 +44,10 @@ public class TransactionController {
         this.transactionRepository.deleteById(id);
     }
 
-    @PatchMapping("/{id}")
-    public Transaction patchTransaction(@PathVariable Long id, @RequestBody TransactionStatus status) {
-        Transaction transaction = this.transactionRepository.findById(id).orElseThrow();
-        transaction.setStatus(status);
-        this.transactionRepository.save(transaction);
-        return transaction;
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<Transaction> patchTransaction(@PathVariable Long id, @RequestBody Map<String, String> payload) {
+        TransactionStatus status = TransactionStatus.valueOf(payload.get("status"));
+        Transaction updated = transactionService.updateStatus(id, status);
+        return ResponseEntity.ok(updated);
     }
 }

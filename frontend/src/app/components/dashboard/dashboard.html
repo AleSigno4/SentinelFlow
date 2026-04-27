@@ -120,31 +120,40 @@
                   {{ transaction.status }}
                 </span>
 
-                @if (transaction.status !== 'CONFIRMED' && transaction.status !== 'REJECTED') {
-                  <button
-                    class="ml-2 bg-green-500 hover:bg-green-600 text-white p-1 rounded-md transition-all shadow-sm"
-                  >
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M5 13l4 4L19 7"
-                      ></path>
-                    </svg>
-                  </button>
-                  <button
-                    class="bg-red-500 hover:bg-red-600 text-white p-1 rounded-md transition-all shadow-sm"
-                  >
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M6 18L18 6M6 6l12 12"
-                      ></path>
-                    </svg>
-                  </button>
+                @if (transaction.status === 'PENDING') {
+                  @if (transaction.isProcessing) {
+                    <div
+                      class="animate-spin h-5 w-5 border-2 border-cyan-500 border-t-transparent rounded-full"
+                    ></div>
+                  } @else {
+                    <button
+                      (click)="updateTransactionStatus(transaction, 'CONFIRMED')"
+                      class="ml-2 bg-green-500 hover:bg-green-600 text-white p-1 rounded-md transition-all shadow-sm"
+                    >
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                    </button>
+
+                    <button
+                      (click)="updateTransactionStatus(transaction, 'REJECTED')"
+                      class="bg-red-500 hover:bg-red-600 text-white p-1 rounded-md transition-all shadow-sm"
+                    >
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M6 18L18 6M6 6l12 12"
+                        ></path>
+                      </svg>
+                    </button>
+                  }
                 }
               </div>
             </td>

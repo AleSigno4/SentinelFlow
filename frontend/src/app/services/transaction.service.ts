@@ -12,4 +12,9 @@ export class TransactionService {
   getTransactions() {
     return this.http.get<Transaction[]>(this.url);
   }
+
+  updateTransactionStatus(transactionId: number, newStatus: 'CONFIRMED' | 'REJECTED') {
+    return this.http.patch(`${this.url}/${transactionId}/status`, { status: newStatus });
+  }
+
 }

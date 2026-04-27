@@ -6,4 +6,5 @@ export interface Transaction {
     category: string;
     status: 'PENDING' | 'CONFIRMED' | 'REJECTED'; 
     timestamp: string;
+    isProcessing?: boolean;
 }
