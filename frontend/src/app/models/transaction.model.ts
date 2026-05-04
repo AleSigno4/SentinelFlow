@@ -7,4 +7,6 @@ export interface Transaction {
     status: 'PENDING' | 'CONFIRMED' | 'REJECTED'; 
     timestamp: string;
     isProcessing?: boolean;
+    riskScore: number;
+    aiReason: string;
 }

@@ -81,6 +81,11 @@
           <th
             class="px-6 py-4 text-center text-xs font-bold text-gray-500 uppercase tracking-wider"
           >
+            Risk Score
+          </th>
+          <th
+            class="px-6 py-4 text-center text-xs font-bold text-gray-500 uppercase tracking-wider"
+          >
             Status & Actions
           </th>
         </tr>
@@ -103,6 +108,16 @@
             </td>
             <td class="px-6 py-4 text-center text-sm rou text-gray-600">
               {{ transaction.timestamp | date: 'dd/MM/yyyy HH:mm' }}
+            </td>
+
+            <td class="px-6 py-4 text-center text-sm text-gray-600">
+              <span
+                class="px-3 py-1 rounded-lg text-xs font-bold cursor-help"
+                [class]="getRiskClass(transaction.riskScore)"
+                [title]="transaction.aiReason"
+              >
+                {{ transaction.riskScore | percent }}
+              </span>
             </td>
 
             <td class="px-6 py-4 text-center">
