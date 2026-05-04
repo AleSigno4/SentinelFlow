@@ -14,6 +14,7 @@ import com.example.sentinelflow.repository.TransactionRepository;
 @Service
 public class TransactionService {
     private final TransactionRepository transactionRepository;
+    private final TransactionAnalyzer transactionAnalyzer;
     Random random = new Random();
 
     private final Map<String, List<String>> categories = Map.of(
@@ -26,8 +27,9 @@ public class TransactionService {
         "Health", List.of("Pharmacy", "Doctor Visit", "Gym Membership", "Yoga Class", "Health Insurance", "Vitamin Store", "Therapy Session", "Dental Checkup", "Optician Visit", "Massage Therapy", "Personal Trainer Session")
     );
 
-    public TransactionService(TransactionRepository transactionRepository) {
+    public TransactionService(TransactionRepository transactionRepository, TransactionAnalyzer transactionAnalyzer) {
         this.transactionRepository = transactionRepository;
+        this.transactionAnalyzer = transactionAnalyzer;
     }
 
     @Scheduled(fixedRate = 5000)
@@ -53,12 +55,18 @@ public class TransactionService {
         }
         Transaction transaction = new Transaction(
             userId,
-            java.math.BigDecimal.valueOf(amount),
+            amount,
             description,
             category,
             com.example.sentinelflow.model.TransactionStatus.PENDING,
-            java.time.LocalDateTime.now()
+            java.time.LocalDateTime.now(),
+            0.0,
+            "N/A"
         );
+
+        var aiResult = transactionAnalyzer.calculateRiskScore(transaction);
+        transaction.setRiskScore(aiResult.getKey());
+        transaction.setAiReason(aiResult.getValue());
 
         this.transactionRepository.save(transaction);
     }

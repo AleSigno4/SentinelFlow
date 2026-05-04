@@ -1,6 +1,5 @@
 package com.example.sentinelflow.config;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -23,11 +22,11 @@ public class DataInitializer {
     @Bean
     public CommandLineRunner initDatabase() {
         return args -> {
-            Transaction t1 = new Transaction(1L, new BigDecimal("50.00"), "Grocery shopping", "Food", TransactionStatus.CONFIRMED, LocalDateTime.now().minusSeconds(5));
-            Transaction t2 = new Transaction(2L, new BigDecimal("20.00"), "Movie ticket", "Entertainment", TransactionStatus.CONFIRMED, LocalDateTime.now().minusSeconds(10));
-            Transaction t3 = new Transaction(3L, new BigDecimal("100.00"), "Electricity bill", "Utilities", TransactionStatus.REJECTED, LocalDateTime.now().minusSeconds(15));
-            Transaction t4 = new Transaction(4L, new BigDecimal("150.00"), "New shoes", "Clothing", TransactionStatus.PENDING, LocalDateTime.now().minusSeconds(20));
-            Transaction t5 = new Transaction(5L, new BigDecimal("100.00"), "Grocery shopping", "Food", TransactionStatus.CONFIRMED, LocalDateTime.now().minusSeconds(25));
+            Transaction t1 = new Transaction(1L, 50.0, "Grocery shopping", "Food", TransactionStatus.CONFIRMED, LocalDateTime.now().minusSeconds(5), 0.1, "Low risk");
+            Transaction t2 = new Transaction(2L, 20.0, "Movie ticket", "Entertainment", TransactionStatus.CONFIRMED, LocalDateTime.now().minusSeconds(10), 0.1, "Low risk");
+            Transaction t3 = new Transaction(3L, 100.0, "Electricity bill", "Utilities", TransactionStatus.REJECTED, LocalDateTime.now().minusSeconds(15), 0.05, "Low risk");
+            Transaction t4 = new Transaction(4L, 150.0, "New shoes", "Clothing", TransactionStatus.PENDING, LocalDateTime.now().minusSeconds(20), 0.1, "Low risk");
+            Transaction t5 = new Transaction(5L, 100.0, "Grocery shopping", "Food", TransactionStatus.CONFIRMED, LocalDateTime.now().minusSeconds(25), 0.11, "Low risk");
 
             transactionRepository.saveAll(List.of(t1, t2, t3, t4, t5));
 
