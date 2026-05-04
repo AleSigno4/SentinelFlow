@@ -1,6 +1,5 @@
 package com.example.sentinelflow.model;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
@@ -24,19 +23,23 @@ public class Transaction {
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long id;
     private Long userId;
-    private BigDecimal amount;
+    private Double amount;
     private String description;
     private String category;
     @Enumerated(EnumType.STRING)
     private TransactionStatus status;
     private LocalDateTime timestamp;
+    private Double riskScore;
+    private String aiReason;
 
-    public Transaction(Long userId, BigDecimal amount, String description, String category, TransactionStatus status, LocalDateTime timestamp) {
+    public Transaction(Long userId, Double amount, String description, String category, TransactionStatus status, LocalDateTime timestamp, Double riskScore, String aiReason) {
         this.userId = userId;
         this.amount = amount;
         this.description = description;
         this.category = category;
         this.status = status;
         this.timestamp = timestamp;
+        this.riskScore = riskScore;
+        this.aiReason = aiReason;
     }
 }
