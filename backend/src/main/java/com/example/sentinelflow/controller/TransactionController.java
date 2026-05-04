@@ -20,7 +20,7 @@ import com.example.sentinelflow.service.TransactionService;
 @RestController
 @RequestMapping("/api/transactions")
 public class TransactionController {
-    private final TransactionService transactionService; // Usa il servizio rinominato
+    private final TransactionService transactionService;
     private final TransactionRepository transactionRepository;
 
     public TransactionController(TransactionService transactionService, TransactionRepository transactionRepository) {
