@@ -27,6 +27,18 @@ public class TransactionService {
         "Health", List.of("Pharmacy", "Doctor Visit", "Gym Membership", "Yoga Class", "Health Insurance", "Vitamin Store", "Therapy Session", "Dental Checkup", "Optician Visit", "Massage Therapy", "Personal Trainer Session")
     );
 
+    private record Range(double min, double max) {}
+
+    private final Map<String, Range> categoryRanges = Map.of(
+        "Food", new Range(5.0, 150.0),
+        "Shopping", new Range(20.0, 700.0),
+        "Entertainment", new Range(3.0, 300.0),
+        "Utilities", new Range(30.0, 500.0),
+        "Travel", new Range(50.0, 2000.0),
+        "Cyber", new Range(1000.0, 10000.0),
+        "Health", new Range(20.0, 200.0)
+    );
+
     public TransactionService(TransactionRepository transactionRepository, TransactionAnalyzer transactionAnalyzer) {
         this.transactionRepository = transactionRepository;
         this.transactionAnalyzer = transactionAnalyzer;
@@ -43,14 +55,14 @@ public class TransactionService {
 
         if (chance < 5) {
             category = "Cyber";
-            description = "Darkweb Entry";
-            amount = Math.round((random.nextDouble() * 10000) + 5000);
+            description = categories.get(category).get(random.nextInt(categories.get(category).size()));
+            amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
             userId = 99L;
             System.out.println("⚠️ ALERT: Generata transazione sospetta!");
         } else {
             category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
             description = categories.get(category).get(random.nextInt(categories.get(category).size()));
-            amount = Math.round((random.nextDouble() * 1000) + 1);
+            amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
             userId = (long) (random.nextInt(10) + 1);
         }
         Transaction transaction = new Transaction(

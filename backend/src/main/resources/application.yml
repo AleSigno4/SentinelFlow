@@ -6,7 +6,7 @@ spring:
     name: sentinelflow
   
   datasource:
-    url: jdbc:h2:mem:sentineldb
+    url: jdbc:h2:file:./data/sentinelflow;DB_CLOSE_ON_EXIT=FALSE
     driver-class-name: org.h2.Driver
     username: sa
     password: ""
