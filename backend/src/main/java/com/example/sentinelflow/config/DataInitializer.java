@@ -1,36 +1,34 @@
 package com.example.sentinelflow.config;
 
-import java.time.LocalDateTime;
-import java.util.List;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.example.sentinelflow.model.Transaction;
-import com.example.sentinelflow.model.TransactionStatus;
 import com.example.sentinelflow.repository.TransactionRepository;
+import com.example.sentinelflow.service.TransactionService;
 
 @Configuration
 public class DataInitializer {
-    private final TransactionRepository transactionRepository;
-
-    public DataInitializer(TransactionRepository transactionRepository) {
-        this.transactionRepository = transactionRepository;
-    }
 
     @Bean
-    public CommandLineRunner initDatabase() {
+    public CommandLineRunner initDatabase(
+            TransactionRepository repository, 
+            TransactionService transactionService) {
         return args -> {
-            Transaction t1 = new Transaction(1L, 50.0, "Grocery shopping", "Food", TransactionStatus.CONFIRMED, LocalDateTime.now().minusSeconds(5), 0.1, "Low risk");
-            Transaction t2 = new Transaction(2L, 20.0, "Movie ticket", "Entertainment", TransactionStatus.CONFIRMED, LocalDateTime.now().minusSeconds(10), 0.1, "Low risk");
-            Transaction t3 = new Transaction(3L, 100.0, "Electricity bill", "Utilities", TransactionStatus.REJECTED, LocalDateTime.now().minusSeconds(15), 0.05, "Low risk");
-            Transaction t4 = new Transaction(4L, 150.0, "New shoes", "Clothing", TransactionStatus.PENDING, LocalDateTime.now().minusSeconds(20), 0.1, "Low risk");
-            Transaction t5 = new Transaction(5L, 100.0, "Grocery shopping", "Food", TransactionStatus.CONFIRMED, LocalDateTime.now().minusSeconds(25), 0.11, "Low risk");
-
-            transactionRepository.saveAll(List.of(t1, t2, t3, t4, t5));
-
-            System.out.println("Database popolato con successo!");
+            if (repository.count() == 0) {
+                System.out.println("Empty DB, Generate 100 transactions...");
+                
+                int totalTransactions = 50;
+                for (int i = 0; i < totalTransactions; i++) {
+                    int hoursOffset = (totalTransactions - i) * 2;
+                    java.time.LocalDateTime pastDate = java.time.LocalDateTime.now().minusHours(hoursOffset);
+                    transactionService.generateTransaction(pastDate);
+                }
+                
+                System.out.println("✅ Database correctly initialized with 50 transactions.");
+            } else {
+                System.out.println("ℹ️ Database already contains data, skipping initialization.");
+            }
         };
     }
 }
