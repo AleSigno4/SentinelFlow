@@ -75,7 +75,7 @@ public class TransactionService {
                             description,
                             category,
                             com.example.sentinelflow.model.TransactionStatus.PENDING,
-                            timestamp.minusSeconds(random.nextInt(120)),
+                            timestamp.plusSeconds(i * 2),
                             0.0,
                             "N/A"
                     );
