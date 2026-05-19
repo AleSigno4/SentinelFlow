@@ -12,20 +12,21 @@ public class DataInitializer {
 
     @Bean
     public CommandLineRunner initDatabase(
-            TransactionRepository repository, 
+            TransactionRepository repository,
             TransactionService transactionService) {
         return args -> {
             if (repository.count() == 0) {
                 System.out.println("Empty DB, Generate 100 transactions...");
-                
-                int totalTransactions = 50;
+
+                int totalTransactions = 500;
+                int intervalMinutes = 20;
                 for (int i = 0; i < totalTransactions; i++) {
-                    int hoursOffset = (totalTransactions - i) * 2;
-                    java.time.LocalDateTime pastDate = java.time.LocalDateTime.now().minusHours(hoursOffset);
+                    int minutesToSubtract = (totalTransactions - i) * intervalMinutes;
+                    java.time.LocalDateTime pastDate = java.time.LocalDateTime.now().minusMinutes(minutesToSubtract);
                     transactionService.generateTransaction(pastDate);
                 }
-                
-                System.out.println("✅ Database correctly initialized with 50 transactions.");
+
+                System.out.println("✅ Database correctly initialized with 500 transactions.");
             } else {
                 System.out.println("ℹ️ Database already contains data, skipping initialization.");
             }

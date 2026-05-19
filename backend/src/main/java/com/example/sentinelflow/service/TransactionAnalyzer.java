@@ -69,13 +69,16 @@ public class TransactionAnalyzer {
         boolean hasBlacklistedKey = TransactionRules.BLACKLISTED_KEYWORDS.stream()
                 .anyMatch(key -> transaction.getDescription().toLowerCase().contains(key.toLowerCase()));
 
-        if (hasBlacklistedKey && !"Cyber".equalsIgnoreCase(transaction.getCategory())) {
+        boolean isEducationalContext = TransactionRules.EDUCATIONAL_KEYWORDS.stream()
+                .anyMatch(key -> transaction.getDescription().toLowerCase().contains(key.toLowerCase()));
+
+        if (hasBlacklistedKey && !isEducationalContext && !"Cyber".equalsIgnoreCase(transaction.getCategory())) {
             riskScore += 0.7;
             aiReason.append("Suspicious keyword in non-cyber category; ");
         }
 
         int hour = transaction.getTimestamp().getHour();
-        if (hour < 6 || hour > 22) {
+        if (hour < 7 || hour > 21) {
             riskScore += 0.15;
             aiReason.append("Unusual nighttime hour; ");
         }

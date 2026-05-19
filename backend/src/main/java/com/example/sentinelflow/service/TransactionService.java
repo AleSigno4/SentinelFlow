@@ -28,7 +28,7 @@ public class TransactionService {
         this.transactionAnalyzer = transactionAnalyzer;
     }
 
-    @Scheduled(fixedRate = 5000, initialDelay = 2000)
+    @Scheduled(fixedRate = 5000, initialDelay = 20000000)
     public void generateTransaction() {
         generateTransaction(java.time.LocalDateTime.now());
     }
@@ -41,21 +41,69 @@ public class TransactionService {
 
         int chance = random.nextInt(100);
 
-        if (chance < 5) {
-            category = "Cyber";
-            description = categories.get(category).get(random.nextInt(categories.get(category).size()));
-            amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
-            userId = 99L;
-            System.out.println("⚠️ ALERT: Generata transazione sospetta!");
-        } else {
-            category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
-            description = categories.get(category).get(random.nextInt(categories.get(category).size()));
-            if (fixedPrices.containsKey(description)) {
-                amount = fixedPrices.get(description);
-            } else {
+        switch(chance) {
+            case 0, 1, 2 -> {
+                category = "Cyber";
+                description = categories.get(category).get(random.nextInt(categories.get(category).size()));
                 amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
+                userId = (long) (random.nextInt(100) + 1);
+                System.out.println("⚠️ ALERT: Generata transazione sospetta!");
             }
-            userId = (long) (random.nextInt(100) + 1);
+            case 3, 4 -> {
+                category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
+                description = categories.get("Cyber").get(random.nextInt(categories.get("Cyber").size()));
+                amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
+                userId = (long) (random.nextInt(100) + 1);
+                System.out.println("⚠️ ALERT: Generata transazione con descrizione anomala!");
+            }
+            case 5, 6 -> {
+                category = "Subscriptions";
+                description = categories.get(category).get(random.nextInt(categories.get(category).size()));
+                amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
+                userId = (long) (random.nextInt(100) + 1);
+                System.out.println("⚠️ ALERT: Generata transazione di abbonamento con prezzo anomalo!");
+            }
+            case 7, 8 -> {
+                userId = (long) (random.nextInt(100) + 1);
+                for(int i = 0; i < 5; i++) {
+                    category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
+                    description = categories.get(category).get(random.nextInt(categories.get(category).size()));
+                    amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
+                    Transaction transaction = new Transaction(
+                            userId,
+                            amount,
+                            description,
+                            category,
+                            com.example.sentinelflow.model.TransactionStatus.PENDING,
+                            timestamp.minusSeconds(random.nextInt(120)),
+                            0.0,
+                            "N/A"
+                    );
+                    var aiResult = transactionAnalyzer.calculateRiskScore(transaction);
+                    transaction.setRiskScore(aiResult.getKey());
+                    transaction.setAiReason(aiResult.getValue());
+
+                    this.transactionRepository.save(transaction);
+                }
+                return;
+            }
+            case 9, 10 -> {
+                category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
+                description = categories.get(category).get(random.nextInt(categories.get(category).size()));
+                amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min()) * (random.nextInt(5) + 1);
+                userId = (long) (random.nextInt(100) + 1);
+                System.out.println("⚠️ ALERT: Generata transazione con importo anomalo!");
+            }
+            default -> {
+                category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
+                description = categories.get(category).get(random.nextInt(categories.get(category).size()));
+                if (fixedPrices.containsKey(description)) {
+                    amount = fixedPrices.get(description);
+                } else {
+                    amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
+                }
+                userId = (long) (random.nextInt(100) + 1);
+            }
         }
         Transaction transaction = new Transaction(
                 userId,
