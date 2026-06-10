@@ -17,3 +17,4 @@ target/
 .vscode/
 
 .csv
+ai-model/update.py

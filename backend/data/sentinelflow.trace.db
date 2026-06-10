@@ -1,4 +1,0 @@
-2026-05-11 10:34:45.797409+02:00 jdbc[13]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO transactions (user_id, amount, description, category, timestamp, risk_score, status) VALUES \000d\000a(88, 5500.0, 'Crypto Exchange Deposit', 'Cyber', '2026-05-11 10:20:00', 1.0, 'REJECTED'),[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
-INSERT INTO transactions (user_id, amount, description, category, timestamp, risk_score, status) VALUES 
-(88, 5500.0, 'Crypto Exchange Deposit', 'Cyber', '2026-05-11 10:20:00', 1.0, 'REJECTED'), [42001-240]
