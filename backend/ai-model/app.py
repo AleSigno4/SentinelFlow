@@ -1,0 +1,38 @@
+import joblib
+import scipy.sparse as sp
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+ai_model = joblib.load("fraud_model.joblib")
+tfidf_vectorizer = joblib.load("tfidf_vectorizer.joblib")
+
+app = FastAPI(title="SentinelFlow AI Service", version="1.0")
+
+class FraudDetectionInput(BaseModel):
+    amount: float
+    category: int
+    description: str
+    hour: int
+    tx_count_3min: int
+    time_diff: float
+
+@app.post("/predict")
+def predict_fraud(data: FraudDetectionInput): 
+    text_features = tfidf_vectorizer.transform([data.description])
+
+    numeric_features = [[
+        data.amount, 
+        data.category,
+        data.hour, 
+        data.tx_count_3min, 
+        data.time_diff
+    ]]
+    
+    final_features = sp.hstack([numeric_features, text_features])
+
+    prediction = int(ai_model.predict(final_features)[0])
+
+    return {
+        "prediction": prediction,
+        "is_fraud": prediction == 1
+    }

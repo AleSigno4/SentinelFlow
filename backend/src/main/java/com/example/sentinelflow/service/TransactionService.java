@@ -28,7 +28,7 @@ public class TransactionService {
         this.transactionAnalyzer = transactionAnalyzer;
     }
 
-    @Scheduled(fixedRate = 5000, initialDelay = 20000000)
+    @Scheduled(fixedRate = 5000, initialDelay = 200000000)
     public void generateTransaction() {
         generateTransaction(java.time.LocalDateTime.now());
     }
@@ -74,14 +74,25 @@ public class TransactionService {
                             amount,
                             description,
                             category,
-                            com.example.sentinelflow.model.TransactionStatus.PENDING,
+                            TransactionStatus.PENDING,
                             timestamp.plusSeconds(i * 2),
                             0.0,
                             "N/A"
                     );
+                    
+                    // Calcolo delle regole storiche
                     var aiResult = transactionAnalyzer.calculateRiskScore(transaction);
                     transaction.setRiskScore(aiResult.getKey());
                     transaction.setAiReason(aiResult.getValue());
+
+                    // --- INTEGRAZIONE IA PER IL BURST ---
+                    boolean isFraud = transactionAnalyzer.isFraudulentByAI(transaction);
+                    if (isFraud) {
+                        transaction.setStatus(TransactionStatus.REJECTED);
+                        transaction.setAiReason(transaction.getAiReason() + " [AI BLOCK]");
+                    } else {
+                        transaction.setStatus(TransactionStatus.CONFIRMED);
+                    }
 
                     this.transactionRepository.save(transaction);
                 }
@@ -105,20 +116,32 @@ public class TransactionService {
                 userId = (long) (random.nextInt(100) + 1);
             }
         }
+        
         Transaction transaction = new Transaction(
                 userId,
                 amount,
                 description,
                 category,
-                com.example.sentinelflow.model.TransactionStatus.PENDING,
+                TransactionStatus.PENDING,
                 timestamp,
                 0.0,
                 "N/A"
         );
 
+        // Calcolo vecchio basato sulle regole hardcoded
         var aiResult = transactionAnalyzer.calculateRiskScore(transaction);
         transaction.setRiskScore(aiResult.getKey());
         transaction.setAiReason(aiResult.getValue());
+
+        // --- INTEGRAZIONE CHIAMATA FASTAPI (IA) ---
+        boolean isFraudByAI = transactionAnalyzer.isFraudulentByAI(transaction);
+        if (isFraudByAI) {
+            transaction.setStatus(TransactionStatus.REJECTED);
+            transaction.setAiReason(transaction.getAiReason() + " [AI BLOCK]");
+            System.out.println("🤖 L'IA ha intercettato una frode! Stato impostato su REJECTED.");
+        } else {
+            transaction.setStatus(TransactionStatus.CONFIRMED);
+        }
 
         this.transactionRepository.save(transaction);
     }

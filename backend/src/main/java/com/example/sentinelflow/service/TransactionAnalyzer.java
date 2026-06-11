@@ -1,12 +1,18 @@
 package com.example.sentinelflow.service;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.AbstractMap;
 import java.util.Arrays;
 
+import org.springframework.http.MediaType;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClient;
 
 import com.example.sentinelflow.config.TransactionRules;
+import com.example.sentinelflow.dto.FraudDetectionRequest;
+import com.example.sentinelflow.dto.FraudDetectionResponse;
 import com.example.sentinelflow.model.Transaction;
 import com.example.sentinelflow.repository.TransactionRepository;
 
@@ -14,9 +20,95 @@ import com.example.sentinelflow.repository.TransactionRepository;
 public class TransactionAnalyzer {
 
     private final TransactionRepository transactionRepository;
+    private final RestClient aiRestClient;
 
     public TransactionAnalyzer(TransactionRepository transactionRepository) {
         this.transactionRepository = transactionRepository;
+        this.aiRestClient = RestClient.builder()
+                .baseUrl("http://localhost:8000")
+                .requestFactory(new SimpleClientHttpRequestFactory())
+                .build();
+    }
+
+    public boolean isFraudulentByAI(Transaction transaction) {
+        try {
+            LocalDateTime[] lastTimestamps = transactionRepository.findLastTimestampsByUserId(transaction.getUserId());
+
+            int txCount3min = 1;
+            double timeDiff = 0.0;
+
+            if (lastTimestamps != null && lastTimestamps.length > 0) {
+                LocalDateTime mostRecent = lastTimestamps[0];
+                timeDiff = ChronoUnit.SECONDS.between(mostRecent, transaction.getTimestamp()) / 60.0;
+
+                LocalDateTime windowStart = transaction.getTimestamp().minusMinutes(3);
+                for (LocalDateTime ts : lastTimestamps) {
+                    if (ts.isAfter(windowStart)) {
+                        txCount3min++;
+                    }
+                }
+            }
+
+            int categoryId = mapCategoryToInt(transaction.getCategory());
+
+            FraudDetectionRequest requestData = new FraudDetectionRequest(
+                    transaction.getAmount(),
+                    categoryId,
+                    transaction.getDescription(),
+                    transaction.getTimestamp().getHour(),
+                    txCount3min,
+                    timeDiff
+            );
+            
+            FraudDetectionResponse response = aiRestClient.post()
+                    .uri("/predict")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .header("Connection", "close")
+                    .body(requestData)
+                    .retrieve()
+                    .body(FraudDetectionResponse.class);
+
+            return response != null && response.isFraud();
+
+        } catch (Exception e) {
+            System.err.println("🚨 Errore durante la chiamata a FastAPI: " + e.getMessage());
+            return false;
+        }
+    }
+
+    private int mapCategoryToInt(String category) {
+        if (category == null) {
+            return 11;
+        }
+
+        return switch (category.trim()) {
+            case "Beauty" ->
+                0;
+            case "Clothes" ->
+                1;
+            case "Cyber" ->
+                2;
+            case "Entertainment" ->
+                3;
+            case "Food" ->
+                4;
+            case "Health" ->
+                5;
+            case "Insurance" ->
+                6;
+            case "Shopping" ->
+                7;
+            case "Subscriptions" ->
+                8;
+            case "Transport" ->
+                9;
+            case "Travel" ->
+                10;
+            case "Utilities" ->
+                11;
+            default ->
+                11;
+        };
     }
 
     public AbstractMap.SimpleEntry<Double, String> calculateRiskScore(Transaction transaction) {
