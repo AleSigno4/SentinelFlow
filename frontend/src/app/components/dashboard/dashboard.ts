@@ -16,14 +16,20 @@ export class Dashboard implements OnInit, OnDestroy {
   private service = inject(TransactionService);
   private cdr = inject(ChangeDetectorRef);
 
-  public transactions: Transaction[] = [];
+  public transactions: Transaction[] = []; // Array limitato per il rendering della tabella
   public totalAmount: number = 0;
   public averageAmount: number = 0;
   public pendingTransactions: Transaction[] = [];
   public rejectionRate: number = 0;
+  
+  // Nuove proprietà di controllo per la paginazione lato client
+  public totalTransactionsCount: number = 0;
+  public limitTabella: number = 100;
+  private fullSortedTransactions: Transaction[] = []; // Contenitore master di tutte le transazioni
+  
   private sub: Subscription | undefined;
 
- public chartOptions: any = {
+  public chartOptions: any = {
     series: [],
     chart: {
       type: 'line',
@@ -40,8 +46,8 @@ export class Dashboard implements OnInit, OnDestroy {
       type: ['gradient', 'solid'],
       gradient: {
         shadeIntensity: 1,
-        opacityFrom: 0.4,
-        opacityTo: 0.1,
+        opacityFrom: 0.3,
+        opacityTo: 0.5,
         stops: [0, 100]
       }
     },
@@ -94,9 +100,7 @@ export class Dashboard implements OnInit, OnDestroy {
     this.sub = interval(5000)
       .pipe(
         startWith(0),
-        switchMap(() => {
-          return this.service.getTransactions();
-        })
+        switchMap(() => this.service.getTransactions())
       )
       .subscribe({
         next: (data) => {
@@ -104,7 +108,6 @@ export class Dashboard implements OnInit, OnDestroy {
             new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
           );
 
-          // 2. Marca le nuove transazioni
           sortedData.forEach(tran => {
             const exists = this.transactions.some(t => t.id === tran.id);
             if (!exists && tran.status === 'PENDING') {
@@ -112,13 +115,14 @@ export class Dashboard implements OnInit, OnDestroy {
             }
           });
 
-          // 3. Sovrascrivi l'array della classe
-          this.transactions = sortedData;
+          this.fullSortedTransactions = sortedData;
+          this.totalTransactionsCount = sortedData.length;
 
-          this.updateTotals();
+          this.updateTotals(this.fullSortedTransactions);
 
-          const rollingData = sortedData.slice(-50); // Torniamo a 50 transazioni scorrevoli
+          this.renderTabella();
 
+          const rollingData = sortedData.slice(-50);
           const legitTx = rollingData.filter(tx => tx.status !== 'REJECTED');
           const fraudTx = rollingData.filter(tx => tx.status === 'REJECTED');
 
@@ -126,30 +130,22 @@ export class Dashboard implements OnInit, OnDestroy {
             {
               name: 'Transazioni Legittime',
               type: 'area', 
-              data: legitTx.map(tx => [
-                new Date(tx.timestamp).getTime(),
-                Number(tx.amount)
-              ])
+              data: legitTx.map(tx => [new Date(tx.timestamp).getTime(), Number(tx.amount)])
             },
             {
               name: 'Tentativi di Frode',
-              type: 'column', // <-- LA MAGIA È QUI
-              data: fraudTx.map(tx => [
-                new Date(tx.timestamp).getTime(),
-                Number(tx.amount)
-              ])
+              type: 'column',
+              data: fraudTx.map(tx => [new Date(tx.timestamp).getTime(), Number(tx.amount)])
             }
           ];
 
           this.cdr.detectChanges();
 
           setTimeout(() => {
-            this.transactions.forEach(t => {
-              if (t.isProcessing) {
-                t.isProcessing = false;
-              }
+            this.fullSortedTransactions.forEach(t => {
+              if (t.isProcessing) t.isProcessing = false;
             });
-            // Forza la sparizione degli spinner e l'apparizione dei bottoni
+            this.renderTabella();
             this.cdr.detectChanges();
           }, 1000);
         },
@@ -163,13 +159,25 @@ export class Dashboard implements OnInit, OnDestroy {
     this.sub?.unsubscribe();
   }
 
-  private updateTotals() {
-    this.totalAmount = this.transactions.reduce((sum, tx) => sum + tx.amount, 0);
-    this.averageAmount = this.transactions.length > 0 ? this.totalAmount / this.transactions.length : 0;
-    this.pendingTransactions = this.transactions.filter(tx => tx.status === 'PENDING');
+  private renderTabella() {
+    this.transactions = [...this.fullSortedTransactions]
+      .reverse()
+      .slice(0, this.limitTabella);
+  }
 
-    const rejectedCount = this.transactions.filter(tx => tx.status === 'REJECTED').length;
-    this.rejectionRate = this.transactions.length > 0 ? (rejectedCount / this.transactions.length) * 100 : 0;
+  public caricaAncora() {
+    this.limitTabella += 100;
+    this.renderTabella();
+    this.cdr.detectChanges();
+  }
+
+  private updateTotals(listaModello: Transaction[]) {
+    this.totalAmount = listaModello.reduce((sum, tx) => sum + tx.amount, 0);
+    this.averageAmount = listaModello.length > 0 ? this.totalAmount / listaModello.length : 0;
+    this.pendingTransactions = listaModello.filter(tx => tx.status === 'PENDING');
+
+    const rejectedCount = listaModello.filter(tx => tx.status === 'REJECTED').length;
+    this.rejectionRate = listaModello.length > 0 ? (rejectedCount / listaModello.length) * 100 : 0;
   }
 
   updateTransactionStatus(transaction: Transaction, newStatus: 'CONFIRMED' | 'REJECTED') {
@@ -179,7 +187,8 @@ export class Dashboard implements OnInit, OnDestroy {
       next: () => {
         transaction.status = newStatus;
         transaction.isProcessing = false;
-        this.updateTotals();
+        this.updateTotals(this.fullSortedTransactions);
+        this.renderTabella();
         this.cdr.detectChanges();
       },
       error: (err) => {
@@ -194,5 +203,4 @@ export class Dashboard implements OnInit, OnDestroy {
     if (score >= 0.75) return 'bg-red-100 text-red-700';
     return 'bg-yellow-100 text-yellow-700';
   }
-
 }
