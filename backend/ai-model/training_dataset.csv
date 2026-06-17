@@ -1,739 +1,893 @@
-ID,AI_REASON,AMOUNT,CATEGORY,DESCRIPTION,RISK_SCORE,STATUS,TIMESTAMP,USER_ID
-1,New user with significant amount; High-risk category (Cyber),7010.0,Cyber,Crypto Exchange,0.8999999999999999,REJECTED,2026-05-04 13:20:27.552437,99
-2,New user with significant amount; High-risk category (Cyber),7738.0,Cyber,VPN Service,0.8999999999999999,REJECTED,2026-05-04 13:40:27.673485,25
-3,Standard transaction,384.0,Shopping,IKEA Furniture,0.0,CONFIRMED,2026-05-04 14:00:27.680004,87
-4,Standard transaction,37.0,Beauty,Fragrance Store,0.0,CONFIRMED,2026-05-04 14:20:27.684033,22
-5,Standard transaction,19.0,Health,Doctor Visit,0.0,CONFIRMED,2026-05-04 14:40:27.688353,75
-6,Standard transaction,20.0,Transport,Parking Fee,0.0,CONFIRMED,2026-05-04 15:00:27.69239,38
-7,Standard transaction,101.0,Beauty,Lush Cosmetics,0.0,CONFIRMED,2026-05-04 15:20:27.696875,18
-8,Standard transaction,9.99,Subscriptions,HBO Max,0.0,CONFIRMED,2026-05-04 15:40:27.700881,96
-9,New user with significant amount; High-risk category (Cyber),6688.0,Cyber,Crypto Exchange,0.8999999999999999,REJECTED,2026-05-04 16:00:27.705389,6
-10,Standard transaction,438.0,Travel,Travel Agency Package,0.0,CONFIRMED,2026-05-04 16:20:27.709402,70
-11,New user with significant amount; High-risk category (Cyber),8568.0,Cyber,DarkWeb Entry,0.8999999999999999,REJECTED,2026-05-04 16:40:27.714403,77
-12,Standard transaction,131.0,Beauty,Spa Treatment,0.0,CONFIRMED,2026-05-04 17:00:27.719829,20
-13,Anomaly amount,39.0,Transport,Parking Fee,0.5,REJECTED,2026-05-04 17:20:27.724948,96
-14,Standard transaction,107.0,Beauty,Makeup Artist,0.0,CONFIRMED,2026-05-04 17:40:27.73715,1
-15,Standard transaction,317.0,Utilities,Online Course Subscription,0.0,CONFIRMED,2026-05-04 18:00:27.742176,32
-16,New user with significant amount; High-risk category (Cyber),8098.0,Cyber,VPN Service,0.8999999999999999,REJECTED,2026-05-04 18:20:27.747472,42
-17,Standard transaction,28.0,Transport,Car Wash,0.0,CONFIRMED,2026-05-04 18:40:27.752405,59
-18,Standard transaction,212.0,Entertainment,Steam,0.0,CONFIRMED,2026-05-04 19:00:27.758017,76
-19,Standard transaction,8.99,Subscriptions,Disney+,0.0,CONFIRMED,2026-05-04 19:20:27.763603,98
-20,High Amount,264.0,Utilities,Cloud Storage (iCloud/Drive),0.3,REJECTED,2026-05-04 19:40:27.769757,23
-21,Standard transaction,29.0,Beauty,Lush Cosmetics,0.0,CONFIRMED,2026-05-04 20:00:27.77756,52
-22,Standard transaction,914.0,Travel,Ryanair,0.0,CONFIRMED,2026-05-04 20:20:27.786241,66
-23,Standard transaction,319.0,Clothes,Pull&Bear,0.0,CONFIRMED,2026-05-04 20:40:27.791913,2
-24,Standard transaction,58.0,Transport,Public Transport Pass,0.0,CONFIRMED,2026-05-04 21:00:27.799057,93
-25,Standard transaction,147.0,Entertainment,PlayStation Store,0.0,CONFIRMED,2026-05-04 21:20:27.803465,28
-26,High amount,381.0,Shopping,Pet Shop Supplies,0.3,REJECTED,2026-05-04 21:40:27.810164,29
-27,Unusual nighttime hour,147.0,Utilities,VPN Service,0.15,CONFIRMED,2026-05-04 22:00:27.818392,100
-28,Anomaly amount; Unusual nighttime hour,593.0,Shopping,Office Supplies,0.65,REJECTED,2026-05-04 22:20:27.822901,22
-29,Unusual nighttime hour,74.0,Food,Patisserie,0.15,CONFIRMED,2026-05-04 22:40:27.827432,49
-30,Unusual nighttime hour,58.0,Food,Patisserie,0.15,CONFIRMED,2026-05-04 23:00:27.834023,82
-31,Unusual nighttime hour,436.0,Clothes,Footwear Store,0.15,REJECTED,2026-05-04 23:20:27.838488,90
-32,Unusual nighttime hour,76.0,Shopping,Pet Shop Supplies,0.15,REJECTED,2026-05-04 23:40:27.843489,19
-33,Unusual nighttime hour,92.0,Beauty,Skincare Clinic,0.15,REJECTED,2026-05-05 00:00:27.852255,21
-34,Unusual nighttime hour,50.0,Transport,Car Wash,0.15,REJECTED,2026-05-05 00:20:27.857773,63
-35,Unusual nighttime hour,18.0,Beauty,Spa Treatment,0.15,REJECTED,2026-05-05 00:40:27.863773,11
-36,New user with significant amount; High-risk category (Cyber); Unusual nighttime hour,1893.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-05 01:00:27.869308,30
-37,Anomaly amount; High-risk category (Cyber); Unusual nighttime hour,555.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-05 01:20:27.873494,18
-38,Unusual nighttime hour,28.0,Transport,Train Ticket,0.15,REJECTED,2026-05-05 01:40:27.880352,15
-39,Unusual nighttime hour,12.0,Subscriptions,Online Newspaper,0.15,CONFIRMED,2026-05-05 02:00:27.885936,98
-40,Unusual nighttime hour,100.0,Food,McDonalds,0.15,CONFIRMED,2026-05-05 02:20:27.892781,84
-41,Unusual nighttime hour,181.0,Shopping,Amazon,0.15,CONFIRMED,2026-05-05 02:40:27.89976,10
-42,Unusual nighttime hour,54.0,Transport,Electric Scooter Rental,0.15,REJECTED,2026-05-05 03:00:27.907647,29
-43,Unusual nighttime hour,204.0,Clothes,Hollister,0.15,REJECTED,2026-05-05 03:20:27.915154,12
-44,Unusual nighttime hour,34.0,Food,Farmers Market,0.15,REJECTED,2026-05-05 03:40:27.922675,25
-45,High amount; Unusual nighttime hour,299.0,Health,Personal Trainer Session,0.4,REJECTED,2026-05-05 04:00:27.92821,20
-46,High-risk category (Cyber); Unusual nighttime hour,9873.0,Cyber,VPN Service,0.85,REJECTED,2026-05-05 04:20:27.935318,99
-47,Unusual nighttime hour,117.0,Food,Gourmet Market,0.15,REJECTED,2026-05-05 04:40:27.940941,36
-48,Unusual nighttime hour,85.0,Food,Sushi Bar,0.15,REJECTED,2026-05-05 05:00:27.946597,74
-49,Anomaly amount; Unusual nighttime hour,298.0,Health,Optician Visit,0.65,REJECTED,2026-05-05 05:20:27.951595,96
-50,"Unusual nighttime hour, not for automatic renewal; Subscription price mismatch (expected $8.99)",88.99,Subscriptions,Disney+,0.5,REJECTED,2026-05-05 05:10:00,37
-51,"Unusual nighttime hour, not for automatic renewal; Subscription price mismatch (expected $8.99)",88.99,Subscriptions,Disney+,0.5,REJECTED,2026-05-05 05:12:00,37
-52,Unusual nighttime hour,92.0,Utilities,Electricity Bill,0.15,REJECTED,2026-05-05 05:40:27.956106,80
-53,"Unusual nighttime hour, not for automatic renewal",9.99,Subscriptions,HBO Max,0.1,CONFIRMED,2026-05-05 06:00:27.961108,86
-54,Unusual nighttime hour,78.0,Food,Food Truck,0.15,REJECTED,2026-05-05 06:20:27.966219,68
-55,Unusual nighttime hour,35.0,Clothes,Children's Clothing,0.15,REJECTED,2026-05-05 06:40:27.969649,53
-56,Standard transaction,99.0,Food,McDonalds,0.0,CONFIRMED,2026-05-05 07:00:27.973658,23
-57,Standard transaction,272.0,Clothes,Clothing Boutique,0.0,CONFIRMED,2026-05-05 07:20:27.979183,37
-58,New user with significant amount; High-risk category (Cyber),2208.0,Cyber,DarkWeb Entry,0.8999999999999999,REJECTED,2026-05-05 07:40:27.983183,45
-59,Anomaly amount,930.0,Insurance,Travel Insurance,0.5,REJECTED,2026-05-05 08:00:27.987708,45
-60,Standard transaction,231.0,Shopping,eBay Purchase,0.0,CONFIRMED,2026-05-05 08:20:27.993299,48
-61,Standard transaction,4.99,Subscriptions,Amazon Prime,0.0,CONFIRMED,2026-05-05 08:40:28.000447,39
-62,Standard transaction,36.0,Utilities,Waste Tax,0.0,CONFIRMED,2026-05-05 09:00:28.004956,65
-63,High amount,266.0,Health,Yoga Class,0.3,REJECTED,2026-05-05 09:20:28.010241,51
-64,Standard transaction,32.0,Transport,Gas Station,0.0,CONFIRMED,2026-05-05 09:40:28.017191,35
-65,High amount,328.0,Utilities,Mobile Phone Plan,0.3,REJECTED,2026-05-05 10:00:28.022705,32
-66,Standard transaction,177.0,Utilities,Software License,0.0,CONFIRMED,2026-05-05 10:20:28.029232,97
-67,Standard transaction,11.0,Transport,Public Transport Pass,0.0,CONFIRMED,2026-05-05 10:40:28.03675,40
-68,Anomaly amount; High-risk category (Cyber),2209.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-05 11:00:28.040746,19
-69,Standard transaction,10.99,Subscriptions,Spotify,0.0,CONFIRMED,2026-05-05 11:20:28.043747,53
-70,Standard transaction,150.0,Beauty,Sephora,0.0,CONFIRMED,2026-05-05 11:40:28.048291,97
-71,Anomaly amount,78.0,Utilities,Cloud Storage (iCloud/Drive),0.5,CONFIRMED,2026-05-05 12:00:28.051268,98
-72,Standard transaction,12.0,Subscriptions,Online Newspaper,0.0,CONFIRMED,2026-05-05 12:10:28.055772,17
-73,Standard transaction,24.5,Utilities,Internet Provider,0.0,CONFIRMED,2026-05-05 12:15:00,42
-74,Standard transaction,27.5,Utilities,Internet Provider,0.0,CONFIRMED,2026-05-05 12:15:02,42
-75,Standard transaction,30.5,Utilities,Internet Provider,0.0,CONFIRMED,2026-05-05 12:15:04,42
-76,Standard transaction,33.5,Utilities,Internet Provider,0.0,CONFIRMED,2026-05-05 12:15:06,42
-77,High velocity (5 trans. in < 3min),15.0,Utilities,Internet Provider,0.6,REJECTED,2026-05-05 12:15:08,42
-78,Standard transaction,84.0,Beauty,Sephora,0.0,CONFIRMED,2026-05-05 12:40:28.05878,56
-79,Standard transaction,9.99,Subscriptions,HBO Max,0.0,CONFIRMED,2026-05-05 13:00:28.060809,54
-80,High amount,289.0,Health,Optician Visit,0.3,REJECTED,2026-05-05 13:20:28.06378,37
-81,High amount,308.0,Shopping,Amazon,0.1,CONFIRMED,2026-05-05 13:40:28.068316,11
-82,Subscription price mismatch (expected $10.99),50.0,Subscriptions,Apple Music,0.4,REJECTED,2026-05-05 13:50:00,61
-83,Standard transaction,171.0,Utilities,Internet Provider,0.0,CONFIRMED,2026-05-05 14:00:28.070314,23
-84,Standard transaction,162.0,Shopping,Office Supplies,0.0,CONFIRMED,2026-05-05 14:20:28.074316,62
-85,Standard transaction,4.99,Subscriptions,Amazon Prime,0.0,CONFIRMED,2026-05-05 14:40:28.076824,38
-86,Anomaly amount,96.0,Food,Street Food Festival,0.5,REJECTED,2026-05-05 15:00:28.080825,38
-87,New user with significant amount; High-risk category (Cyber),9388.0,Cyber,Crypto Exchange,0.8999999999999999,REJECTED,2026-05-05 15:20:28.083827,13
-88,Standard transaction,54.0,Beauty,Lush Cosmetics,0.0,CONFIRMED,2026-05-05 15:40:28.086378,42
-89,High amount,317.0,Utilities,Cloud Storage (iCloud/Drive),0.3,REJECTED,2026-05-05 16:00:28.090379,72
-90,Standard transaction,57.0,Health,Yoga Class,0.0,CONFIRMED,2026-05-05 16:20:28.094887,64
-91,Anomaly amount,287.0,Health,Vitamin Store,0.5,REJECTED,2026-05-05 16:40:28.099907,98
-92,High amount,201.0,Entertainment,Escape Room,0.3,REJECTED,2026-05-05 17:00:28.104907,96
-93,Standard transaction,58.0,Transport,Uber,0.0,CONFIRMED,2026-05-05 17:20:28.110441,80
-94,New user with significant amount; High-risk category (Cyber),6955.0,Cyber,DarkWeb Entry,0.8999999999999999,REJECTED,2026-05-05 17:40:28.119978,69
-95,High amount,1130.0,Travel,Hotel Booking,0.25,CONFIRMED,2026-05-05 18:00:28.126026,87
-96,High-risk category (Cyber),7676.0,Cyber,DarkWeb Entry,0.7,REJECTED,2026-05-05 18:20:28.13102,99
-97,Standard transaction,111.0,Entertainment,Golf Course Fee,0.0,CONFIRMED,2026-05-05 18:40:28.135082,99
-98,Standard transaction,32.0,Food,Supermarket,0.0,CONFIRMED,2026-05-05 19:00:28.139633,42
-99,Standard transaction,19.99,Utilities,Book - Hacker Ethics and Computer Security,0.0,CONFIRMED,2026-05-05 19:15:00,35
-100,Standard transaction,19.99,Utilities,Book - Hacker Ethics and Computer Security,0.0,CONFIRMED,2026-05-05 19:15:00,35
-101,Anomaly amount,1061.0,Travel,Airbnb Stay,0.5,CONFIRMED,2026-05-05 19:20:28.144792,23
-102,Standard transaction,4.99,Subscriptions,Amazon Prime,0.0,CONFIRMED,2026-05-05 19:40:28.150948,54
-103,Standard transaction,34.99,Subscriptions,LinkedIn Premium,0.0,CONFIRMED,2026-05-05 20:00:28.155464,49
-104,Standard transaction,179.0,Shopping,Apple Store,0.0,CONFIRMED,2026-05-05 20:20:28.161483,32
-105,Anomaly amount; High-risk category (Cyber),796.0,Cyber,DarkWeb Entry,1.0,REJECTED,2026-05-05 20:40:28.168035,35
-106,Anomaly amount; High-risk category (Cyber),9974.0,Cyber,VPN Service,1.0,REJECTED,2026-05-05 21:00:28.174029,11
-107,Anomaly amount,539.0,Travel,Ryanair,0.5,CONFIRMED,2026-05-05 21:20:28.18133,63
-108,Anomaly amount,202.0,Health,Dental Checkup,0.5,REJECTED,2026-05-05 21:40:28.188961,59
-109,Unusual nighttime hour,11.0,Entertainment,Steam,0.15,CONFIRMED,2026-05-05 22:00:28.195375,62
-110,High amount; Unusual nighttime hour,447.0,Shopping,Home Decor,0.4,CONFIRMED,2026-05-05 22:20:28.202513,10
-111,Unusual nighttime hour,45.0,Transport,Car Wash,0.15,CONFIRMED,2026-05-05 22:40:28.209237,92
-112,Unusual nighttime hour,58.0,Clothes,Children's Clothing,0.15,CONFIRMED,2026-05-05 23:00:28.215663,65
-113,Unusual nighttime hour,77.0,Food,Patisserie,0.15,CONFIRMED,2026-05-05 23:20:28.223333,74
-114,Unusual nighttime hour,601.0,Travel,Hotel Booking,0.15,CONFIRMED,2026-05-05 23:40:28.230076,25
-115,High-risk category (Cyber); Unusual nighttime hour,9401.0,Cyber,Crypto Exchange,0.85,REJECTED,2026-05-06 00:00:28.238374,99
-116,Unusual nighttime hour,65.0,Beauty,Fragrance Store,0.15,REJECTED,2026-05-06 00:20:28.246917,16
-117,Unusual nighttime hour,15.0,Transport,Car Wash,0.15,REJECTED,2026-05-06 00:40:28.252364,30
-118,High-risk category (Cyber); Unusual nighttime hour,9167.0,Cyber,Crypto Exchange,0.85,REJECTED,2026-05-06 01:00:28.258009,99
-119,Unusual nighttime hour,34.99,Shopping,Amazon,0.15,CONFIRMED,2026-05-06 01:11:00,13
-120,Unusual nighttime hour,12.99,Shopping,Amazon,0.15,CONFIRMED,2026-05-06 01:19:00,13
-121,Unusual nighttime hour,63.0,Food,Gourmet Market,0.15,REJECTED,2026-05-06 01:20:28.266203,21
-122,Anomaly amount; Unusual nighttime hour,398.0,Clothes,Hollister,0.65,REJECTED,2026-05-06 01:40:28.273456,82
-123,Suspicious keyword in non-cyber category; Unusual nighttime hour,1100.99,Travel,Hire-a-Hacker professional services deposit,0.85,REJECTED,2026-05-06 01:41:00,82
-124,Unusual nighttime hour,87.0,Food,Coffee Roastery,0.15,REJECTED,2026-05-06 02:00:28.280988,33
-125,Unusual nighttime hour,12.0,Beauty,Nail Salon,0.15,REJECTED,2026-05-06 02:20:28.286214,35
-126,Unusual nighttime hour,454.0,Travel,Travel Agency Package,0.15,REJECTED,2026-05-06 02:40:28.291802,23
-127,New user with significant amount; Unusual nighttime hour,1315.0,Travel,Car Rental,0.35,REJECTED,2026-05-06 03:00:28.298379,9
-128,Unusual nighttime hour,222.0,Entertainment,Gym Membership,0.15,REJECTED,2026-05-06 03:20:28.301377,35
-129,Unusual nighttime hour,167.0,Entertainment,Gym Membership,0.15,REJECTED,2026-05-06 03:40:28.307035,77
-130,Anomaly amount; Unusual nighttime hour,509.0,Insurance,Travel Insurance,0.65,REJECTED,2026-05-06 04:00:28.312049,98
-131,Unusual nighttime hour,593.0,Travel,Travel Agency Package,0.15,REJECTED,2026-05-06 04:20:28.318531,57
-132,"Unusual nighttime hour, not for automatic renewal",34.99,Subscriptions,LinkedIn Premium,0.1,CONFIRMED,2026-05-06 04:40:28.322537,64
-133,"Unusual nighttime hour, not for automatic renewal",8.99,Subscriptions,Disney+,0.1,CONFIRMED,2026-05-06 05:00:28.327194,13
-134,Unusual nighttime hour,54.0,Transport,Public Transport Pass,0.15,REJECTED,2026-05-06 05:20:28.332368,55
-135,Unusual nighttime hour,115.0,Food,Patisserie,0.15,REJECTED,2026-05-06 05:40:28.337887,62
-136,High-risk category (Cyber); Unusual nighttime hour,5348.0,Cyber,Crypto Exchange,0.85,REJECTED,2026-05-06 06:00:28.341945,99
-137,Unusual nighttime hour,150.0,Clothes,Nike Store,0.15,REJECTED,2026-05-06 06:20:28.347475,97
-138,Unusual nighttime hour,20.0,Entertainment,Cinema,0.15,REJECTED,2026-05-06 06:40:28.351479,82
-139,Anomaly amount,250.0,Health,Personal Trainer Session,0.5,REJECTED,2026-05-06 07:00:28.356097,86
-140,Standard transaction,9.0,Transport,Airport Duty Free,0.0,CONFIRMED,2026-05-06 07:20:28.35908,81
-141,Standard transaction,51.0,Beauty,Amazon,0.0,CONFIRMED,2026-05-06 07:40:28.366984,61
-142,Anomaly amount; High-risk category (Cyber),6740.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-06 08:00:28.377263,84
-143,High amount,211.0,Utilities,Mobile Phone Plan,0.3,REJECTED,2026-05-06 08:20:28.381274,66
-144,Standard transaction,100.0,Shopping,Apple Store,0.0,CONFIRMED,2026-05-06 08:40:28.383277,46
-145,Standard transaction,129.0,Health,Pharmacy,0.0,CONFIRMED,2026-05-06 09:00:28.385807,63
-146,Anomaly amount,638.0,Insurance,Travel Insurance,0.5,REJECTED,2026-05-06 09:20:28.388806,100
-147,Standard transaction,141.0,Beauty,Spa Treatment,0.0,CONFIRMED,2026-05-06 09:40:28.391071,79
-148,Standard transaction,271.0,Shopping,Bookstore,0.0,CONFIRMED,2026-05-06 10:00:28.394397,30
-149,Standard transaction,30.0,Transport,Gas Station,0.0,CONFIRMED,2026-05-06 10:20:28.399921,6
-150,High amount,199.0,Entertainment,Tennis Court Rental,0.3,REJECTED,2026-05-06 10:40:28.404921,41
-151,New user with significant amount,1479.0,Travel,Travel Agency Package,0.2,CONFIRMED,2026-05-06 11:00:28.408438,24
-152,New user with significant amount; High-risk category (Cyber),5992.0,Cyber,VPN Service,0.8999999999999999,REJECTED,2026-05-06 11:20:28.410441,43
-153,Anomaly amount,1349.0,Insurance,Travel Insurance,0.5,REJECTED,2026-05-06 11:40:28.414957,3
-154,Anomaly amount; High-risk category (Cyber),7628.0,Cyber,VPN Service,1.0,REJECTED,2026-05-06 12:00:28.417479,2
-155,Standard transaction,36.0,Health,Optician Visit,0.0,CONFIRMED,2026-05-06 12:20:28.422042,49
-156,Anomaly amount,59.0,Health,Dental Checkup,0.5,CONFIRMED,2026-05-06 12:40:28.425183,75
-157,Standard transaction,4.99,Utilities,VPN Service,0.0,CONFIRMED,2026-05-06 12:53:00,21
-158,Standard transaction,4.99,Utilities,VPN Service,0.0,CONFIRMED,2026-05-06 12:53:02,21
-159,Standard transaction,4.99,Utilities,VPN Service,0.0,CONFIRMED,2026-05-06 12:53:04,21
-160,Standard transaction,4.99,Utilities,VPN Service,0.0,CONFIRMED,2026-05-06 12:53:06,21
-161,High velocity (5 trans. in < 3min),4.99,Utilities,VPN Service,0.6,REJECTED,2026-05-06 12:53:08,21
-162,Standard transaction,115.0,Beauty,Amazon,0.0,CONFIRMED,2026-05-06 13:00:28.429192,34
-163,Standard transaction,42.0,Insurance,Health Insurance,0.0,CONFIRMED,2026-05-06 13:20:28.432437,99
-164,New user with significant amount; High-risk category (Cyber),9295.0,Cyber,DarkWeb Entry,0.8999999999999999,REJECTED,2026-05-06 13:40:28.435954,31
-165,Standard transaction,91.0,Food,Wine Shop,0.0,CONFIRMED,2026-05-06 14:00:28.437954,49
-166,Standard transaction,219.0,Health,Optician Visit,0.0,CONFIRMED,2026-05-06 14:20:28.441447,88
-167,Anomaly amount,221.0,Utilities,Software License,0.5,CONFIRMED,2026-05-06 14:40:28.444885,65
-168,Standard transaction,56.0,Transport,Car Wash,0.0,CONFIRMED,2026-05-06 15:00:28.449354,56
-169,High-risk category (Cyber),5734.0,Cyber,VPN Service,0.7,REJECTED,2026-05-06 15:20:28.452417,99
-170,Standard transaction,98.0,Clothes,Zara,0.0,CONFIRMED,2026-05-06 15:40:28.455914,50
-171,Anomaly amount,556.0,Insurance,Travel Insurance,0.5,REJECTED,2026-05-06 16:00:28.45896,97
-172,High amount,267.0,Health,Pharmacy,0.3,REJECTED,2026-05-06 16:20:28.463301,47
-173,Anomaly amount; High-risk category (Cyber),6756.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-06 16:40:28.46637,70
-174,High amount,182.0,Travel,Airbnb Stay,0.3,CONFIRMED,2026-05-06 17:00:28.469698,15
-175,Standard transaction,369.0,Clothes,Sportswear Shop,0.0,CONFIRMED,2026-05-06 17:20:28.471708,4
-176,Subscription price mismatch (expected $4.99),99.99,Subscriptions,Amazon Prime,0.4,REJECTED,2026-05-06 17:30:00,45
-177,Anomaly amount; High-risk category (Cyber),2739.0,Cyber,VPN Service,1.0,REJECTED,2026-05-06 17:40:28.475196,39
-178,Anomaly amount; High-risk category (Cyber),6725.0,Cyber,DarkWeb Entry,1.0,REJECTED,2026-05-06 18:00:28.478213,33
-179,Standard transaction,32.0,Food,Pizza Delivery,0.0,CONFIRMED,2026-05-06 18:20:28.482269,82
-180,New user with significant amount; High-risk category (Cyber),5540.0,Cyber,DarkWeb Entry,0.8999999999999999,REJECTED,2026-05-06 18:40:28.485289,5
-181,Anomaly amount,577.0,Shopping,Amazon,0.5,CONFIRMED,2026-05-06 19:00:28.487829,93
-182,Standard transaction,189.0,Health,Vitamin Store,0.0,CONFIRMED,2026-05-06 19:20:28.490831,10
-183,Standard transaction,555.0,Travel,Travel Agency Package,0.0,CONFIRMED,2026-05-06 19:40:28.493827,39
-184,Anomaly amount,138.0,Shopping,Electronics Store,0.5,CONFIRMED,2026-05-06 20:00:28.497356,92
-185,Standard transaction,8.99,Subscriptions,Disney+,0.0,CONFIRMED,2026-05-06 20:20:28.49936,33
-186,Standard transaction,48.0,Utilities,Electricity Bill,0.0,CONFIRMED,2026-05-06 20:40:28.502357,4
-187,Standard transaction,119.0,Food,Street Food Festival,0.0,CONFIRMED,2026-05-06 21:00:28.504356,45
-188,Standard transaction,50.0,Beauty,Hair Salon,0.0,CONFIRMED,2026-05-06 21:20:28.508428,12
-189,Standard transaction,59.0,Transport,Airport Duty Free,0.0,CONFIRMED,2026-05-06 21:40:28.517046,8
-190,Unusual nighttime hour,28.0,Transport,Train Ticket,0.1,CONFIRMED,2026-05-06 22:00:28.524931,62
-191,Anomaly amount; High-risk category (Cyber); Unusual nighttime hour,1231.0,Cyber,DarkWeb Entry,1.0,REJECTED,2026-05-06 22:20:28.537056,54
-192,Unusual nighttime hour,31.95,Beauty,Amazon,0.15,CONFIRMED,2026-05-06 22:32:00,93
-193,Unusual nighttime hour,196.0,Insurance,Travel Insurance,0.1,CONFIRMED,2026-05-06 22:40:28.540405,42
-194,Unusual nighttime hour,99.0,Utilities,Water Bill,0.1,CONFIRMED,2026-05-06 23:00:28.544049,84
-195,Unusual nighttime hour,43.0,Transport,Uber,0.1,CONFIRMED,2026-05-06 23:20:28.550815,55
-196,Unusual nighttime hour,29.0,Beauty,Hair Salon,0.15,REJECTED,2026-05-06 23:40:28.556135,47
-197,Unusual nighttime hour,80.0,Beauty,Amazon,0.1,CONFIRMED,2026-05-07 00:00:28.560134,56
-198,Unusual nighttime hour,48.0,Transport,Public Transport Pass,0.15,REJECTED,2026-05-07 00:20:28.565845,10
-199,Unusual nighttime hour,190.0,Entertainment,Concert Ticket,0.15,REJECTED,2026-05-07 00:40:28.573297,4
-200,Unusual nighttime hour,45.0,Transport,Public Transport Pass,0.15,REJECTED,2026-05-07 01:00:28.587001,6
-201,Unusual nighttime hour,285.0,Clothes,Nike Store,0.15,REJECTED,2026-05-07 01:20:28.590395,19
-202,Unusual nighttime hour,108.0,Travel,Car Rental,0.15,REJECTED,2026-05-07 01:40:28.596122,80
-203,Unusual nighttime hour,299.0,Utilities,Online Course Subscription,0.15,REJECTED,2026-05-07 02:00:28.600144,7
-204,Anomaly amount; High-risk category (Cyber); Unusual nighttime hour,7862.0,Cyber,DarkWeb Entry,1.0,REJECTED,2026-05-07 02:20:28.602143,45
-205,Anomaly amount; High-risk category (Cyber); Unusual nighttime hour,4209.0,Cyber,DarkWeb Entry,1.0,REJECTED,2026-05-07 02:40:28.606754,56
-206,Unusual nighttime hour,44.0,Beauty,Fragrance Store,0.15,REJECTED,2026-05-07 03:00:28.609762,70
-207,Anomaly amount; Unusual nighttime hour,1388.0,Travel,Ryanair,0.65,REJECTED,2026-05-07 03:20:28.614242,93
-208,Anomaly amount; Unusual nighttime hour,425.0,Insurance,Travel Insurance,0.65,REJECTED,2026-05-07 03:40:28.617585,53
-209,High amount; Unusual nighttime hour,145.0,Entertainment,Amusement Park,0.4,REJECTED,2026-05-07 04:00:28.621595,8
-210,Unusual nighttime hour,238.0,Utilities,Electricity Bill,0.15,REJECTED,2026-05-07 04:20:28.625253,41
-211,Anomaly amount; Unusual nighttime hour,778.0,Travel,Ryanair,0.65,REJECTED,2026-05-07 04:40:28.629262,88
-212,Unusual nighttime hour,63.0,Clothes,Children's Clothing,0.15,REJECTED,2026-05-07 05:00:28.634208,46
-213,Unusual nighttime hour,236.0,Entertainment,Museum Entry,0.15,REJECTED,2026-05-07 05:20:28.647878,25
-214,Unusual nighttime hour,108.0,Utilities,Waste Tax,0.15,REJECTED,2026-05-07 05:40:28.651873,41
-215,"Unusual nighttime hour, not for automatic renewal",4.99,Subscriptions,Amazon Prime,0.1,CONFIRMED,2026-05-07 06:00:28.653872,88
-216,High-risk category (Cyber); Unusual nighttime hour,7394.0,Cyber,Crypto Exchange,0.85,REJECTED,2026-05-07 06:20:28.657151,99
-217,Unusual nighttime hour,86.0,Food,Business Lunch,0.15,CONFIRMED,2026-05-07 06:40:28.659132,16
-218,Standard transaction,386.0,Insurance,Travel Insurance,0.0,CONFIRMED,2026-05-07 07:00:28.663606,11
-219,Standard transaction,10.99,Subscriptions,Apple Music,0.0,CONFIRMED,2026-05-07 07:20:28.666165,97
-220,Suspicious keyword in non-cyber category,110.0,Food,Premium DarkWeb Forum Access - Lifetime,0.7,REJECTED,2026-05-07 07:30:00,77
-221,Standard transaction,225.0,Entertainment,Golf Course Fee,0.0,CONFIRMED,2026-05-07 07:40:28.669522,33
-222,Standard transaction,24.5,Entertainment,Steam,0.0,CONFIRMED,2026-05-07 07:52:00,71
-223,Standard transaction,27.5,Entertainment,Steam,0.0,CONFIRMED,2026-05-07 07:52:02,71
-224,Standard transaction,30.5,Entertainment,Steam,0.0,CONFIRMED,2026-05-07 07:52:04,71
-225,Standard transaction,33.5,Entertainment,Steam,0.0,CONFIRMED,2026-05-07 07:52:06,71
-226,High velocity (5 trans. in < 3min),15.0,Entertainment,Steam,0.6,REJECTED,2026-05-07 07:52:08,71
-227,Standard transaction,204.0,Utilities,Software License,0.0,CONFIRMED,2026-05-07 08:00:28.671521,18
-228,Standard transaction,19.99,Utilities,Book - Hacker Ethics and Computer Security,0.0,CONFIRMED,2026-05-07 08:10:00,16
-229,Standard transaction,81.0,Entertainment,Bowling Alley,0.0,CONFIRMED,2026-05-07 08:20:28.673539,14
-230,High amount,261.0,Clothes,Hollister,0.25,CONFIRMED,2026-05-07 08:40:28.676076,65
-231,High amount,245.0,Health,Dental Checkup,0.3,REJECTED,2026-05-07 09:00:28.68006,86
-232,Standard transaction,72.0,Food,Farmers Market,0.0,CONFIRMED,2026-05-07 09:20:28.682055,13
-233,Standard transaction,33.0,Clothes,Nike Store,0.0,CONFIRMED,2026-05-07 09:40:28.685057,7
-234,Standard transaction,21.0,Transport,Airport Duty Free,0.0,CONFIRMED,2026-05-07 10:00:28.687515,9
-235,Standard transaction,82.0,Clothes,Zara,0.0,CONFIRMED,2026-05-07 10:20:28.689492,45
-236,Standard transaction,102.0,Utilities,Cloud Storage (iCloud/Drive),0.0,REJECTED,2026-05-07 10:40:28.692505,96
-237,Standard transaction,56.0,Food,Supermarket,0.0,CONFIRMED,2026-05-07 11:00:28.694996,51
-238,Standard transaction,36.0,Beauty,Amazon,0.0,CONFIRMED,2026-05-07 11:20:28.70001,35
-239,Standard transaction,28.0,Transport,Car Wash,0.0,CONFIRMED,2026-05-07 11:40:28.703006,97
-240,Standard transaction,256.0,Utilities,Online Course Subscription,0.0,CONFIRMED,2026-05-07 12:00:28.705022,88
-241,Standard transaction,34.99,Subscriptions,LinkedIn Premium,0.0,CONFIRMED,2026-05-07 12:20:28.708109,86
-242,Standard transaction,134.0,Utilities,Waste Tax,0.0,CONFIRMED,2026-05-07 12:40:28.712514,68
-243,Standard transaction,129.0,Shopping,Amazon,0.0,CONFIRMED,2026-05-07 13:00:28.716045,29
-244,Anomaly amount,1214.0,Insurance,Travel Insurance,0.5,REJECTED,2026-05-07 13:20:28.718064,58
-245,High amount,170.0,Utilities,Electricity Bill,0.25,REJECTED,2026-05-07 13:40:28.720045,62
-246,Anomaly amount,350.0,Shopping,IKEA Furniture,0.4,CONFIRMED,2026-05-07 14:00:28.722045,40
-247,Standard transaction,65.0,Food,Farmers Market,0.0,CONFIRMED,2026-05-07 14:20:28.72509,42
-248,Standard transaction,9.95,Subscriptions,Audible Subscription,0.0,CONFIRMED,2026-05-07 14:40:28.727099,35
-249,Anomaly amount; High-risk category (Cyber),7047.0,Cyber,VPN Service,1.0,REJECTED,2026-05-07 15:00:28.732556,42
-250,Standard transaction,458.0,Shopping,Home Decor,0.0,CONFIRMED,2026-05-07 15:20:28.739089,23
-251,High-risk category (Cyber),8716.0,Cyber,DarkWeb Entry,0.7,REJECTED,2026-05-07 15:40:28.741091,99
-252,Standard transaction,16.0,Health,Dental Checkup,0.0,CONFIRMED,2026-05-07 16:00:28.743086,16
-253,Standard transaction,64.0,Health,Vitamin Store,0.0,CONFIRMED,2026-05-07 16:20:28.746985,42
-254,Anomaly amount,460.0,Shopping,Bookstore,0.5,REJECTED,2026-05-07 16:40:28.749996,21
-255,Standard transaction,53.0,Food,Patisserie,0.0,CONFIRMED,2026-05-07 17:00:28.751996,100
-256,Standard transaction,35.0,Transport,Uber,0.0,CONFIRMED,2026-05-07 17:20:28.754019,24
-257,Standard transaction,186.0,Shopping,Toy Store,0.0,CONFIRMED,2026-05-07 17:40:28.757117,99
-258,Subscription price mismatch (expected $4.99),99.99,Subscriptions,Amazon Prime,0.4,REJECTED,2026-05-07 17:50:00,87
-259,Standard transaction,91.0,Health,Optician Visit,0.0,CONFIRMED,2026-05-07 18:00:28.759127,69
-260,Standard transaction,31.0,Transport,Train Ticket,0.0,CONFIRMED,2026-05-07 18:20:28.76258,77
-261,Anomaly amount,563.0,Shopping,Electronics Store,0.5,CONFIRMED,2026-05-07 18:40:28.766295,28
-262,Standard transaction,56.0,Utilities,Mobile Phone Plan,0.0,CONFIRMED,2026-05-07 19:00:28.768295,68
-263,Standard transaction,296.0,Insurance,Travel Insurance,0.0,CONFIRMED,2026-05-07 19:20:28.770293,13
-264,Standard transaction,95.0,Food,Street Food Festival,0.0,CONFIRMED,2026-05-07 19:40:28.773293,73
-265,Standard transaction,126.0,Utilities,Cloud Storage (iCloud/Drive),0.0,CONFIRMED,2026-05-07 20:00:28.7758,96
-266,High amount,1109.0,Travel,Travel Agency Package,0.25,CONFIRMED,2026-05-07 20:20:28.780022,90
-267,Suspicious keyword in non-cyber category,70.0,Utilities,Zero-day Exploit Kit v.4.2,0.7,REJECTED,2026-05-07 20:50:00,71
-268,Standard transaction,8.99,Subscriptions,Disney+,0.0,CONFIRMED,2026-05-07 20:40:28.783019,32
-269,Standard transaction,12.0,Subscriptions,Online Newspaper,0.0,CONFIRMED,2026-05-07 21:00:28.78502,75
-270,Standard transaction,206.0,Clothes,Children's Clothing,0.0,REJECTED,2026-05-07 21:20:28.78809,97
-271,Standard transaction,262.0,Health,Personal Trainer Session,0.0,CONFIRMED,2026-05-07 21:40:28.791194,6
-272,High-risk category (Cyber); Unusual nighttime hour,4935.0,Cyber,VPN Service,0.85,REJECTED,2026-05-07 22:00:28.794192,99
-273,"Unusual nighttime hour, not for online shop",105.0,Shopping,Apple Store,0.1,CONFIRMED,2026-05-07 22:20:28.79872,91
-274,Unusual nighttime hour,193.0,Entertainment,Cinema,0.15,REJECTED,2026-05-07 22:40:28.801722,28
-275,Unusual nighttime hour,51.99,Shopping,Amazon,0.15,CONFIRMED,2026-05-07 22:42:00,72
-276,High amount; Unusual nighttime hour,285.0,Shopping,eBay Purchase,0.4,CONFIRMED,2026-05-07 23:00:28.80372,8
-277,Unusual nighttime hour,87.0,Health,Vitamin Store,0.15,REJECTED,2026-05-07 23:20:28.80624,85
-278,Unusual nighttime hour,30.99,Utilities,Tutorial: How to stop a Hacker (Vol. 1),0.15,CONFIRMED,2026-05-07 23:30:00,93
-279,Unusual nighttime hour,48.0,Transport,Parking Fee,0.15,REJECTED,2026-05-07 23:40:28.809386,46
-280,"Unusual nighttime hour, not for online shop",166.0,Entertainment,PlayStation Store,0.25,CONFIRMED,2026-05-08 00:00:28.814458,16
-281,Unusual nighttime hour,294.0,Health,Doctor Visit,0.15,REJECTED,2026-05-08 00:20:28.815996,6
-282,"Unusual nighttime hour, not for online shop",222.0,Entertainment,Steam,0.25,CONFIRMED,2026-05-08 00:40:28.819495,66
-283,"Unusual nighttime hour, not for automatic renewal",119.0,Utilities,VPN Service,0.1,CONFIRMED,2026-05-08 01:00:28.822577,45
-284,Unusual nighttime hour,237.0,Insurance,Home Insurance,0.15,REJECTED,2026-05-08 01:20:28.82513,67
-285,Anomaly amount; High-risk category (Cyber); Unusual nighttime hour,9739.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-08 01:40:28.828145,82
-286,Unusual nighttime hour,122.0,Beauty,Skincare Clinic,0.15,REJECTED,2026-05-08 02:00:28.831137,95
-287,Unusual nighttime hour,145.0,Entertainment,Tennis Court Rental,0.15,REJECTED,2026-05-08 02:20:28.834139,86
-288,Unusual nighttime hour,43.0,Entertainment,PlayStation Store,0.15,REJECTED,2026-05-08 02:40:28.838383,34
-289,"Unusual nighttime hour, not for automatic renewal",17.99,Subscriptions,Netflix,0.1,CONFIRMED,2026-05-08 03:00:28.842396,29
-290,Unusual nighttime hour,1456.0,Travel,Ryanair,0.15,REJECTED,2026-05-08 03:20:28.845921,31
-291,Unusual nighttime hour,384.0,Clothes,Footwear Store,0.15,REJECTED,2026-05-08 03:40:28.848309,57
-292,Unusual nighttime hour,40.0,Transport,Luggage Storage,0.15,REJECTED,2026-05-08 04:00:28.850295,15
-293,"Unusual nighttime hour, not for automatic renewal",102.0,Utilities,Mobile Phone Plan,0.1,CONFIRMED,2026-05-08 04:20:28.852314,1
-294,Unusual nighttime hour,127.0,Health,Doctor Visit,0.15,REJECTED,2026-05-08 04:40:28.854294,34
-295,Unusual nighttime hour,40.0,Transport,Gas Station,0.15,CONFIRMED,2026-05-08 05:00:28.855296,50
-296,"Unusual nighttime hour, not for automatic renewal",163.0,Utilities,VPN Service,0.1,CONFIRMED,2026-05-08 05:20:28.857404,27
-297,Unusual nighttime hour,39.0,Beauty,Spa Treatment,0.15,REJECTED,2026-05-08 05:40:28.859402,11
-298,"Unusual nighttime hour, not for automatic renewal",10.99,Subscriptions,Spotify,0.1,CONFIRMED,2026-05-08 06:00:28.861403,17
-299,Anomaly amount; High-risk category (Cyber); Unusual nighttime hour,9649.0,Cyber,DarkWeb Entry,1.0,REJECTED,2026-05-08 06:20:28.864911,67
-300,Unusual nighttime hour,274.0,Clothes,Zara,0.15,REJECTED,2026-05-08 06:40:28.867922,89
-301,Unusual nighttime hour,10.0,Beauty,Amazon,0.15,CONFIRMED,2026-05-08 06:51:00,67
-302,Unusual nighttime hour,14.0,Entertainment,Museum Entry,0.15,REJECTED,2026-05-08 07:00:28.869921,16
-303,Standard transaction,26.0,Utilities,Gas Bill,0.0,CONFIRMED,2026-05-08 07:20:28.871921,9
-304,Anomaly amount; High-risk category (Cyber),1721.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-08 07:40:28.873928,53
-305,High-risk category (Cyber),5629.0,Cyber,VPN Service,0.7,REJECTED,2026-05-08 08:00:28.876478,99
-306,Standard transaction,70.0,Beauty,Fragrance Store,0.0,CONFIRMED,2026-05-08 08:20:28.879479,7
-307,Standard transaction,20.0,Subscriptions,ChatGPT Plus,0.0,CONFIRMED,2026-05-08 08:40:28.881477,15
-308,Anomaly amount,366.0,Shopping,Office Supplies,0.5,REJECTED,2026-05-08 09:00:28.883479,46
-309,Standard transaction,47.0,Food,Street Food Festival,0.0,CONFIRMED,2026-05-08 09:20:28.885007,58
-310,Standard transaction,4.99,Insurance,Pet Insurance,0.0,CONFIRMED,2026-05-08 09:37:00,63
-311,Standard transaction,4.99,Insurance,Pet Insurance,0.0,CONFIRMED,2026-05-08 09:37:02,63
-312,Standard transaction,4.99,Insurance,Pet Insurance,0.0,CONFIRMED,2026-05-08 09:37:04,63
-313,Standard transaction,4.99,Insurance,Pet Insurance,0.0,CONFIRMED,2026-05-08 09:37:06,63
-314,High velocity (5 trans. in < 3min),4.99,Insurance,Pet Insurance,0.6,REJECTED,2026-05-08 09:37:08,63
-315,Standard transaction,68.0,Entertainment,Gym Membership,0.0,CONFIRMED,2026-05-08 09:40:28.888018,28
-316,Anomaly amount; High-risk category (Cyber),1328.0,Cyber,VPN Service,1.0,REJECTED,2026-05-08 10:00:28.890364,8
-317,Anomaly amount; High-risk category (Cyber),4241.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-08 10:20:28.892371,10
-318,High amount,234.0,Health,Pharmacy,0.3,REJECTED,2026-05-08 10:40:28.89488,47
-319,Standard transaction,86.0,Entertainment,Tennis Court Rental,0.0,CONFIRMED,2026-05-08 11:00:28.898299,49
-320,Anomaly amount,963.0,Insurance,Travel Insurance,0.5,REJECTED,2026-05-08 11:20:28.900298,44
-321,Standard transaction,32.0,Beauty,Skincare Clinic,0.0,CONFIRMED,2026-05-08 11:40:28.902434,91
-322,High amount,305.0,Utilities,Water Bill,0.3,REJECTED,2026-05-08 12:00:28.941492,23
-323,Anomaly amount,1255.0,Insurance,Travel Insurance,0.5,REJECTED,2026-05-08 12:20:29.007703,39
-324,High amount,254.0,Utilities,Electricity Bill,0.3,REJECTED,2026-05-08 12:40:29.012799,25
-325,Standard transaction,120.99,Utilities,Anti-Hacker Firewall Annual Subscription,0.0,CONFIRMED,2026-05-08 12:50:00,43
-326,Standard transaction,9.95,Subscriptions,Audible Subscription,0.0,CONFIRMED,2026-05-08 13:00:29.015308,34
-327,High amount,409.0,Shopping,Pet Shop Supplies,0.25,REJECTED,2026-05-08 13:20:29.018333,51
-328,Standard transaction,356.0,Clothes,Children's Clothing,0.0,CONFIRMED,2026-05-08 13:40:29.023837,33
-329,High amount,217.0,Utilities,Mobile Phone Plan,0.3,REJECTED,2026-05-08 14:00:29.036881,43
-330,Standard transaction,160.0,Utilities,Water Bill,0.0,CONFIRMED,2026-05-08 14:20:29.038883,27
-331,High amount,235.0,Entertainment,Cinema,0.3,REJECTED,2026-05-08 14:40:29.040882,30
-332,High-risk category (Cyber),6929.0,Cyber,DarkWeb Entry,0.7,REJECTED,2026-05-08 15:00:29.044258,99
-333,Anomaly amount,1058.0,Travel,Hotel Booking,0.5,CONFIRMED,2026-05-08 15:20:29.047304,76
-334,High amount,185.0,Entertainment,Golf Course Fee,0.25,CONFIRMED,2026-05-08 15:40:29.050303,16
-335,High amount,202.0,Entertainment,Tennis Court Rental,0.3,REJECTED,2026-05-08 16:00:29.052302,59
-336,Standard transaction,65.0,Food,Wine Shop,0.0,CONFIRMED,2026-05-08 16:20:29.054303,98
-337,Standard transaction,3.0,Transport,Parking Fee,0.0,CONFIRMED,2026-05-08 16:40:29.056825,40
-338,Standard transaction,133.0,Entertainment,Amusement Park,0.0,CONFIRMED,2026-05-08 17:00:29.059456,11
-339,Subscription price mismatch (expected $10.99),100.99,Subscriptions,Spotify,0.4,REJECTED,2026-05-08 16:50:00,15
-340,Standard transaction,119.0,Travel,Hotel Booking,0.0,CONFIRMED,2026-05-08 17:20:29.061941,54
-341,Anomaly amount; High-risk category (Cyber),9050.0,Cyber,VPN Service,1.0,REJECTED,2026-05-08 17:40:29.063942,96
-342,Standard transaction,10.99,Subscriptions,Spotify,0.0,CONFIRMED,2026-05-08 18:00:29.066455,60
-343,Standard transaction,52.0,Food,Pizza Delivery,0.0,CONFIRMED,2026-05-08 18:20:29.067463,25
-344,Standard transaction,750.5,Travel,Hotel Booking,0.0,CONFIRMED,2026-05-08 18:13:00,12
-345,Standard transaction,753.5,Travel,Hotel Booking,0.0,CONFIRMED,2026-05-08 18:13:02,12
-346,Standard transaction,756.5,Travel,Hotel Booking,0.0,CONFIRMED,2026-05-08 18:13:04,12
-347,Standard transaction,759.5,Travel,Hotel Booking,0.0,CONFIRMED,2026-05-08 18:13:06,12
-348,High velocity (5 trans. in < 3min),762.5,Travel,Hotel Booking,0.6,REJECTED,2026-05-08 18:13:08,12
-349,Standard transaction,316.0,Clothes,Zara,0.0,CONFIRMED,2026-05-08 18:40:29.069462,18
-350,High amount,543.0,Shopping,Pet Shop Supplies,0.3,REJECTED,2026-05-08 19:00:29.070462,24
-351,High amount,219.0,Entertainment,Cinema,0.3,REJECTED,2026-05-08 19:20:29.072464,82
-352,Suspicious keyword in non-cyber category,1200.0,Travel,Hire-a-Hacker professional services deposit,0.7,REJECTED,2026-05-08 19:21:00,82
-353,Standard transaction,10.99,Subscriptions,Spotify,0.0,CONFIRMED,2026-05-08 19:40:29.073465,3
-354,Standard transaction,9.95,Subscriptions,Audible Subscription,0.0,CONFIRMED,2026-05-08 20:00:29.075981,29
-355,Anomaly amount,1231.0,Travel,Travel Agency Package,0.5,REJECTED,2026-05-08 20:20:29.077985,17
-356,Standard transaction,238.0,Entertainment,Golf Course Fee,0.0,CONFIRMED,2026-05-08 20:40:29.080998,20
-357,Standard transaction,12.0,Subscriptions,Online Newspaper,0.0,CONFIRMED,2026-05-08 21:00:29.081981,17
-358,High amount,469.0,Shopping,Apple Store,0.25,CONFIRMED,2026-05-08 21:20:29.083982,48
-359,Standard transaction,329.0,Utilities,Software License,0.0,CONFIRMED,2026-05-08 21:40:29.086067,76
-360,High amount; High-risk category (Cyber); Unusual nighttime hour,2425.0,Cyber,VPN Service,1.0,REJECTED,2026-05-08 22:00:29.087066,19
-361,"Unusual nighttime hour, not for online shop",257.0,Travel,Ryanair,0.1,CONFIRMED,2026-05-08 22:20:29.089068,58
-362,"Unusual nighttime hour, not for online shop",301.0,Clothes,Nike Store,0.1,REJECTED,2026-05-08 22:40:29.092071,2
-363,Unusual nighttime hour,96.0,Food,Patisserie,0.15,CONFIRMED,2026-05-08 23:00:29.096535,77
-364,Unusual nighttime hour,46.0,Transport,Public Transport Pass,0.15,CONFIRMED,2026-05-08 23:20:29.098545,51
-365,Unusual nighttime hour,13.49,Shopping,Amazon,0.15,CONFIRMED,2026-05-08 23:22:00,81
-366,Unusual nighttime hour,190.0,Health,Therapy Session,0.15,REJECTED,2026-05-08 23:40:29.100547,30
-367,Unusual nighttime hour,112.0,Food,Starbucks,0.15,CONFIRMED,2026-05-09 00:00:29.103544,85
-368,Unusual nighttime hour,31.0,Entertainment,Escape Room,0.15,CONFIRMED,2026-05-09 00:20:29.10756,62
-369,Unusual nighttime hour,9.99,Beauty,Amazon,0.15,CONFIRMED,2026-05-09 00:33:00,75
-370,Unusual nighttime hour,67.0,Beauty,Nail Salon,0.15,REJECTED,2026-05-09 00:40:29.112572,1
-371,Unusual nighttime hour,252.0,Shopping,Toy Store,0.15,REJECTED,2026-05-09 01:00:29.116962,11
-372,Unusual nighttime hour,47.0,Food,Street Food Festival,0.15,REJECTED,2026-05-09 01:20:29.11899,2
-373,Unusual nighttime hour,62.0,Food,Street Food Festival,0.15,REJECTED,2026-05-09 01:40:29.120965,2
-374,Unusual nighttime hour,70.0,Food,Sushi Bar,0.15,REJECTED,2026-05-09 02:00:29.125014,59
-375,Unusual nighttime hour,28.0,Transport,Parking Fee,0.15,CONFIRMED,2026-05-09 02:20:29.127622,30
-376,Unusual nighttime hour; Subscription price mismatch (expected $4.99),10.99,Subscriptions,Amazon Prime,0.5,REJECTED,2026-05-09 02:30:00,34
-377,Anomaly amount; Unusual nighttime hour,405.0,Clothes,Children's Clothing,0.65,REJECTED,2026-05-09 02:40:29.130633,55
-378,Anomaly amount; High-risk category (Cyber); Unusual nighttime hour,1385.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-09 03:00:29.132798,27
-379,High amount; High-risk category (Cyber); Unusual nighttime hour,3979.0,Cyber,DarkWeb Entry,1.0,REJECTED,2026-05-09 03:20:29.13589,82
-380,Unusual nighttime hour,138.0,Entertainment,PlayStation Store,0.15,REJECTED,2026-05-09 03:40:29.138012,21
-381,Unusual nighttime hour,68.0,Health,Doctor Visit,0.15,REJECTED,2026-05-09 04:00:29.14016,47
-382,Anomaly amount; Unusual nighttime hour,250.0,Health,Yoga Class,0.65,REJECTED,2026-05-09 04:20:29.14235,75
-383,Unusual nighttime hour,184.0,Utilities,Water Bill,0.15,REJECTED,2026-05-09 04:40:29.146224,58
-384,Unusual nighttime hour,257.0,Clothes,Children's Clothing,0.15,REJECTED,2026-05-09 05:00:29.149238,97
-385,Unusual nighttime hour,161.0,Entertainment,Amusement Park,0.15,REJECTED,2026-05-09 05:20:29.151235,68
-386,Unusual nighttime hour,74.0,Food,McDonalds,0.15,REJECTED,2026-05-09 05:40:29.152232,50
-387,Unusual nighttime hour,270.0,Utilities,Online Course Subscription,0.15,REJECTED,2026-05-09 06:00:29.154257,77
-388,"Unusual nighttime hour, not for automatic renewal",10.99,Subscriptions,Spotify,0.1,CONFIRMED,2026-05-09 06:20:29.156265,43
-389,Unusual nighttime hour,304.0,Insurance,Home Insurance,0.15,CONFIRMED,2026-05-09 06:40:29.157265,41
-390,Standard transaction,219.0,Utilities,VPN Service,0.0,CONFIRMED,2026-05-09 07:00:29.159266,100
-391,Standard transaction,216.0,Shopping,Amazon,0.0,CONFIRMED,2026-05-09 07:20:29.162268,37
-392,Standard transaction,25.0,Food,Sushi Bar,0.0,CONFIRMED,2026-05-09 07:40:29.164267,96
-393,High amount,275.0,Health,Yoga Class,0.3,REJECTED,2026-05-09 08:00:29.167471,3
-394,Anomaly amount,992.0,Insurance,Travel Insurance,0.5,REJECTED,2026-05-09 08:20:29.169472,9
-395,Standard transaction,20.0,Subscriptions,ChatGPT Plus,0.0,CONFIRMED,2026-05-09 08:40:29.173472,23
-396,Standard transaction,19.0,Health,Yoga Class,0.0,CONFIRMED,2026-05-09 09:00:29.175986,54
-397,Standard transaction,213.0,Shopping,Toy Store,0.0,CONFIRMED,2026-05-09 09:20:29.177989,97
-398,Standard transaction,25.99,Utilities,Workshop: Exploit Mitigation Techniques,0.0,CONFIRMED,2026-05-09 09:30:00,88
-399,Standard transaction,107.0,Beauty,Fragrance Store,0.0,CONFIRMED,2026-05-09 09:40:29.180986,36
-400,Standard transaction,63.0,Shopping,eBay Purchase,0.0,CONFIRMED,2026-05-09 10:00:29.182988,67
-401,Anomaly amount,443.0,Clothes,Nike Store,0.5,REJECTED,2026-05-09 10:20:29.186411,50
-402,Standard transaction,54.0,Health,Doctor Visit,0.0,CONFIRMED,2026-05-09 10:40:29.18841,68
-403,Standard transaction,86.0,Food,Sushi Bar,0.0,CONFIRMED,2026-05-09 11:00:29.190409,68
-404,Standard transaction,17.99,Subscriptions,Netflix,0.0,CONFIRMED,2026-05-09 11:20:29.192408,35
-405,High amount,283.0,Utilities,Gas Bill,0.25,REJECTED,2026-05-09 11:40:29.193431,36
-406,Standard transaction,183.0,Utilities,Internet Provider,0.0,CONFIRMED,2026-05-09 12:00:29.195951,27
-407,Standard transaction,124.0,Beauty,Hair Salon,0.0,CONFIRMED,2026-05-09 12:20:29.197956,1
-408,High amount,61.0,Health,Therapy Session,0.25,CONFIRMED,2026-05-09 12:40:29.200327,52
-409,Standard transaction,47.0,Health,Vitamin Store,0.0,CONFIRMED,2026-05-09 13:00:29.202641,38
-410,Standard transaction,97.0,Shopping,IKEA Furniture,0.0,CONFIRMED,2026-05-09 13:20:29.203642,72
-411,Standard transaction,63.0,Health,Vitamin Store,0.0,CONFIRMED,2026-05-09 13:40:29.206201,3
-412,Standard transaction,40.5,Shopping,Amazon,0.0,CONFIRMED,2026-05-09 13:45:00,43
-413,Standard transaction,43.5,Shopping,Amazon,0.0,CONFIRMED,2026-05-09 13:45:02,43
-414,Standard transaction,46.5,Shopping,Amazon,0.0,CONFIRMED,2026-05-09 13:45:04,43
-415,Standard transaction,49.5,Shopping,Amazon,0.0,CONFIRMED,2026-05-09 13:45:06,43
-416,High velocity (5 trans. in < 3min),52.5,Shopping,Amazon,0.6,REJECTED,2026-05-09 13:45:08,43
-417,Standard transaction,166.0,Shopping,eBay Purchase,0.0,CONFIRMED,2026-05-09 14:00:29.208489,19
-418,High amount,586.0,Shopping,eBay Purchase,0.3,REJECTED,2026-05-09 14:20:29.209926,99
-419,Anomaly amount,1123.0,Travel,Ryanair,0.5,CONFIRMED,2026-05-09 14:40:29.212933,51
-420,Standard transaction,94.0,Food,Street Food Festival,0.0,CONFIRMED,2026-05-09 15:00:29.215439,80
-421,Standard transaction,63.0,Beauty,Barber Shop,0.0,CONFIRMED,2026-05-09 15:20:29.217447,44
-422,Standard transaction,29.0,Transport,Parking Fee,0.0,CONFIRMED,2026-05-09 15:40:29.21945,50
-423,Anomaly amount; High-risk category (Cyber),5332.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-09 16:00:29.220448,96
-424,High amount,106.0,Utilities,Gas Bill,0.25,CONFIRMED,2026-05-09 16:20:29.222461,64
-425,Standard transaction,94.0,Food,Wine Shop,0.0,CONFIRMED,2026-05-09 16:40:29.223973,63
-426,New user with significant amount; High-risk category (Cyber),2926.0,Cyber,VPN Service,0.8999999999999999,REJECTED,2026-05-09 17:00:29.224994,78
-427,Standard transaction,84.0,Entertainment,Golf Course Fee,0.0,CONFIRMED,2026-05-09 17:20:29.226019,34
-428,Anomaly amount; High-risk category (Cyber),5912.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-09 17:40:29.229024,6
-429,High amount,182.0,Shopping,Office Supplies,0.25,CONFIRMED,2026-05-09 18:00:29.232084,62
-430,High-risk category (Cyber),4089.0,Cyber,Crypto Exchange,0.7,REJECTED,2026-05-09 18:20:29.234066,82
-431,Standard transaction,29.0,Clothes,Luxury Fashion,0.0,CONFIRMED,2026-05-09 18:40:29.23613,17
-432,Anomaly amount; High-risk category (Cyber),3495.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-09 19:00:29.23813,19
-433,High amount,273.0,Travel,Hotel Booking,0.25,CONFIRMED,2026-05-09 19:20:29.240137,68
-434,Standard transaction,41.0,Health,Optician Visit,0.0,CONFIRMED,2026-05-09 19:40:29.242328,57
-435,Standard transaction,9.95,Subscriptions,Audible Subscription,0.0,CONFIRMED,2026-05-09 20:00:29.246353,87
-436,Subscription price mismatch (expected $20.00),200.0,Subscriptions,ChatGPT Plus,0.4,REJECTED,2026-05-09 20:10:00,66
-437,Standard transaction,10.99,Subscriptions,Spotify,0.0,CONFIRMED,2026-05-09 20:20:29.248366,3
-438,Standard transaction,131.0,Shopping,Electronics Store,0.0,REJECTED,2026-05-09 20:40:29.251373,24
-439,Standard transaction,4.99,Subscriptions,Amazon Prime,0.0,CONFIRMED,2026-05-09 21:00:29.25648,98
-440,High-risk category (Cyber),2190.0,Cyber,DarkWeb Entry,0.7,REJECTED,2026-05-09 21:20:29.259998,99
-441,Unusual nighttime hour,62.0,Beauty,Sephora,0.15,REJECTED,2026-05-09 21:40:29.268574,51
-442,Unusual nighttime hour,169.99,Utilities,Ethical Hacker Certification Course,0.15,CONFIRMED,2026-05-09 21:45:00,27
-443,Unusual nighttime hour,25.0,Beauty,Barber Shop,0.15,CONFIRMED,2026-05-09 22:00:29.270562,51
-444,High-risk category (Cyber); Unusual nighttime hour,3982.0,Cyber,DarkWeb Entry,0.85,REJECTED,2026-05-09 22:20:29.272577,99
-445,Anomaly amount; High-risk category (Cyber); Unusual nighttime hour,4555.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-09 22:40:29.283496,54
-446,Unusual nighttime hour,33.4,Beauty,Amazon,0.15,CONFIRMED,2026-05-09 22:57:00,49
-447,High amount; Unusual nighttime hour,1270.0,Travel,Car Rental,0.5,REJECTED,2026-05-09 23:00:29.286016,96
-448,Unusual nighttime hour,136.0,Health,Doctor Visit,0.15,REJECTED,2026-05-09 23:20:29.288459,33
-449,Unusual nighttime hour,29.0,Food,Business Lunch,0.15,REJECTED,2026-05-09 23:40:29.290458,54
-450,Unusual nighttime hour,38.0,Transport,Highway Toll,0.15,CONFIRMED,2026-05-10 00:00:29.292458,18
-451,"Unusual nighttime hour, not for automatic renewal",64.0,Utilities,Cloud Storage (iCloud/Drive),0.1,CONFIRMED,2026-05-10 00:20:29.297127,11
-452,"Unusual nighttime hour, not for automatic renewal",10.99,Subscriptions,Spotify,0.1,CONFIRMED,2026-05-10 00:40:29.30012,84
-453,Unusual nighttime hour,60.0,Beauty,Barber Shop,0.15,REJECTED,2026-05-10 01:00:29.302136,89
-454,Unusual nighttime hour,139.0,Entertainment,Concert Ticket,0.15,REJECTED,2026-05-10 01:20:29.30412,43
-455,High-risk category (Cyber); Unusual nighttime hour,7069.0,Cyber,VPN Service,0.85,REJECTED,2026-05-10 01:40:29.307176,99
-456,Anomaly amount; High-risk category (Cyber); Unusual nighttime hour,9124.0,Cyber,VPN Service,1.0,REJECTED,2026-05-10 02:00:29.30957,17
-457,High-risk category (Cyber); Unusual nighttime hour,2503.0,Cyber,Crypto Exchange,0.85,REJECTED,2026-05-10 02:20:29.313571,99
-458,High-risk category (Cyber); Unusual nighttime hour,1400.0,Cyber,DarkWeb Entry,0.85,REJECTED,2026-05-10 02:40:29.316002,99
-459,"Unusual nighttime hour, not for automatic renewal",10.99,Subscriptions,Apple Music,0.1,CONFIRMED,2026-05-10 03:00:29.318003,99
-460,Unusual nighttime hour,407.0,Clothes,Hollister,0.15,REJECTED,2026-05-10 03:20:29.320022,54
-461,Unusual nighttime hour,117.0,Shopping,IKEA Furniture,0.15,REJECTED,2026-05-10 03:40:29.322018,33
-462,Unusual nighttime hour,127.0,Entertainment,Bowling Alley,0.15,REJECTED,2026-05-10 04:00:29.323531,91
-463,Unusual nighttime hour,146.0,Health,Yoga Class,0.15,REJECTED,2026-05-10 04:20:29.327236,75
-464,Unusual nighttime hour,278.0,Health,Dental Checkup,0.15,REJECTED,2026-05-10 04:40:29.330658,94
-465,Anomaly amount; Unusual nighttime hour,427.0,Shopping,Toy Store,0.65,REJECTED,2026-05-10 05:00:29.332658,52
-466,Unusual nighttime hour,113.0,Health,Yoga Class,0.15,REJECTED,2026-05-10 05:20:29.333658,6
-467,"Unusual nighttime hour, not for automatic renewal",20.0,Subscriptions,ChatGPT Plus,0.1,CONFIRMED,2026-05-10 05:40:29.336193,84
-468,Unusual nighttime hour,58.0,Clothes,Children's Clothing,0.15,REJECTED,2026-05-10 06:00:29.33819,17
-469,Unusual nighttime hour,169.0,Health,Optician Visit,0.15,REJECTED,2026-05-10 06:20:29.34019,67
-470,Unusual nighttime hour,18.9,Shopping,Amazon,0.15,CONFIRMED,2026-05-10 06:25:00,55
-471,Unusual nighttime hour,102.0,Utilities,Cloud Storage (iCloud/Drive),0.15,REJECTED,2026-05-10 06:40:29.342185,89
-472,Anomaly amount; High-risk category (Cyber),5207.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-10 07:00:29.344236,15
-473,Standard transaction,52.0,Food,Farmers Market,0.0,CONFIRMED,2026-05-10 07:20:29.347277,94
-474,High amount,303.0,Utilities,Electricity Bill,0.3,REJECTED,2026-05-10 07:40:29.349286,23
-475,Standard transaction,175.0,Entertainment,Gym Membership,0.0,CONFIRMED,2026-05-10 08:00:29.351286,89
-476,Standard transaction,288.0,Utilities,Online Course Subscription,0.0,CONFIRMED,2026-05-10 08:20:29.353285,54
-477,Standard transaction,475.0,Shopping,Apple Store,0.0,CONFIRMED,2026-05-10 08:40:29.355822,24
-478,Standard transaction,9.99,Subscriptions,HBO Max,0.0,CONFIRMED,2026-05-10 09:00:29.357826,60
-479,Standard transaction,10.99,Subscriptions,Spotify,0.0,CONFIRMED,2026-05-10 09:12:00,49
-480,Standard transaction,10.99,Subscriptions,Spotify,0.0,CONFIRMED,2026-05-10 09:12:02,49
-481,Standard transaction,10.99,Subscriptions,Spotify,0.0,CONFIRMED,2026-05-10 09:12:04,49
-482,Standard transaction,10.99,Subscriptions,Spotify,0.0,CONFIRMED,2026-05-10 09:12:06,49
-483,High velocity (5 trans. in < 3min),10.99,Subscriptions,Spotify,0.6,REJECTED,2026-05-10 09:12:08,49
-484,Suspicious keyword in non-cyber category,300.0,Travel,Anti-DDoS Bypass tool subscription,0.7,REJECTED,2026-05-10 09:10:00,54
-485,Standard transaction,80.0,Beauty,Spa Treatment,0.0,CONFIRMED,2026-05-10 09:20:29.358827,48
-486,Standard transaction,34.0,Entertainment,Museum Entry,0.0,CONFIRMED,2026-05-10 09:40:29.360967,6
-487,Standard transaction,82.0,Beauty,Hair Salon,0.0,CONFIRMED,2026-05-10 10:00:29.363975,70
-488,Standard transaction,178.0,Health,Dental Checkup,0.0,CONFIRMED,2026-05-10 10:20:29.366493,82
-489,Standard transaction,34.99,Subscriptions,LinkedIn Premium,0.0,CONFIRMED,2026-05-10 10:40:29.367492,56
-490,High amount,131.0,Clothes,Nike Store,0.25,CONFIRMED,2026-05-10 11:00:29.369493,49
-491,Anomaly amount; High-risk category (Cyber),2377.0,Cyber,DarkWeb Entry,1.0,REJECTED,2026-05-10 11:20:29.371507,23
-492,Anomaly amount,689.0,Travel,Car Rental,0.5,REJECTED,2026-05-10 11:40:29.372507,81
-493,Anomaly amount,162.0,Entertainment,Museum Entry,0.5,REJECTED,2026-05-10 12:00:29.373495,61
-494,Standard transaction,119.0,Health,Therapy Session,0.0,CONFIRMED,2026-05-10 12:20:29.375019,30
-495,Standard transaction,303.0,Shopping,Office Supplies,0.0,CONFIRMED,2026-05-10 12:40:29.377026,78
-496,Standard transaction,17.99,Subscriptions,Netflix,0.0,CONFIRMED,2026-05-10 13:00:29.37903,2
-497,Subscription price mismatch (expected $10.99),109.9,Subscriptions,Apple Music,0.4,REJECTED,2026-05-10 13:10:00,92
-498,Standard transaction,128.0,Utilities,Gas Bill,0.0,CONFIRMED,2026-05-10 13:20:29.38103,70
-499,Standard transaction,58.0,Beauty,Lush Cosmetics,0.0,CONFIRMED,2026-05-10 13:40:29.383027,5
-500,Anomaly amount,358.0,Clothes,Pull&Bear,0.5,CONFIRMED,2026-05-10 14:00:29.385538,61
-501,Anomaly amount,762.0,Travel,Ryanair,0.5,CONFIRMED,2026-05-10 14:20:29.387922,52
-502,High amount,539.0,Insurance,Travel Insurance,0.4,REJECTED,2026-05-10 14:40:29.388905,30
-503,Anomaly amount; High-risk category (Cyber),6214.0,Cyber,DarkWeb Entry,1.0,REJECTED,2026-05-10 15:00:29.390894,37
-504,Anomaly amount; High-risk category (Cyber),6392.0,Cyber,DarkWeb Entry,1.0,REJECTED,2026-05-10 15:20:29.391889,51
-505,Standard transaction,36.0,Health,Vitamin Store,0.0,CONFIRMED,2026-05-10 15:40:29.393891,41
-506,High amount; High-risk category (Cyber),7300.0,Cyber,VPN Service,0.95,REJECTED,2026-05-10 16:00:29.39791,99
-507,Standard transaction,78.0,Food,Business Lunch,0.0,CONFIRMED,2026-05-10 16:20:29.399912,29
-508,Anomaly amount; High-risk category (Cyber),3013.0,Cyber,VPN Service,1.0,REJECTED,2026-05-10 16:40:29.401908,14
-509,Standard transaction,217.0,Health,Vitamin Store,0.0,REJECTED,2026-05-10 17:00:29.403912,57
-510,Standard transaction,57.0,Entertainment,Gym Membership,0.0,CONFIRMED,2026-05-10 17:20:29.405437,5
-511,Standard transaction,8.0,Transport,Bike Rental,0.0,CONFIRMED,2026-05-10 17:40:29.40744,10
-512,High amount,217.0,Entertainment,Bowling Alley,0.3,REJECTED,2026-05-10 18:00:29.409443,10
-513,High-risk category (Cyber),2215.0,Cyber,DarkWeb Entry,0.7,REJECTED,2026-05-10 18:20:29.410441,99
-514,Anomaly amount; High-risk category (Cyber),2765.0,Cyber,VPN Service,1.0,REJECTED,2026-05-10 18:40:29.414862,93
-515,Standard transaction,56.0,Food,Supermarket,0.0,CONFIRMED,2026-05-10 19:00:29.417392,64
-516,Anomaly amount; High-risk category (Cyber),1853.0,Cyber,DarkWeb Entry,1.0,REJECTED,2026-05-10 19:20:29.419392,27
-517,High-risk category (Cyber),5089.0,Cyber,DarkWeb Entry,0.7,REJECTED,2026-05-10 19:40:29.421392,99
-518,Standard transaction,93.0,Insurance,Health Insurance,0.0,CONFIRMED,2026-05-10 20:00:29.423389,83
-519,Standard transaction,123.0,Beauty,Lush Cosmetics,0.0,CONFIRMED,2026-05-10 20:20:29.425364,4
-520,Standard transaction,81.0,Utilities,Software License,0.0,CONFIRMED,2026-05-10 20:40:29.427379,74
-521,Standard transaction,10.99,Subscriptions,Apple Music,0.0,CONFIRMED,2026-05-10 21:00:29.43038,92
-522,Standard transaction,169.0,Entertainment,Gym Membership,0.0,CONFIRMED,2026-05-10 21:20:29.433641,52
-523,High amount,270.0,Shopping,Pet Shop Supplies,0.2,REJECTED,2026-05-10 21:40:29.43515,24
-524,"Unusual nighttime hour, not for automatic renewal",9.99,Subscriptions,HBO Max,0.1,CONFIRMED,2026-05-10 22:00:29.437196,44
-525,Unusual nighttime hour,12.9,Beauty,Amazon,0.15,CONFIRMED,2026-05-10 22:07:00,32
-526,Unusual nighttime hour,6.0,Transport,Electric Scooter Rental,0.15,CONFIRMED,2026-05-10 22:20:29.439192,77
-527,Unusual nighttime hour,7.0,Transport,Airport Duty Free,0.15,CONFIRMED,2026-05-10 22:40:29.441194,85
-528,Unusual nighttime hour,135.0,Travel,Ryanair,0.15,CONFIRMED,2026-05-10 23:00:29.443193,61
-529,High amount; Unusual nighttime hour,341.0,Shopping,IKEA Furniture,0.4,REJECTED,2026-05-10 23:20:29.445701,7
-530,Unusual nighttime hour,100.0,Food,Patisserie,0.15,REJECTED,2026-05-10 23:40:29.448721,21
-531,"Unusual nighttime hour, not for online shop",1297.0,Travel,Travel Agency Package,0.1,CONFIRMED,2026-05-11 00:00:29.450722,69
-532,Anomaly amount; Unusual nighttime hour,180.0,Clothes,Zara,0.65,REJECTED,2026-05-11 00:20:29.45372,60
-533,Unusual nighttime hour,22.9,Shopping,Amazon,0.15,CONFIRMED,2026-05-11 00:21:00,36
-534,Unusual nighttime hour,326.0,Shopping,Apple Store,0.15,REJECTED,2026-05-11 00:40:29.456241,48
-535,Unusual nighttime hour,349.0,Clothes,Children's Clothing,0.15,REJECTED,2026-05-11 01:00:29.458244,2
-536,High-risk category (Cyber); Unusual nighttime hour,5209.0,Cyber,Crypto Exchange,0.85,REJECTED,2026-05-11 01:20:29.459236,99
-537,Unusual nighttime hour,273.0,Utilities,Electricity Bill,0.15,REJECTED,2026-05-11 01:40:29.461242,98
-538,High-risk category (Cyber); Unusual nighttime hour,5710.0,Cyber,VPN Service,0.85,REJECTED,2026-05-11 02:00:29.468264,99
-539,Suspicious keyword in non-cyber category; Unusual nighttime hour,30.0,Beauty,SQL Injection Tutorial Premium,0.85,REJECTED,2026-05-11 02:10:00,6
-540,Unusual nighttime hour,34.99,Subscriptions,LinkedIn Premium,0.15,REJECTED,2026-05-11 02:20:29.473266,83
-541,Unusual nighttime hour,984.0,Travel,Car Rental,0.15,REJECTED,2026-05-11 02:40:29.475268,33
-542,Unusual nighttime hour,165.0,Travel,Hotel Booking,0.15,REJECTED,2026-05-11 03:00:29.481808,90
-543,Unusual nighttime hour,223.0,Insurance,Home Insurance,0.15,REJECTED,2026-05-11 03:20:29.483852,48
-544,Unusual nighttime hour,30.0,Insurance,Health Insurance,0.15,REJECTED,2026-05-11 03:40:29.486955,84
-545,New user with significant amount; High-risk category (Cyber); Unusual nighttime hour,1241.0,Cyber,VPN Service,1.0,REJECTED,2026-05-11 04:00:29.488965,71
-546,Unusual nighttime hour,77.0,Health,Yoga Class,0.15,REJECTED,2026-05-11 04:20:29.490981,66
-547,Anomaly amount; Unusual nighttime hour,502.0,Shopping,Pet Shop Supplies,0.65,REJECTED,2026-05-11 04:40:29.491978,79
-548,High-risk category (Cyber); Unusual nighttime hour,2921.0,Cyber,VPN Service,0.85,REJECTED,2026-05-11 05:00:29.492979,99
-549,Unusual nighttime hour,146.0,Health,Vitamin Store,0.15,REJECTED,2026-05-11 05:20:29.497497,37
-550,Unusual nighttime hour,17.0,Entertainment,Golf Course Fee,0.15,REJECTED,2026-05-11 05:40:29.499516,84
-551,Unusual nighttime hour,72.0,Entertainment,Escape Room,0.15,REJECTED,2026-05-11 06:00:29.501497,51
-552,Unusual nighttime hour,99.0,Insurance,Home Insurance,0.15,REJECTED,2026-05-11 06:20:29.505009,39
-553,High amount; Unusual nighttime hour,153.0,Health,Doctor Visit,0.4,REJECTED,2026-05-11 06:40:29.507019,60
-554,Anomaly amount,587.0,Travel,Travel Agency Package,0.5,CONFIRMED,2026-05-11 07:00:29.509021,65
-555,Standard transaction,237.0,Entertainment,PlayStation Store,0.0,CONFIRMED,2026-05-11 07:20:29.512892,79
-556,Anomaly amount,556.0,Shopping,Toy Store,0.5,REJECTED,2026-05-11 07:40:29.516019,55
-557,Standard transaction,63.5,Utilities,VPN Service,0.0,CONFIRMED,2026-05-11 07:53:00,84
-558,Standard transaction,66.5,Utilities,VPN Service,0.0,CONFIRMED,2026-05-11 07:53:02,84
-559,Standard transaction,69.5,Utilities,VPN Service,0.0,CONFIRMED,2026-05-11 07:53:04,84
-560,Standard transaction,72.5,Utilities,VPN Service,0.0,CONFIRMED,2026-05-11 07:53:06,84
-561,High velocity (5 trans. in < 3min),52.5,Utilities,VPN Service,0.6,REJECTED,2026-05-11 07:53:08,84
-562,Standard transaction,91.0,Food,Supermarket,0.0,CONFIRMED,2026-05-11 08:00:29.518425,78
-563,High amount; High-risk category (Cyber),8340.0,Cyber,DarkWeb Entry,0.95,REJECTED,2026-05-11 08:20:29.520795,99
-564,High-risk category (Cyber),3498.0,Cyber,DarkWeb Entry,0.7,REJECTED,2026-05-11 08:40:29.524866,99
-565,Standard transaction,105.0,Shopping,IKEA Furniture,0.0,CONFIRMED,2026-05-11 09:00:29.526878,33
-566,Standard transaction,23.0,Entertainment,Golf Course Fee,0.0,CONFIRMED,2026-05-11 09:20:29.53228,17
-567,Standard transaction,10.99,Subscriptions,Apple Music,0.0,CONFIRMED,2026-05-11 09:40:29.534274,100
-568,Anomaly amount; High-risk category (Cyber),5209.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-11 10:00:29.536627,73
-569,Standard transaction,117.0,Entertainment,Amusement Park,0.0,CONFIRMED,2026-05-11 10:20:29.540634,20
-570,Standard transaction,25.9,Utilities,Manual: SQL Injection Prevention,0.0,CONFIRMED,2026-05-11 10:25:00,65
-571,Standard transaction,83.0,Health,Pharmacy,0.0,CONFIRMED,2026-05-11 10:40:29.542701,19
-572,Anomaly amount; High-risk category (Cyber),3527.0,Cyber,VPN Service,1.0,REJECTED,2026-05-11 11:00:29.54651,52
-573,Standard transaction,4.99,Subscriptions,Amazon Prime,0.0,CONFIRMED,2026-05-11 11:20:29.548529,3
-574,Standard transaction,15.0,Transport,Train Ticket,0.0,CONFIRMED,2026-05-11 11:40:29.551529,92
-575,Standard transaction,177.0,Health,Vitamin Store,0.0,CONFIRMED,2026-05-12 11:48:33.446622,57
-576,Suspicious keyword in non-cyber category,45.0,Shopping,Hacker Exploit Kit v2,0.7,REJECTED,2026-05-12 11:44:00,31
-577,Standard transaction,519.0,Shopping,Home Decor,0.0,CONFIRMED,2026-05-12 11:48:38.441316,8
-578,Standard transaction,25.0,Transport,Airport Duty Free,0.0,CONFIRMED,2026-05-12 11:48:43.444716,27
-579,Standard transaction,27.0,Entertainment,PlayStation Store,0.0,CONFIRMED,2026-05-12 11:48:48.441586,82
-580,High amount,199.0,Health,Massage Therapy,0.3,REJECTED,2026-05-12 11:48:53.443002,81
-581,Standard transaction,348.0,Shopping,Toy Store,0.0,CONFIRMED,2026-05-12 11:48:58.44642,30
-582,Anomaly amount; High-risk category (Cyber),521.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-12 11:49:03.439955,60
-583,Standard transaction,12.0,Subscriptions,Online Newspaper,0.0,CONFIRMED,2026-05-12 11:49:08.436846,58
-584,Standard transaction,80.0,Food,Gourmet Market,0.0,CONFIRMED,2026-05-12 11:49:13.435505,32
-585,Standard transaction,52.0,Entertainment,Concert Ticket,0.0,CONFIRMED,2026-05-12 11:49:18.43893,63
-586,Anomaly amount,535.0,Shopping,Pet Shop Supplies,0.5,REJECTED,2026-05-12 11:49:23.449408,34
-587,Standard transaction,76.0,Entertainment,Concert Ticket,0.0,CONFIRMED,2026-05-12 11:49:28.439382,77
-588,Anomaly amount,1209.0,Travel,Hotel Booking,0.5,CONFIRMED,2026-05-12 11:49:33.440393,68
-589,Standard transaction,487.0,Travel,Travel Agency Package,0.0,CONFIRMED,2026-05-12 11:49:38.435036,6
-590,Standard transaction,89.0,Clothes,H&M,0.0,CONFIRMED,2026-05-12 11:49:43.441888,7
-591,Standard transaction,194.0,Utilities,VPN Service,0.0,CONFIRMED,2026-05-12 11:49:48.434795,8
-592,Standard transaction,49.0,Entertainment,Cinema,0.0,CONFIRMED,2026-05-12 11:49:53.438474,81
-593,High-risk category (Cyber),5243.0,Cyber,VPN Service,0.7,REJECTED,2026-05-12 11:49:58.435417,99
-594,Standard transaction,68.0,Beauty,Spa Treatment,0.0,CONFIRMED,2026-05-12 11:50:03.436486,57
-595,Anomaly amount; High-risk category (Cyber),8390.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-12 11:50:08.441053,8
-596,High amount,408.0,Clothes,Footwear Store,0.2,REJECTED,2026-05-12 11:50:13.445665,53
-597,Standard transaction,1302.0,Travel,Hotel Booking,0.0,CONFIRMED,2026-05-12 11:50:18.444721,5
-598,Standard transaction,113.0,Entertainment,Bowling Alley,0.0,REJECTED,2026-05-12 11:50:23.4428,72
-599,Standard transaction,12.0,Subscriptions,Online Newspaper,0.0,CONFIRMED,2026-05-12 11:50:28.444881,7
-600,Standard transaction,151.0,Insurance,Health Insurance,0.0,CONFIRMED,2026-05-12 11:50:33.441458,48
-601,Standard transaction,10.99,Subscriptions,Apple Music,0.0,CONFIRMED,2026-05-12 11:50:38.440441,87
-602,Standard transaction,153.0,Clothes,Pull&Bear,0.0,CONFIRMED,2026-05-12 11:50:43.445067,55
-603,Standard transaction,150.0,Clothes,Luxury Fashion,0.0,CONFIRMED,2026-05-12 11:50:48.448386,94
-604,Standard transaction,9.95,Subscriptions,Audible Subscription,0.0,CONFIRMED,2026-05-12 11:50:53.439385,16
-605,Standard transaction,117.0,Health,Massage Therapy,0.0,CONFIRMED,2026-05-12 11:50:58.438632,28
-606,Standard transaction,436.0,Travel,Travel Agency Package,0.0,CONFIRMED,2026-05-12 11:51:03.450174,2
-607,Standard transaction,51.0,Health,Pharmacy,0.0,CONFIRMED,2026-05-12 11:51:08.440809,82
-608,Standard transaction,34.99,Subscriptions,LinkedIn Premium,0.0,CONFIRMED,2026-05-12 11:51:13.445896,51
-609,Standard transaction,167.0,Shopping,Electronics Store,0.0,CONFIRMED,2026-05-12 11:51:18.437845,8
-610,Anomaly amount; High-risk category (Cyber),1487.0,Cyber,DarkWeb Entry,1.0,REJECTED,2026-05-12 11:51:23.449785,68
-611,Standard transaction,9.99,Subscriptions,HBO Max,0.0,CONFIRMED,2026-05-12 11:51:28.439764,79
-612,Standard transaction,15.0,Transport,Uber,0.0,CONFIRMED,2026-05-12 11:51:33.448037,81
-613,Standard transaction,143.0,Clothes,Sportswear Shop,0.0,CONFIRMED,2026-05-12 11:51:38.443938,30
-614,High amount,110.0,Food,Starbucks,0.2,REJECTED,2026-05-12 11:51:43.43564,69
-615,Standard transaction,16.0,Beauty,Amazon,0.0,CONFIRMED,2026-05-12 11:51:48.442843,89
-616,Standard transaction,35.0,Transport,Electric Scooter Rental,0.0,CONFIRMED,2026-05-12 11:51:53.438059,72
-617,Standard transaction,28.0,Entertainment,Steam,0.0,CONFIRMED,2026-05-12 11:51:58.446132,56
-618,Standard transaction,291.0,Shopping,eBay Purchase,0.0,CONFIRMED,2026-05-12 11:52:03.447846,45
-619,High amount,353.0,Shopping,eBay Purchase,0.3,REJECTED,2026-05-12 11:52:08.447767,4
-620,Anomaly amount; High-risk category (Cyber),4598.0,Cyber,VPN Service,1.0,REJECTED,2026-05-12 11:52:13.439546,93
-621,High amount; High-risk category (Cyber),4744.0,Cyber,VPN Service,0.95,REJECTED,2026-05-12 11:52:18.436048,5
-622,Standard transaction,30.0,Transport,Airport Duty Free,0.0,CONFIRMED,2026-05-12 11:52:23.436616,55
-623,Standard transaction,133.0,Utilities,Software License,0.0,CONFIRMED,2026-05-12 11:52:28.435628,88
-624,Standard transaction,13.0,Beauty,Barber Shop,0.0,CONFIRMED,2026-05-12 11:52:33.44107,34
-625,Standard transaction,10.99,Subscriptions,Apple Music,0.0,CONFIRMED,2026-05-12 11:52:38.436757,5
-626,Standard transaction,92.0,Beauty,Hair Salon,0.0,CONFIRMED,2026-05-12 11:52:43.439451,36
-627,Standard transaction,120.0,Health,Vitamin Store,0.0,CONFIRMED,2026-05-12 11:52:48.437635,42
-628,Anomaly amount,1313.0,Travel,Ryanair,0.5,CONFIRMED,2026-05-12 11:52:53.445124,28
-629,Standard transaction,48.0,Transport,Uber,0.0,CONFIRMED,2026-05-12 11:52:58.443894,95
-630,High-risk category (Cyber),7446.0,Cyber,DarkWeb Entry,0.7,REJECTED,2026-05-12 11:53:03.450383,99
-631,Anomaly amount; High-risk category (Cyber),3558.0,Cyber,VPN Service,1.0,REJECTED,2026-05-12 11:53:08.439867,38
-632,Anomaly amount; High-risk category (Cyber),2220.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-12 11:53:13.445852,63
-633,Standard transaction,10.99,Subscriptions,Spotify,0.0,CONFIRMED,2026-05-12 11:53:18.440671,84
-634,Standard transaction,86.0,Utilities,Waste Tax,0.0,CONFIRMED,2026-05-12 11:53:23.447883,52
-635,Anomaly amount; High-risk category (Cyber),8427.0,Cyber,VPN Service,1.0,REJECTED,2026-05-12 11:53:28.434968,87
-636,High amount,137.0,Beauty,Fragrance Store,0.25,CONFIRMED,2026-05-12 11:53:33.444573,92
-637,Standard transaction,253.0,Shopping,Toy Store,0.0,CONFIRMED,2026-05-12 11:53:38.435043,35
-638,Standard transaction,136.0,Shopping,Bookstore,0.0,CONFIRMED,2026-05-12 11:53:43.444434,97
-639,Standard transaction,5.0,Transport,Luggage Storage,0.0,CONFIRMED,2026-05-12 11:53:48.435117,32
-640,High-risk category (Cyber),1210.0,Cyber,DarkWeb Entry,0.7,REJECTED,2026-05-12 11:53:53.439932,99
-641,Standard transaction,25.0,Transport,Train Ticket,0.0,CONFIRMED,2026-05-12 11:53:58.440255,9
-642,High amount,303.0,Utilities,Electricity Bill,0.4,REJECTED,2026-05-12 11:54:03.442802,71
-643,High amount,251.0,Shopping,Electronics Store,0.25,CONFIRMED,2026-05-12 11:54:08.440601,40
-644,Standard transaction,234.0,Shopping,Electronics Store,0.0,CONFIRMED,2026-05-12 11:54:13.441355,22
-645,Standard transaction,12.0,Subscriptions,Online Newspaper,0.0,CONFIRMED,2026-05-12 11:54:18.44216,24
-646,High amount; High-risk category (Cyber),4916.0,Cyber,VPN Service,0.95,REJECTED,2026-05-12 11:54:23.444385,87
-647,Standard transaction,36.0,Transport,Gas Station,0.0,CONFIRMED,2026-05-12 11:54:28.441507,19
-648,High-risk category (Cyber),8481.0,Cyber,DarkWeb Entry,0.7,REJECTED,2026-05-12 11:54:33.441037,99
-649,High Amount,232.0,Health,Yoga Class,0.3,REJECTED,2026-05-12 11:54:38.436537,48
-650,Anomaly amount; High-risk category (Cyber),9195.0,Cyber,VPN Service,1.0,REJECTED,2026-05-12 11:54:49.335718,6
-651,Anomaly amount; High-risk category (Cyber),6418.0,Cyber,DarkWeb Entry,1.0,REJECTED,2026-05-12 12:03:57.382909,14
-652,Standard transaction,87.0,Health,Personal Trainer Session,0.0,CONFIRMED,2026-05-12 12:16:52.00038,31
-653,Subscription price mismatch (expected $17.99),100.0,Subscriptions,Netflix,0.4,REJECTED,2026-05-12 12:20:00,7
-654,Standard transaction,14.0,Transport,Electric Scooter Rental,0.0,CONFIRMED,2026-05-12 12:31:24.144166,13
-655,Standard transaction,9.99,Subscriptions,HBO Max,0.0,CONFIRMED,2026-05-12 14:43:00,6
-656,Standard transaction,9.99,Subscriptions,HBO Max,0.0,CONFIRMED,2026-05-12 14:43:02,6
-657,Standard transaction,9.99,Subscriptions,HBO Max,0.0,CONFIRMED,2026-05-12 14:43:04,6
-658,Standard transaction,9.99,Subscriptions,HBO Max,0.0,CONFIRMED,2026-05-12 14:43:06,6
-659,High velocity (5 trans. in < 3min),9.99,Subscriptions,HBO Max,0.6,REJECTED,2026-05-12 14:43:08,6
-660,Standard transaction,10.99,Subscriptions,Apple Music,0.0,CONFIRMED,2026-05-12 15:13:07.4373,92
-661,Standard transaction,29.9,Utilities,Book: How to stop a Hacker,0.0,CONFIRMED,2026-05-12 15:15:00,43
-662,High-risk category (Cyber),8232.0,Cyber,VPN Service,0.7,REJECTED,2026-05-12 15:16:00.656253,99
-663,Anomaly amount; High-risk category (Cyber),5022.0,Cyber,Crypto Exchange,1.0,REJECTED,2026-05-12 15:28:07.398379,57
-664,High-risk category (Cyber),1679.0,Cyber,DarkWeb Entry,0.7,REJECTED,2026-05-12 15:28:12.38361,99
-665,Standard transaction,17.99,Subscriptions,Netflix,0.0,CONFIRMED,2026-05-12 15:28:17.387591,64
-666,Standard transaction,26.0,Utilities,VPN Service,0.0,CONFIRMED,2026-05-12 15:28:22.384618,23
-667,Anomaly amount; High-risk category (Cyber),1064.0,Cyber,VPN Service,1.0,REJECTED,2026-05-12 15:28:27.386428,85
-668,Standard transaction,140.0,Beauty,Sephora,0.0,CONFIRMED,2026-05-12 15:28:32.378972,38
-669,Standard transaction,98.0,Food,Supermarket,0.0,CONFIRMED,2026-05-12 15:28:37.388785,98
-670,Standard transaction,34.0,Food,Street Food Festival,0.0,CONFIRMED,2026-05-12 15:28:42.387967,38
-671,Standard transaction,144.0,Shopping,Home Decor,0.0,CONFIRMED,2026-05-12 15:28:47.379043,70
-672,Standard transaction,441.0,Shopping,eBay Purchase,0.0,CONFIRMED,2026-05-12 15:28:52.389418,58
-673,High-risk category (Cyber),2529.0,Cyber,DarkWeb Entry,0.7,REJECTED,2026-05-12 15:28:57.392142,99
-674,High amount,182.0,Health,Massage Therapy,0.3,REJECTED,2026-05-12 15:29:02.389322,72
-675,Standard transaction,40.0,Entertainment,PlayStation Store,0.0,CONFIRMED,2026-05-12 15:29:07.381683,79
-676,Standard transaction,165.0,Shopping,Toy Store,0.0,CONFIRMED,2026-05-12 15:29:12.382916,24
-677,High-risk category (Cyber),3986.0,Cyber,VPN Service,0.7,REJECTED,2026-05-12 15:29:17.390556,99
-678,Standard transaction,10.99,Subscriptions,Apple Music,0.0,CONFIRMED,2026-05-12 15:29:22.37684,46
-679,Standard transaction,55.0,Food,Sushi Bar,0.0,CONFIRMED,2026-05-12 15:29:27.380959,60
-680,Standard transaction,202.0,Clothes,Footwear Store,0.0,CONFIRMED,2026-05-12 15:29:32.386599,90
-681,Standard transaction,8.99,Subscriptions,Disney+,0.0,CONFIRMED,2026-05-12 15:29:37.37582,94
-682,Standard transaction,21.0,Food,Sushi Bar,0.0,CONFIRMED,2026-05-12 15:29:42.382969,29
-683,Standard transaction,10.0,Transport,Electric Scooter Rental,0.0,CONFIRMED,2026-05-12 15:29:46.113851,31
-684,Standard transaction,11.0,Transport,Highway Toll,0.0,CONFIRMED,2026-05-12 15:29:51.102369,36
-685,Standard transaction,251.0,Clothes,Sportswear Shop,0.0,CONFIRMED,2026-05-12 15:29:56.10221,51
-686,High amount; High-risk category (Cyber),1987.0,Cyber,VPN Service,0.95,REJECTED,2026-05-12 15:30:01.112068,54
-687,Standard transaction,58.0,Food,Supermarket,0.0,CONFIRMED,2026-05-12 15:30:06.103451,69
-688,Standard transaction,69.0,Insurance,Travel Insurance,0.0,CONFIRMED,2026-05-12 15:30:11.110149,21
-689,Anomaly amount; High-risk category (Cyber),9724.0,Cyber,VPN Service,1.0,REJECTED,2026-05-12 15:30:16.107542,92
-690,Standard transaction,239.0,Clothes,Sportswear Shop,0.0,CONFIRMED,2026-05-12 15:30:21.108937,51
-691,Standard transaction,84.0,Entertainment,Escape Room,0.0,CONFIRMED,2026-05-12 15:30:26.110507,70
-692,Standard transaction,72.0,Health,Dental Checkup,0.0,CONFIRMED,2026-05-12 15:30:31.108504,11
-693,Standard transaction,151.0,Insurance,Travel Insurance,0.0,CONFIRMED,2026-05-12 15:30:36.110056,25
-694,Standard transaction,12.0,Entertainment,Gym Membership,0.0,CONFIRMED,2026-05-12 15:30:41.111964,74
-695,Standard transaction,115.0,Entertainment,Concert Ticket,0.0,CONFIRMED,2026-05-12 15:30:46.112143,48
-696,Standard transaction,141.0,Health,Dental Checkup,0.0,CONFIRMED,2026-05-12 15:30:51.113692,10
-697,Standard transaction,56.0,Entertainment,Golf Course Fee,0.0,CONFIRMED,2026-05-12 15:30:56.10229,48
-698,Standard transaction,8.99,Subscriptions,Disney+,0.0,CONFIRMED,2026-05-12 15:31:01.110693,59
-699,Standard transaction,159.0,Shopping,Electronics Store,0.0,CONFIRMED,2026-05-12 15:31:06.11302,51
-700,Standard transaction,66.0,Food,Coffee Roastery,0.0,CONFIRMED,2026-05-12 15:31:11.10132,18
-701,Standard transaction,42.0,Transport,Gas Station,0.0,CONFIRMED,2026-05-12 15:31:16.101758,50
-702,Standard transaction,145.0,Beauty,Skincare Clinic,0.0,CONFIRMED,2026-05-12 15:31:21.101438,9
-703,Standard transaction,166.0,Insurance,Pet Insurance,0.0,CONFIRMED,2026-05-12 15:31:26.105691,99
-704,Standard transaction,99.0,Food,Patisserie,0.0,CONFIRMED,2026-05-12 15:31:31.106039,8
-705,Standard transaction,47.0,Transport,Car Wash,0.0,CONFIRMED,2026-05-12 15:31:36.106059,18
-706,High amount,272.0,Shopping,IKEA Furniture,0.25,CONFIRMED,2026-05-12 15:31:41.112589,46
-707,Standard transaction,179.0,Insurance,Health Insurance,0.0,CONFIRMED,2026-05-12 15:31:46.108102,14
-708,High amount,571.0,Travel,Car Rental,0.3,REJECTED,2026-05-12 15:31:51.107609,71
-709,Standard transaction,29.0,Food,Business Lunch,0.0,CONFIRMED,2026-05-12 15:31:56.115691,22
-710,Standard transaction,126.0,Health,Yoga Class,0.0,CONFIRMED,2026-05-12 15:32:01.104191,51
-711,Standard transaction,491.0,Shopping,IKEA Furniture,0.0,CONFIRMED,2026-05-12 15:32:06.110997,28
-712,Standard transaction,91.0,Shopping,Pet Shop Supplies,0.0,CONFIRMED,2026-05-12 15:32:11.102237,16
-713,Standard transaction,384.0,Clothes,Nike Store,0.0,CONFIRMED,2026-05-12 15:32:16.104443,44
-714,Standard transaction,15.0,Transport,Car Wash,0.0,CONFIRMED,2026-05-12 15:32:21.11403,78
-715,High amount,135.0,Beauty,Fragrance Store,0.25,REJECTED,2026-05-12 15:32:26.10875,74
-716,Standard transaction,145.0,Health,Dental Checkup,0.0,CONFIRMED,2026-05-12 15:32:31.104135,50
-717,Standard transaction,243.0,Shopping,Apple Store,0.0,CONFIRMED,2026-05-12 15:32:36.102923,51
-718,Standard transaction,102.0,Food,Poke,0.0,CONFIRMED,2026-05-12 15:32:41.10135,65
-719,Standard transaction,66.0,Insurance,Health Insurance,0.0,CONFIRMED,2026-05-12 15:32:46.101405,22
-720,Standard transaction,33.0,Utilities,Waste Tax,0.0,CONFIRMED,2026-05-12 15:32:51.103961,99
-721,High amount,190.0,Utilities,Mobile Phone Plan,0.2,REJECTED,2026-05-12 15:32:56.112554,79
-722,Standard transaction,65.0,Food,Wine Shop,0.0,CONFIRMED,2026-05-12 15:33:01.106136,52
-723,Standard transaction,337.0,Shopping,Bookstore,0.0,REJECTED,2026-05-12 15:33:06.106365,90
-724,Anomaly amount,450.0,Shopping,eBay Purchase,0.5,REJECTED,2026-05-12 15:33:11.111571,7
-725,Standard transaction,91.0,Entertainment,Escape Room,0.0,CONFIRMED,2026-05-12 15:33:16.104492,70
-726,High-risk category (Cyber),6897.0,Cyber,VPN Service,0.7,REJECTED,2026-05-12 15:33:21.107135,99
-727,Standard transaction,10.99,Subscriptions,Spotify,0.0,CONFIRMED,2026-05-12 15:33:26.102847,100
-728,Standard transaction,132.0,Utilities,Water Bill,0.0,CONFIRMED,2026-05-12 15:33:31.11077,49
-729,Standard transaction,57.0,Transport,Car Wash,0.0,CONFIRMED,2026-05-12 15:33:36.114056,51
-730,High amount,345.0,Shopping,Office Supplies,0.25,REJECTED,2026-05-12 15:33:41.112424,32
-731,High-risk category (Cyber),6287.0,Cyber,VPN Service,0.7,REJECTED,2026-05-12 15:33:46.115172,99
-732,Standard transaction,63.0,Insurance,Pet Insurance,0.0,CONFIRMED,2026-05-12 15:33:51.106332,41
-733,Standard transaction,168.0,Clothes,Clothing Boutique,0.0,CONFIRMED,2026-05-12 15:33:56.102296,8
-734,High amount,355.0,Shopping,Amazon,0.25,CONFIRMED,2026-05-12 15:34:01.109483,94
-735,Standard transaction,49.0,Transport,Highway Toll,0.0,CONFIRMED,2026-05-12 15:34:06.102133,86
-736,Standard transaction,49.0,Food,Sushi Bar,0.0,CONFIRMED,2026-05-12 15:34:11.100298,78
-737,Standard transaction,140.0,Entertainment,PlayStation Store,0.0,CONFIRMED,2026-05-12 15:34:16.113657,39
-738,Standard transaction,16.0,Transport,Bike Rental,0.0,CONFIRMED,2026-05-12 15:34:21.101904,80
+"ID","AI_REASON","AMOUNT","CATEGORY","DESCRIPTION","RISK_SCORE","STATUS","TIMESTAMP","USER_ID"
+"1","New user with significant amount; High-risk category (Cyber)","7010.0","Cyber","Crypto Exchange","0.8999999999999999","REJECTED","2026-05-04 13:20:27.552437","99"
+"2","New user with significant amount; High-risk category (Cyber)","7738.0","Cyber","VPN Service","0.8999999999999999","REJECTED","2026-05-04 13:40:27.673485","25"
+"3","Standard transaction","384.0","Shopping","IKEA Furniture","0.0","CONFIRMED","2026-05-04 14:00:27.680004","87"
+"4","Standard transaction","37.0","Beauty","Fragrance Store","0.0","CONFIRMED","2026-05-04 14:20:27.684033","22"
+"5","Standard transaction","19.0","Health","Doctor Visit","0.0","CONFIRMED","2026-05-04 14:40:27.688353","75"
+"6","Standard transaction","20.0","Transport","Parking Fee","0.0","CONFIRMED","2026-05-04 15:00:27.69239","38"
+"7","Standard transaction","101.0","Beauty","Lush Cosmetics","0.0","CONFIRMED","2026-05-04 15:20:27.696875","18"
+"8","Standard transaction","9.99","Subscriptions","HBO Max","0.0","CONFIRMED","2026-05-04 15:40:27.700881","96"
+"9","New user with significant amount; High-risk category (Cyber)","6688.0","Cyber","Crypto Exchange","0.8999999999999999","REJECTED","2026-05-04 16:00:27.705389","6"
+"10","Standard transaction","438.0","Travel","Travel Agency Package","0.0","CONFIRMED","2026-05-04 16:20:27.709402","70"
+"11","New user with significant amount; High-risk category (Cyber)","8568.0","Cyber","DarkWeb Entry","0.8999999999999999","REJECTED","2026-05-04 16:40:27.714403","77"
+"12","Standard transaction","131.0","Beauty","Spa Treatment","0.0","CONFIRMED","2026-05-04 17:00:27.719829","20"
+"13","Anomaly amount","39.0","Transport","Parking Fee","0.5","REJECTED","2026-05-04 17:20:27.724948","96"
+"14","Standard transaction","107.0","Beauty","Makeup Artist","0.0","CONFIRMED","2026-05-04 17:40:27.73715","1"
+"15","Standard transaction","317.0","Utilities","Online Course Subscription","0.0","CONFIRMED","2026-05-04 18:00:27.742176","32"
+"16","New user with significant amount; High-risk category (Cyber)","8098.0","Cyber","VPN Service","0.8999999999999999","REJECTED","2026-05-04 18:20:27.747472","42"
+"17","Standard transaction","28.0","Transport","Car Wash","0.0","CONFIRMED","2026-05-04 18:40:27.752405","59"
+"18","Standard transaction","212.0","Entertainment","Steam","0.0","CONFIRMED","2026-05-04 19:00:27.758017","76"
+"19","Standard transaction","8.99","Subscriptions","Disney+","0.0","CONFIRMED","2026-05-04 19:20:27.763603","98"
+"20","High Amount","264.0","Utilities","Cloud Storage (iCloud/Drive)","0.3","REJECTED","2026-05-04 19:40:27.769757","23"
+"21","Standard transaction","29.0","Beauty","Lush Cosmetics","0.0","CONFIRMED","2026-05-04 20:00:27.77756","52"
+"22","Standard transaction","914.0","Travel","Ryanair","0.0","CONFIRMED","2026-05-04 20:20:27.786241","66"
+"23","Standard transaction","319.0","Clothes","Pull&Bear","0.0","CONFIRMED","2026-05-04 20:40:27.791913","2"
+"24","Standard transaction","58.0","Transport","Public Transport Pass","0.0","CONFIRMED","2026-05-04 21:00:27.799057","93"
+"25","Standard transaction","147.0","Entertainment","PlayStation Store","0.0","CONFIRMED","2026-05-04 21:20:27.803465","28"
+"26","High amount","381.0","Shopping","Pet Shop Supplies","0.3","REJECTED","2026-05-04 21:40:27.810164","29"
+"27","Unusual nighttime hour","147.0","Utilities","VPN Service","0.15","CONFIRMED","2026-05-04 22:00:27.818392","100"
+"28","Anomaly amount; Unusual nighttime hour","593.0","Shopping","Office Supplies","0.65","REJECTED","2026-05-04 22:20:27.822901","22"
+"29","Unusual nighttime hour","74.0","Food","Patisserie","0.15","CONFIRMED","2026-05-04 22:40:27.827432","49"
+"30","Unusual nighttime hour","58.0","Food","Patisserie","0.15","CONFIRMED","2026-05-04 23:00:27.834023","82"
+"31","Unusual nighttime hour","436.0","Clothes","Footwear Store","0.15","REJECTED","2026-05-04 23:20:27.838488","90"
+"32","Unusual nighttime hour","76.0","Shopping","Pet Shop Supplies","0.15","REJECTED","2026-05-04 23:40:27.843489","19"
+"33","Unusual nighttime hour","92.0","Beauty","Skincare Clinic","0.15","REJECTED","2026-05-05 00:00:27.852255","21"
+"34","Unusual nighttime hour","50.0","Transport","Car Wash","0.15","REJECTED","2026-05-05 00:20:27.857773","63"
+"35","Unusual nighttime hour","18.0","Beauty","Spa Treatment","0.15","REJECTED","2026-05-05 00:40:27.863773","11"
+"36","New user with significant amount; High-risk category (Cyber); Unusual nighttime hour","1893.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-05 01:00:27.869308","30"
+"37","Anomaly amount; High-risk category (Cyber); Unusual nighttime hour","555.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-05 01:20:27.873494","18"
+"38","Unusual nighttime hour","28.0","Transport","Train Ticket","0.15","REJECTED","2026-05-05 01:40:27.880352","15"
+"39","Unusual nighttime hour","12.0","Subscriptions","Online Newspaper","0.15","CONFIRMED","2026-05-05 02:00:27.885936","98"
+"40","Unusual nighttime hour","100.0","Food","McDonalds","0.15","CONFIRMED","2026-05-05 02:20:27.892781","84"
+"41","Unusual nighttime hour","181.0","Shopping","Amazon","0.15","CONFIRMED","2026-05-05 02:40:27.89976","10"
+"42","Unusual nighttime hour","54.0","Transport","Electric Scooter Rental","0.15","REJECTED","2026-05-05 03:00:27.907647","29"
+"43","Unusual nighttime hour","204.0","Clothes","Hollister","0.15","REJECTED","2026-05-05 03:20:27.915154","12"
+"44","Unusual nighttime hour","34.0","Food","Farmers Market","0.15","REJECTED","2026-05-05 03:40:27.922675","25"
+"45","High amount; Unusual nighttime hour","299.0","Health","Personal Trainer Session","0.4","REJECTED","2026-05-05 04:00:27.92821","20"
+"46","High-risk category (Cyber); Unusual nighttime hour","9873.0","Cyber","VPN Service","0.85","REJECTED","2026-05-05 04:20:27.935318","99"
+"47","Unusual nighttime hour","117.0","Food","Gourmet Market","0.15","REJECTED","2026-05-05 04:40:27.940941","36"
+"48","Unusual nighttime hour","85.0","Food","Sushi Bar","0.15","REJECTED","2026-05-05 05:00:27.946597","74"
+"49","Anomaly amount; Unusual nighttime hour","298.0","Health","Optician Visit","0.65","REJECTED","2026-05-05 05:20:27.951595","96"
+"50","Unusual nighttime hour, not for automatic renewal; Subscription price mismatch (expected $8.99)","88.99","Subscriptions","Disney+","0.5","REJECTED","2026-05-05 05:10:00","37"
+"51","Unusual nighttime hour, not for automatic renewal; Subscription price mismatch (expected $8.99)","88.99","Subscriptions","Disney+","0.5","REJECTED","2026-05-05 05:12:00","37"
+"52","Unusual nighttime hour","92.0","Utilities","Electricity Bill","0.15","REJECTED","2026-05-05 05:40:27.956106","80"
+"53","Unusual nighttime hour, not for automatic renewal","9.99","Subscriptions","HBO Max","0.1","CONFIRMED","2026-05-05 06:00:27.961108","86"
+"54","Unusual nighttime hour","78.0","Food","Food Truck","0.15","REJECTED","2026-05-05 06:20:27.966219","68"
+"55","Unusual nighttime hour","35.0","Clothes","Children's Clothing","0.15","REJECTED","2026-05-05 06:40:27.969649","53"
+"56","Standard transaction","99.0","Food","McDonalds","0.0","CONFIRMED","2026-05-05 07:00:27.973658","23"
+"57","Standard transaction","272.0","Clothes","Clothing Boutique","0.0","CONFIRMED","2026-05-05 07:20:27.979183","37"
+"58","New user with significant amount; High-risk category (Cyber)","2208.0","Cyber","DarkWeb Entry","0.8999999999999999","REJECTED","2026-05-05 07:40:27.983183","45"
+"59","Anomaly amount","930.0","Insurance","Travel Insurance","0.5","REJECTED","2026-05-05 08:00:27.987708","45"
+"60","Standard transaction","231.0","Shopping","eBay Purchase","0.0","CONFIRMED","2026-05-05 08:20:27.993299","48"
+"61","Standard transaction","4.99","Subscriptions","Amazon Prime","0.0","CONFIRMED","2026-05-05 08:40:28.000447","39"
+"62","Standard transaction","36.0","Utilities","Waste Tax","0.0","CONFIRMED","2026-05-05 09:00:28.004956","65"
+"63","High amount","266.0","Health","Yoga Class","0.3","REJECTED","2026-05-05 09:20:28.010241","51"
+"64","Standard transaction","32.0","Transport","Gas Station","0.0","CONFIRMED","2026-05-05 09:40:28.017191","35"
+"65","High amount","328.0","Utilities","Mobile Phone Plan","0.3","REJECTED","2026-05-05 10:00:28.022705","32"
+"66","Standard transaction","177.0","Utilities","Software License","0.0","CONFIRMED","2026-05-05 10:20:28.029232","97"
+"67","Standard transaction","11.0","Transport","Public Transport Pass","0.0","CONFIRMED","2026-05-05 10:40:28.03675","40"
+"68","Anomaly amount; High-risk category (Cyber)","2209.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-05 11:00:28.040746","19"
+"69","Standard transaction","10.99","Subscriptions","Spotify","0.0","CONFIRMED","2026-05-05 11:20:28.043747","53"
+"70","Standard transaction","150.0","Beauty","Sephora","0.0","CONFIRMED","2026-05-05 11:40:28.048291","97"
+"71","Anomaly amount","78.0","Utilities","Cloud Storage (iCloud/Drive)","0.5","CONFIRMED","2026-05-05 12:00:28.051268","98"
+"72","Standard transaction","12.0","Subscriptions","Online Newspaper","0.0","CONFIRMED","2026-05-05 12:10:28.055772","17"
+"73","Standard transaction","24.5","Utilities","Internet Provider","0.0","CONFIRMED","2026-05-05 12:15:00","42"
+"74","Standard transaction","27.5","Utilities","Internet Provider","0.0","CONFIRMED","2026-05-05 12:15:02","42"
+"75","Standard transaction","30.5","Utilities","Internet Provider","0.0","CONFIRMED","2026-05-05 12:15:04","42"
+"76","Standard transaction","33.5","Utilities","Internet Provider","0.0","CONFIRMED","2026-05-05 12:15:06","42"
+"77","High velocity (5 trans. in < 3min)","15.0","Utilities","Internet Provider","0.6","REJECTED","2026-05-05 12:15:08","42"
+"78","Standard transaction","84.0","Beauty","Sephora","0.0","CONFIRMED","2026-05-05 12:40:28.05878","56"
+"79","Standard transaction","9.99","Subscriptions","HBO Max","0.0","CONFIRMED","2026-05-05 13:00:28.060809","54"
+"80","High amount","289.0","Health","Optician Visit","0.3","REJECTED","2026-05-05 13:20:28.06378","37"
+"81","High amount","308.0","Shopping","Amazon","0.1","CONFIRMED","2026-05-05 13:40:28.068316","11"
+"82","Subscription price mismatch (expected $10.99)","50.0","Subscriptions","Apple Music","0.4","REJECTED","2026-05-05 13:50:00","61"
+"83","Standard transaction","171.0","Utilities","Internet Provider","0.0","CONFIRMED","2026-05-05 14:00:28.070314","23"
+"84","Standard transaction","162.0","Shopping","Office Supplies","0.0","CONFIRMED","2026-05-05 14:20:28.074316","62"
+"85","Standard transaction","4.99","Subscriptions","Amazon Prime","0.0","CONFIRMED","2026-05-05 14:40:28.076824","38"
+"86","Anomaly amount","96.0","Food","Street Food Festival","0.5","REJECTED","2026-05-05 15:00:28.080825","38"
+"87","New user with significant amount; High-risk category (Cyber)","9388.0","Cyber","Crypto Exchange","0.8999999999999999","REJECTED","2026-05-05 15:20:28.083827","13"
+"88","Standard transaction","54.0","Beauty","Lush Cosmetics","0.0","CONFIRMED","2026-05-05 15:40:28.086378","42"
+"89","High amount","317.0","Utilities","Cloud Storage (iCloud/Drive)","0.3","REJECTED","2026-05-05 16:00:28.090379","72"
+"90","Standard transaction","57.0","Health","Yoga Class","0.0","CONFIRMED","2026-05-05 16:20:28.094887","64"
+"91","Anomaly amount","287.0","Health","Vitamin Store","0.5","REJECTED","2026-05-05 16:40:28.099907","98"
+"92","High amount","201.0","Entertainment","Escape Room","0.3","REJECTED","2026-05-05 17:00:28.104907","96"
+"93","Standard transaction","58.0","Transport","Uber","0.0","CONFIRMED","2026-05-05 17:20:28.110441","80"
+"94","New user with significant amount; High-risk category (Cyber)","6955.0","Cyber","DarkWeb Entry","0.8999999999999999","REJECTED","2026-05-05 17:40:28.119978","69"
+"95","High amount","1130.0","Travel","Hotel Booking","0.25","CONFIRMED","2026-05-05 18:00:28.126026","87"
+"96","High-risk category (Cyber)","7676.0","Cyber","DarkWeb Entry","0.7","REJECTED","2026-05-05 18:20:28.13102","99"
+"97","Standard transaction","111.0","Entertainment","Golf Course Fee","0.0","CONFIRMED","2026-05-05 18:40:28.135082","99"
+"98","Standard transaction","32.0","Food","Supermarket","0.0","CONFIRMED","2026-05-05 19:00:28.139633","42"
+"99","Standard transaction","19.99","Utilities","Book - Hacker Ethics and Computer Security","0.0","CONFIRMED","2026-05-05 19:15:00","35"
+"100","Standard transaction","19.99","Utilities","Book - Hacker Ethics and Computer Security","0.0","CONFIRMED","2026-05-05 19:15:00","35"
+"101","Anomaly amount","1061.0","Travel","Airbnb Stay","0.5","CONFIRMED","2026-05-05 19:20:28.144792","23"
+"102","Standard transaction","4.99","Subscriptions","Amazon Prime","0.0","CONFIRMED","2026-05-05 19:40:28.150948","54"
+"103","Standard transaction","34.99","Subscriptions","LinkedIn Premium","0.0","CONFIRMED","2026-05-05 20:00:28.155464","49"
+"104","Standard transaction","179.0","Shopping","Apple Store","0.0","CONFIRMED","2026-05-05 20:20:28.161483","32"
+"105","Anomaly amount; High-risk category (Cyber)","796.0","Cyber","DarkWeb Entry","1.0","REJECTED","2026-05-05 20:40:28.168035","35"
+"106","Anomaly amount; High-risk category (Cyber)","9974.0","Cyber","VPN Service","1.0","REJECTED","2026-05-05 21:00:28.174029","11"
+"107","Anomaly amount","539.0","Travel","Ryanair","0.5","CONFIRMED","2026-05-05 21:20:28.18133","63"
+"108","Anomaly amount","202.0","Health","Dental Checkup","0.5","REJECTED","2026-05-05 21:40:28.188961","59"
+"109","Unusual nighttime hour","11.0","Entertainment","Steam","0.15","CONFIRMED","2026-05-05 22:00:28.195375","62"
+"110","High amount; Unusual nighttime hour","447.0","Shopping","Home Decor","0.4","CONFIRMED","2026-05-05 22:20:28.202513","10"
+"111","Unusual nighttime hour","45.0","Transport","Car Wash","0.15","CONFIRMED","2026-05-05 22:40:28.209237","92"
+"112","Unusual nighttime hour","58.0","Clothes","Children's Clothing","0.15","CONFIRMED","2026-05-05 23:00:28.215663","65"
+"113","Unusual nighttime hour","77.0","Food","Patisserie","0.15","CONFIRMED","2026-05-05 23:20:28.223333","74"
+"114","Unusual nighttime hour","601.0","Travel","Hotel Booking","0.15","CONFIRMED","2026-05-05 23:40:28.230076","25"
+"115","High-risk category (Cyber); Unusual nighttime hour","9401.0","Cyber","Crypto Exchange","0.85","REJECTED","2026-05-06 00:00:28.238374","99"
+"116","Unusual nighttime hour","65.0","Beauty","Fragrance Store","0.15","REJECTED","2026-05-06 00:20:28.246917","16"
+"117","Unusual nighttime hour","15.0","Transport","Car Wash","0.15","REJECTED","2026-05-06 00:40:28.252364","30"
+"118","High-risk category (Cyber); Unusual nighttime hour","9167.0","Cyber","Crypto Exchange","0.85","REJECTED","2026-05-06 01:00:28.258009","99"
+"119","Unusual nighttime hour","34.99","Shopping","Amazon","0.15","CONFIRMED","2026-05-06 01:11:00","13"
+"120","Unusual nighttime hour","12.99","Shopping","Amazon","0.15","CONFIRMED","2026-05-06 01:19:00","13"
+"121","Unusual nighttime hour","63.0","Food","Gourmet Market","0.15","REJECTED","2026-05-06 01:20:28.266203","21"
+"122","Anomaly amount; Unusual nighttime hour","398.0","Clothes","Hollister","0.65","REJECTED","2026-05-06 01:40:28.273456","82"
+"123","Suspicious keyword in non-cyber category; Unusual nighttime hour","1100.99","Travel","Hire-a-Hacker professional services deposit","0.85","REJECTED","2026-05-06 01:41:00","82"
+"124","Unusual nighttime hour","87.0","Food","Coffee Roastery","0.15","REJECTED","2026-05-06 02:00:28.280988","33"
+"125","Unusual nighttime hour","12.0","Beauty","Nail Salon","0.15","REJECTED","2026-05-06 02:20:28.286214","35"
+"126","Unusual nighttime hour","454.0","Travel","Travel Agency Package","0.15","REJECTED","2026-05-06 02:40:28.291802","23"
+"127","New user with significant amount; Unusual nighttime hour","1315.0","Travel","Car Rental","0.35","REJECTED","2026-05-06 03:00:28.298379","9"
+"128","Unusual nighttime hour","222.0","Entertainment","Gym Membership","0.15","REJECTED","2026-05-06 03:20:28.301377","35"
+"129","Unusual nighttime hour","167.0","Entertainment","Gym Membership","0.15","REJECTED","2026-05-06 03:40:28.307035","77"
+"130","Anomaly amount; Unusual nighttime hour","509.0","Insurance","Travel Insurance","0.65","REJECTED","2026-05-06 04:00:28.312049","98"
+"131","Unusual nighttime hour","593.0","Travel","Travel Agency Package","0.15","REJECTED","2026-05-06 04:20:28.318531","57"
+"132","Unusual nighttime hour, not for automatic renewal","34.99","Subscriptions","LinkedIn Premium","0.1","CONFIRMED","2026-05-06 04:40:28.322537","64"
+"133","Unusual nighttime hour, not for automatic renewal","8.99","Subscriptions","Disney+","0.1","CONFIRMED","2026-05-06 05:00:28.327194","13"
+"134","Unusual nighttime hour","54.0","Transport","Public Transport Pass","0.15","REJECTED","2026-05-06 05:20:28.332368","55"
+"135","Unusual nighttime hour","115.0","Food","Patisserie","0.15","REJECTED","2026-05-06 05:40:28.337887","62"
+"136","High-risk category (Cyber); Unusual nighttime hour","5348.0","Cyber","Crypto Exchange","0.85","REJECTED","2026-05-06 06:00:28.341945","99"
+"137","Unusual nighttime hour","150.0","Clothes","Nike Store","0.15","REJECTED","2026-05-06 06:20:28.347475","97"
+"138","Unusual nighttime hour","20.0","Entertainment","Cinema","0.15","REJECTED","2026-05-06 06:40:28.351479","82"
+"139","Anomaly amount","250.0","Health","Personal Trainer Session","0.5","REJECTED","2026-05-06 07:00:28.356097","86"
+"140","Standard transaction","9.0","Transport","Airport Duty Free","0.0","CONFIRMED","2026-05-06 07:20:28.35908","81"
+"141","Standard transaction","51.0","Beauty","Amazon","0.0","CONFIRMED","2026-05-06 07:40:28.366984","61"
+"142","Anomaly amount; High-risk category (Cyber)","6740.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-06 08:00:28.377263","84"
+"143","High amount","211.0","Utilities","Mobile Phone Plan","0.3","REJECTED","2026-05-06 08:20:28.381274","66"
+"144","Standard transaction","100.0","Shopping","Apple Store","0.0","CONFIRMED","2026-05-06 08:40:28.383277","46"
+"145","Standard transaction","129.0","Health","Pharmacy","0.0","CONFIRMED","2026-05-06 09:00:28.385807","63"
+"146","Anomaly amount","638.0","Insurance","Travel Insurance","0.5","REJECTED","2026-05-06 09:20:28.388806","100"
+"147","Standard transaction","141.0","Beauty","Spa Treatment","0.0","CONFIRMED","2026-05-06 09:40:28.391071","79"
+"148","Standard transaction","271.0","Shopping","Bookstore","0.0","CONFIRMED","2026-05-06 10:00:28.394397","30"
+"149","Standard transaction","30.0","Transport","Gas Station","0.0","CONFIRMED","2026-05-06 10:20:28.399921","6"
+"150","High amount","199.0","Entertainment","Tennis Court Rental","0.3","REJECTED","2026-05-06 10:40:28.404921","41"
+"151","New user with significant amount","1479.0","Travel","Travel Agency Package","0.2","CONFIRMED","2026-05-06 11:00:28.408438","24"
+"152","New user with significant amount; High-risk category (Cyber)","5992.0","Cyber","VPN Service","0.8999999999999999","REJECTED","2026-05-06 11:20:28.410441","43"
+"153","Anomaly amount","1349.0","Insurance","Travel Insurance","0.5","REJECTED","2026-05-06 11:40:28.414957","3"
+"154","Anomaly amount; High-risk category (Cyber)","7628.0","Cyber","VPN Service","1.0","REJECTED","2026-05-06 12:00:28.417479","2"
+"155","Standard transaction","36.0","Health","Optician Visit","0.0","CONFIRMED","2026-05-06 12:20:28.422042","49"
+"156","Anomaly amount","59.0","Health","Dental Checkup","0.5","CONFIRMED","2026-05-06 12:40:28.425183","75"
+"157","Standard transaction","4.99","Utilities","VPN Service","0.0","CONFIRMED","2026-05-06 12:53:00","21"
+"158","Standard transaction","4.99","Utilities","VPN Service","0.0","CONFIRMED","2026-05-06 12:53:02","21"
+"159","Standard transaction","4.99","Utilities","VPN Service","0.0","CONFIRMED","2026-05-06 12:53:04","21"
+"160","Standard transaction","4.99","Utilities","VPN Service","0.0","CONFIRMED","2026-05-06 12:53:06","21"
+"161","High velocity (5 trans. in < 3min)","4.99","Utilities","VPN Service","0.6","REJECTED","2026-05-06 12:53:08","21"
+"162","Standard transaction","115.0","Beauty","Amazon","0.0","CONFIRMED","2026-05-06 13:00:28.429192","34"
+"163","Standard transaction","42.0","Insurance","Health Insurance","0.0","CONFIRMED","2026-05-06 13:20:28.432437","99"
+"164","New user with significant amount; High-risk category (Cyber)","9295.0","Cyber","DarkWeb Entry","0.8999999999999999","REJECTED","2026-05-06 13:40:28.435954","31"
+"165","Standard transaction","91.0","Food","Wine Shop","0.0","CONFIRMED","2026-05-06 14:00:28.437954","49"
+"166","Standard transaction","219.0","Health","Optician Visit","0.0","CONFIRMED","2026-05-06 14:20:28.441447","88"
+"167","Anomaly amount","221.0","Utilities","Software License","0.5","CONFIRMED","2026-05-06 14:40:28.444885","65"
+"168","Standard transaction","56.0","Transport","Car Wash","0.0","CONFIRMED","2026-05-06 15:00:28.449354","56"
+"169","High-risk category (Cyber)","5734.0","Cyber","VPN Service","0.7","REJECTED","2026-05-06 15:20:28.452417","99"
+"170","Standard transaction","98.0","Clothes","Zara","0.0","CONFIRMED","2026-05-06 15:40:28.455914","50"
+"171","Anomaly amount","556.0","Insurance","Travel Insurance","0.5","REJECTED","2026-05-06 16:00:28.45896","97"
+"172","High amount","267.0","Health","Pharmacy","0.3","REJECTED","2026-05-06 16:20:28.463301","47"
+"173","Anomaly amount; High-risk category (Cyber)","6756.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-06 16:40:28.46637","70"
+"174","High amount","182.0","Travel","Airbnb Stay","0.3","CONFIRMED","2026-05-06 17:00:28.469698","15"
+"175","Standard transaction","369.0","Clothes","Sportswear Shop","0.0","CONFIRMED","2026-05-06 17:20:28.471708","4"
+"176","Subscription price mismatch (expected $4.99)","99.99","Subscriptions","Amazon Prime","0.4","REJECTED","2026-05-06 17:30:00","45"
+"177","Anomaly amount; High-risk category (Cyber)","2739.0","Cyber","VPN Service","1.0","REJECTED","2026-05-06 17:40:28.475196","39"
+"178","Anomaly amount; High-risk category (Cyber)","6725.0","Cyber","DarkWeb Entry","1.0","REJECTED","2026-05-06 18:00:28.478213","33"
+"179","Standard transaction","32.0","Food","Pizza Delivery","0.0","CONFIRMED","2026-05-06 18:20:28.482269","82"
+"180","New user with significant amount; High-risk category (Cyber)","5540.0","Cyber","DarkWeb Entry","0.8999999999999999","REJECTED","2026-05-06 18:40:28.485289","5"
+"181","Anomaly amount","577.0","Shopping","Amazon","0.5","CONFIRMED","2026-05-06 19:00:28.487829","93"
+"182","Standard transaction","189.0","Health","Vitamin Store","0.0","CONFIRMED","2026-05-06 19:20:28.490831","10"
+"183","Standard transaction","555.0","Travel","Travel Agency Package","0.0","CONFIRMED","2026-05-06 19:40:28.493827","39"
+"184","Anomaly amount","138.0","Shopping","Electronics Store","0.5","CONFIRMED","2026-05-06 20:00:28.497356","92"
+"185","Standard transaction","8.99","Subscriptions","Disney+","0.0","CONFIRMED","2026-05-06 20:20:28.49936","33"
+"186","Standard transaction","48.0","Utilities","Electricity Bill","0.0","CONFIRMED","2026-05-06 20:40:28.502357","4"
+"187","Standard transaction","119.0","Food","Street Food Festival","0.0","CONFIRMED","2026-05-06 21:00:28.504356","45"
+"188","Standard transaction","50.0","Beauty","Hair Salon","0.0","CONFIRMED","2026-05-06 21:20:28.508428","12"
+"189","Standard transaction","59.0","Transport","Airport Duty Free","0.0","CONFIRMED","2026-05-06 21:40:28.517046","8"
+"190","Unusual nighttime hour","28.0","Transport","Train Ticket","0.1","CONFIRMED","2026-05-06 22:00:28.524931","62"
+"191","Anomaly amount; High-risk category (Cyber); Unusual nighttime hour","1231.0","Cyber","DarkWeb Entry","1.0","REJECTED","2026-05-06 22:20:28.537056","54"
+"192","Unusual nighttime hour","31.95","Beauty","Amazon","0.15","CONFIRMED","2026-05-06 22:32:00","93"
+"193","Unusual nighttime hour","196.0","Insurance","Travel Insurance","0.1","CONFIRMED","2026-05-06 22:40:28.540405","42"
+"194","Unusual nighttime hour","99.0","Utilities","Water Bill","0.1","CONFIRMED","2026-05-06 23:00:28.544049","84"
+"195","Unusual nighttime hour","43.0","Transport","Uber","0.1","CONFIRMED","2026-05-06 23:20:28.550815","55"
+"196","Unusual nighttime hour","29.0","Beauty","Hair Salon","0.15","REJECTED","2026-05-06 23:40:28.556135","47"
+"197","Unusual nighttime hour","80.0","Beauty","Amazon","0.1","CONFIRMED","2026-05-07 00:00:28.560134","56"
+"198","Unusual nighttime hour","48.0","Transport","Public Transport Pass","0.15","REJECTED","2026-05-07 00:20:28.565845","10"
+"199","Unusual nighttime hour","190.0","Entertainment","Concert Ticket","0.15","REJECTED","2026-05-07 00:40:28.573297","4"
+"200","Unusual nighttime hour","45.0","Transport","Public Transport Pass","0.15","REJECTED","2026-05-07 01:00:28.587001","6"
+"201","Unusual nighttime hour","285.0","Clothes","Nike Store","0.15","REJECTED","2026-05-07 01:20:28.590395","19"
+"202","Unusual nighttime hour","108.0","Travel","Car Rental","0.15","REJECTED","2026-05-07 01:40:28.596122","80"
+"203","Unusual nighttime hour","299.0","Utilities","Online Course Subscription","0.15","REJECTED","2026-05-07 02:00:28.600144","7"
+"204","Anomaly amount; High-risk category (Cyber); Unusual nighttime hour","7862.0","Cyber","DarkWeb Entry","1.0","REJECTED","2026-05-07 02:20:28.602143","45"
+"205","Anomaly amount; High-risk category (Cyber); Unusual nighttime hour","4209.0","Cyber","DarkWeb Entry","1.0","REJECTED","2026-05-07 02:40:28.606754","56"
+"206","Unusual nighttime hour","44.0","Beauty","Fragrance Store","0.15","REJECTED","2026-05-07 03:00:28.609762","70"
+"207","Anomaly amount; Unusual nighttime hour","1388.0","Travel","Ryanair","0.65","REJECTED","2026-05-07 03:20:28.614242","93"
+"208","Anomaly amount; Unusual nighttime hour","425.0","Insurance","Travel Insurance","0.65","REJECTED","2026-05-07 03:40:28.617585","53"
+"209","High amount; Unusual nighttime hour","145.0","Entertainment","Amusement Park","0.4","REJECTED","2026-05-07 04:00:28.621595","8"
+"210","Unusual nighttime hour","238.0","Utilities","Electricity Bill","0.15","REJECTED","2026-05-07 04:20:28.625253","41"
+"211","Anomaly amount; Unusual nighttime hour","778.0","Travel","Ryanair","0.65","REJECTED","2026-05-07 04:40:28.629262","88"
+"212","Unusual nighttime hour","63.0","Clothes","Children's Clothing","0.15","REJECTED","2026-05-07 05:00:28.634208","46"
+"213","Unusual nighttime hour","236.0","Entertainment","Museum Entry","0.15","REJECTED","2026-05-07 05:20:28.647878","25"
+"214","Unusual nighttime hour","108.0","Utilities","Waste Tax","0.15","REJECTED","2026-05-07 05:40:28.651873","41"
+"215","Unusual nighttime hour, not for automatic renewal","4.99","Subscriptions","Amazon Prime","0.1","CONFIRMED","2026-05-07 06:00:28.653872","88"
+"216","High-risk category (Cyber); Unusual nighttime hour","7394.0","Cyber","Crypto Exchange","0.85","REJECTED","2026-05-07 06:20:28.657151","99"
+"217","Unusual nighttime hour","86.0","Food","Business Lunch","0.15","CONFIRMED","2026-05-07 06:40:28.659132","16"
+"218","Standard transaction","386.0","Insurance","Travel Insurance","0.0","CONFIRMED","2026-05-07 07:00:28.663606","11"
+"219","Standard transaction","10.99","Subscriptions","Apple Music","0.0","CONFIRMED","2026-05-07 07:20:28.666165","97"
+"220","Suspicious keyword in non-cyber category","110.0","Food","Premium DarkWeb Forum Access - Lifetime","0.7","REJECTED","2026-05-07 07:30:00","77"
+"221","Standard transaction","225.0","Entertainment","Golf Course Fee","0.0","CONFIRMED","2026-05-07 07:40:28.669522","33"
+"222","Standard transaction","24.5","Entertainment","Steam","0.0","CONFIRMED","2026-05-07 07:52:00","71"
+"223","Standard transaction","27.5","Entertainment","Steam","0.0","CONFIRMED","2026-05-07 07:52:02","71"
+"224","Standard transaction","30.5","Entertainment","Steam","0.0","CONFIRMED","2026-05-07 07:52:04","71"
+"225","Standard transaction","33.5","Entertainment","Steam","0.0","CONFIRMED","2026-05-07 07:52:06","71"
+"226","High velocity (5 trans. in < 3min)","15.0","Entertainment","Steam","0.6","REJECTED","2026-05-07 07:52:08","71"
+"227","Standard transaction","204.0","Utilities","Software License","0.0","CONFIRMED","2026-05-07 08:00:28.671521","18"
+"228","Standard transaction","19.99","Utilities","Book - Hacker Ethics and Computer Security","0.0","CONFIRMED","2026-05-07 08:10:00","16"
+"229","Standard transaction","81.0","Entertainment","Bowling Alley","0.0","CONFIRMED","2026-05-07 08:20:28.673539","14"
+"230","High amount","261.0","Clothes","Hollister","0.25","CONFIRMED","2026-05-07 08:40:28.676076","65"
+"231","High amount","245.0","Health","Dental Checkup","0.3","REJECTED","2026-05-07 09:00:28.68006","86"
+"232","Standard transaction","72.0","Food","Farmers Market","0.0","CONFIRMED","2026-05-07 09:20:28.682055","13"
+"233","Standard transaction","33.0","Clothes","Nike Store","0.0","CONFIRMED","2026-05-07 09:40:28.685057","7"
+"234","Standard transaction","21.0","Transport","Airport Duty Free","0.0","CONFIRMED","2026-05-07 10:00:28.687515","9"
+"235","Standard transaction","82.0","Clothes","Zara","0.0","CONFIRMED","2026-05-07 10:20:28.689492","45"
+"236","Standard transaction","102.0","Utilities","Cloud Storage (iCloud/Drive)","0.0","REJECTED","2026-05-07 10:40:28.692505","96"
+"237","Standard transaction","56.0","Food","Supermarket","0.0","CONFIRMED","2026-05-07 11:00:28.694996","51"
+"238","Standard transaction","36.0","Beauty","Amazon","0.0","CONFIRMED","2026-05-07 11:20:28.70001","35"
+"239","Standard transaction","28.0","Transport","Car Wash","0.0","CONFIRMED","2026-05-07 11:40:28.703006","97"
+"240","Standard transaction","256.0","Utilities","Online Course Subscription","0.0","CONFIRMED","2026-05-07 12:00:28.705022","88"
+"241","Standard transaction","34.99","Subscriptions","LinkedIn Premium","0.0","CONFIRMED","2026-05-07 12:20:28.708109","86"
+"242","Standard transaction","134.0","Utilities","Waste Tax","0.0","CONFIRMED","2026-05-07 12:40:28.712514","68"
+"243","Standard transaction","129.0","Shopping","Amazon","0.0","CONFIRMED","2026-05-07 13:00:28.716045","29"
+"244","Anomaly amount","1214.0","Insurance","Travel Insurance","0.5","REJECTED","2026-05-07 13:20:28.718064","58"
+"245","High amount","170.0","Utilities","Electricity Bill","0.25","REJECTED","2026-05-07 13:40:28.720045","62"
+"246","Anomaly amount","350.0","Shopping","IKEA Furniture","0.4","CONFIRMED","2026-05-07 14:00:28.722045","40"
+"247","Standard transaction","65.0","Food","Farmers Market","0.0","CONFIRMED","2026-05-07 14:20:28.72509","42"
+"248","Standard transaction","9.95","Subscriptions","Audible Subscription","0.0","CONFIRMED","2026-05-07 14:40:28.727099","35"
+"249","Anomaly amount; High-risk category (Cyber)","7047.0","Cyber","VPN Service","1.0","REJECTED","2026-05-07 15:00:28.732556","42"
+"250","Standard transaction","458.0","Shopping","Home Decor","0.0","CONFIRMED","2026-05-07 15:20:28.739089","23"
+"251","High-risk category (Cyber)","8716.0","Cyber","DarkWeb Entry","0.7","REJECTED","2026-05-07 15:40:28.741091","99"
+"252","Standard transaction","16.0","Health","Dental Checkup","0.0","CONFIRMED","2026-05-07 16:00:28.743086","16"
+"253","Standard transaction","64.0","Health","Vitamin Store","0.0","CONFIRMED","2026-05-07 16:20:28.746985","42"
+"254","Anomaly amount","460.0","Shopping","Bookstore","0.5","REJECTED","2026-05-07 16:40:28.749996","21"
+"255","Standard transaction","53.0","Food","Patisserie","0.0","CONFIRMED","2026-05-07 17:00:28.751996","100"
+"256","Standard transaction","35.0","Transport","Uber","0.0","CONFIRMED","2026-05-07 17:20:28.754019","24"
+"257","Standard transaction","186.0","Shopping","Toy Store","0.0","CONFIRMED","2026-05-07 17:40:28.757117","99"
+"258","Subscription price mismatch (expected $4.99)","99.99","Subscriptions","Amazon Prime","0.4","REJECTED","2026-05-07 17:50:00","87"
+"259","Standard transaction","91.0","Health","Optician Visit","0.0","CONFIRMED","2026-05-07 18:00:28.759127","69"
+"260","Standard transaction","31.0","Transport","Train Ticket","0.0","CONFIRMED","2026-05-07 18:20:28.76258","77"
+"261","Anomaly amount","563.0","Shopping","Electronics Store","0.5","CONFIRMED","2026-05-07 18:40:28.766295","28"
+"262","Standard transaction","56.0","Utilities","Mobile Phone Plan","0.0","CONFIRMED","2026-05-07 19:00:28.768295","68"
+"263","Standard transaction","296.0","Insurance","Travel Insurance","0.0","CONFIRMED","2026-05-07 19:20:28.770293","13"
+"264","Standard transaction","95.0","Food","Street Food Festival","0.0","CONFIRMED","2026-05-07 19:40:28.773293","73"
+"265","Standard transaction","126.0","Utilities","Cloud Storage (iCloud/Drive)","0.0","CONFIRMED","2026-05-07 20:00:28.7758","96"
+"266","High amount","1109.0","Travel","Travel Agency Package","0.25","CONFIRMED","2026-05-07 20:20:28.780022","90"
+"267","Suspicious keyword in non-cyber category","70.0","Utilities","Zero-day Exploit Kit v.4.2","0.7","REJECTED","2026-05-07 20:50:00","71"
+"268","Standard transaction","8.99","Subscriptions","Disney+","0.0","CONFIRMED","2026-05-07 20:40:28.783019","32"
+"269","Standard transaction","12.0","Subscriptions","Online Newspaper","0.0","CONFIRMED","2026-05-07 21:00:28.78502","75"
+"270","Standard transaction","206.0","Clothes","Children's Clothing","0.0","REJECTED","2026-05-07 21:20:28.78809","97"
+"271","Standard transaction","262.0","Health","Personal Trainer Session","0.0","CONFIRMED","2026-05-07 21:40:28.791194","6"
+"272","High-risk category (Cyber); Unusual nighttime hour","4935.0","Cyber","VPN Service","0.85","REJECTED","2026-05-07 22:00:28.794192","99"
+"273","Unusual nighttime hour, not for online shop","105.0","Shopping","Apple Store","0.1","CONFIRMED","2026-05-07 22:20:28.79872","91"
+"274","Unusual nighttime hour","193.0","Entertainment","Cinema","0.15","REJECTED","2026-05-07 22:40:28.801722","28"
+"275","Unusual nighttime hour","51.99","Shopping","Amazon","0.15","CONFIRMED","2026-05-07 22:42:00","72"
+"276","High amount; Unusual nighttime hour","285.0","Shopping","eBay Purchase","0.4","CONFIRMED","2026-05-07 23:00:28.80372","8"
+"277","Unusual nighttime hour","87.0","Health","Vitamin Store","0.15","REJECTED","2026-05-07 23:20:28.80624","85"
+"278","Unusual nighttime hour","30.99","Utilities","Tutorial: How to stop a Hacker (Vol. 1)","0.15","CONFIRMED","2026-05-07 23:30:00","93"
+"279","Unusual nighttime hour","48.0","Transport","Parking Fee","0.15","REJECTED","2026-05-07 23:40:28.809386","46"
+"280","Unusual nighttime hour, not for online shop","166.0","Entertainment","PlayStation Store","0.25","CONFIRMED","2026-05-08 00:00:28.814458","16"
+"281","Unusual nighttime hour","294.0","Health","Doctor Visit","0.15","REJECTED","2026-05-08 00:20:28.815996","6"
+"282","Unusual nighttime hour, not for online shop","222.0","Entertainment","Steam","0.25","CONFIRMED","2026-05-08 00:40:28.819495","66"
+"283","Unusual nighttime hour, not for automatic renewal","119.0","Utilities","VPN Service","0.1","CONFIRMED","2026-05-08 01:00:28.822577","45"
+"284","Unusual nighttime hour","237.0","Insurance","Home Insurance","0.15","REJECTED","2026-05-08 01:20:28.82513","67"
+"285","Anomaly amount; High-risk category (Cyber); Unusual nighttime hour","9739.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-08 01:40:28.828145","82"
+"286","Unusual nighttime hour","122.0","Beauty","Skincare Clinic","0.15","REJECTED","2026-05-08 02:00:28.831137","95"
+"287","Unusual nighttime hour","145.0","Entertainment","Tennis Court Rental","0.15","REJECTED","2026-05-08 02:20:28.834139","86"
+"288","Unusual nighttime hour","43.0","Entertainment","PlayStation Store","0.15","REJECTED","2026-05-08 02:40:28.838383","34"
+"289","Unusual nighttime hour, not for automatic renewal","17.99","Subscriptions","Netflix","0.1","CONFIRMED","2026-05-08 03:00:28.842396","29"
+"290","Unusual nighttime hour","1456.0","Travel","Ryanair","0.15","REJECTED","2026-05-08 03:20:28.845921","31"
+"291","Unusual nighttime hour","384.0","Clothes","Footwear Store","0.15","REJECTED","2026-05-08 03:40:28.848309","57"
+"292","Unusual nighttime hour","40.0","Transport","Luggage Storage","0.15","REJECTED","2026-05-08 04:00:28.850295","15"
+"293","Unusual nighttime hour, not for automatic renewal","102.0","Utilities","Mobile Phone Plan","0.1","CONFIRMED","2026-05-08 04:20:28.852314","1"
+"294","Unusual nighttime hour","127.0","Health","Doctor Visit","0.15","REJECTED","2026-05-08 04:40:28.854294","34"
+"295","Unusual nighttime hour","40.0","Transport","Gas Station","0.15","CONFIRMED","2026-05-08 05:00:28.855296","50"
+"296","Unusual nighttime hour, not for automatic renewal","163.0","Utilities","VPN Service","0.1","CONFIRMED","2026-05-08 05:20:28.857404","27"
+"297","Unusual nighttime hour","39.0","Beauty","Spa Treatment","0.15","REJECTED","2026-05-08 05:40:28.859402","11"
+"298","Unusual nighttime hour, not for automatic renewal","10.99","Subscriptions","Spotify","0.1","CONFIRMED","2026-05-08 06:00:28.861403","17"
+"299","Anomaly amount; High-risk category (Cyber); Unusual nighttime hour","9649.0","Cyber","DarkWeb Entry","1.0","REJECTED","2026-05-08 06:20:28.864911","67"
+"300","Unusual nighttime hour","274.0","Clothes","Zara","0.15","REJECTED","2026-05-08 06:40:28.867922","89"
+"301","Unusual nighttime hour","10.0","Beauty","Amazon","0.15","CONFIRMED","2026-05-08 06:51:00","67"
+"302","Unusual nighttime hour","14.0","Entertainment","Museum Entry","0.15","REJECTED","2026-05-08 07:00:28.869921","16"
+"303","Standard transaction","26.0","Utilities","Gas Bill","0.0","CONFIRMED","2026-05-08 07:20:28.871921","9"
+"304","Anomaly amount; High-risk category (Cyber)","1721.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-08 07:40:28.873928","53"
+"305","High-risk category (Cyber)","5629.0","Cyber","VPN Service","0.7","REJECTED","2026-05-08 08:00:28.876478","99"
+"306","Standard transaction","70.0","Beauty","Fragrance Store","0.0","CONFIRMED","2026-05-08 08:20:28.879479","7"
+"307","Standard transaction","20.0","Subscriptions","ChatGPT Plus","0.0","CONFIRMED","2026-05-08 08:40:28.881477","15"
+"308","Anomaly amount","366.0","Shopping","Office Supplies","0.5","REJECTED","2026-05-08 09:00:28.883479","46"
+"309","Standard transaction","47.0","Food","Street Food Festival","0.0","CONFIRMED","2026-05-08 09:20:28.885007","58"
+"310","Standard transaction","4.99","Insurance","Pet Insurance","0.0","CONFIRMED","2026-05-08 09:37:00","63"
+"311","Standard transaction","4.99","Insurance","Pet Insurance","0.0","CONFIRMED","2026-05-08 09:37:02","63"
+"312","Standard transaction","4.99","Insurance","Pet Insurance","0.0","CONFIRMED","2026-05-08 09:37:04","63"
+"313","Standard transaction","4.99","Insurance","Pet Insurance","0.0","CONFIRMED","2026-05-08 09:37:06","63"
+"314","High velocity (5 trans. in < 3min)","4.99","Insurance","Pet Insurance","0.6","REJECTED","2026-05-08 09:37:08","63"
+"315","Standard transaction","68.0","Entertainment","Gym Membership","0.0","CONFIRMED","2026-05-08 09:40:28.888018","28"
+"316","Anomaly amount; High-risk category (Cyber)","1328.0","Cyber","VPN Service","1.0","REJECTED","2026-05-08 10:00:28.890364","8"
+"317","Anomaly amount; High-risk category (Cyber)","4241.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-08 10:20:28.892371","10"
+"318","High amount","234.0","Health","Pharmacy","0.3","REJECTED","2026-05-08 10:40:28.89488","47"
+"319","Standard transaction","86.0","Entertainment","Tennis Court Rental","0.0","CONFIRMED","2026-05-08 11:00:28.898299","49"
+"320","Anomaly amount","963.0","Insurance","Travel Insurance","0.5","REJECTED","2026-05-08 11:20:28.900298","44"
+"321","Standard transaction","32.0","Beauty","Skincare Clinic","0.0","CONFIRMED","2026-05-08 11:40:28.902434","91"
+"322","High amount","305.0","Utilities","Water Bill","0.3","REJECTED","2026-05-08 12:00:28.941492","23"
+"323","Anomaly amount","1255.0","Insurance","Travel Insurance","0.5","REJECTED","2026-05-08 12:20:29.007703","39"
+"324","High amount","254.0","Utilities","Electricity Bill","0.3","REJECTED","2026-05-08 12:40:29.012799","25"
+"325","Standard transaction","120.99","Utilities","Anti-Hacker Firewall Annual Subscription","0.0","CONFIRMED","2026-05-08 12:50:00","43"
+"326","Standard transaction","9.95","Subscriptions","Audible Subscription","0.0","CONFIRMED","2026-05-08 13:00:29.015308","34"
+"327","High amount","409.0","Shopping","Pet Shop Supplies","0.25","REJECTED","2026-05-08 13:20:29.018333","51"
+"328","Standard transaction","356.0","Clothes","Children's Clothing","0.0","CONFIRMED","2026-05-08 13:40:29.023837","33"
+"329","High amount","217.0","Utilities","Mobile Phone Plan","0.3","REJECTED","2026-05-08 14:00:29.036881","43"
+"330","Standard transaction","160.0","Utilities","Water Bill","0.0","CONFIRMED","2026-05-08 14:20:29.038883","27"
+"331","High amount","235.0","Entertainment","Cinema","0.3","REJECTED","2026-05-08 14:40:29.040882","30"
+"332","High-risk category (Cyber)","6929.0","Cyber","DarkWeb Entry","0.7","REJECTED","2026-05-08 15:00:29.044258","99"
+"333","Anomaly amount","1058.0","Travel","Hotel Booking","0.5","CONFIRMED","2026-05-08 15:20:29.047304","76"
+"334","High amount","185.0","Entertainment","Golf Course Fee","0.25","CONFIRMED","2026-05-08 15:40:29.050303","16"
+"335","High amount","202.0","Entertainment","Tennis Court Rental","0.3","REJECTED","2026-05-08 16:00:29.052302","59"
+"336","Standard transaction","65.0","Food","Wine Shop","0.0","CONFIRMED","2026-05-08 16:20:29.054303","98"
+"337","Standard transaction","3.0","Transport","Parking Fee","0.0","CONFIRMED","2026-05-08 16:40:29.056825","40"
+"338","Standard transaction","133.0","Entertainment","Amusement Park","0.0","CONFIRMED","2026-05-08 17:00:29.059456","11"
+"339","Subscription price mismatch (expected $10.99)","100.99","Subscriptions","Spotify","0.4","REJECTED","2026-05-08 16:50:00","15"
+"340","Standard transaction","119.0","Travel","Hotel Booking","0.0","CONFIRMED","2026-05-08 17:20:29.061941","54"
+"341","Anomaly amount; High-risk category (Cyber)","9050.0","Cyber","VPN Service","1.0","REJECTED","2026-05-08 17:40:29.063942","96"
+"342","Standard transaction","10.99","Subscriptions","Spotify","0.0","CONFIRMED","2026-05-08 18:00:29.066455","60"
+"343","Standard transaction","52.0","Food","Pizza Delivery","0.0","CONFIRMED","2026-05-08 18:20:29.067463","25"
+"344","Standard transaction","750.5","Travel","Hotel Booking","0.0","CONFIRMED","2026-05-08 18:13:00","12"
+"345","Standard transaction","753.5","Travel","Hotel Booking","0.0","CONFIRMED","2026-05-08 18:13:02","12"
+"346","Standard transaction","756.5","Travel","Hotel Booking","0.0","CONFIRMED","2026-05-08 18:13:04","12"
+"347","Standard transaction","759.5","Travel","Hotel Booking","0.0","CONFIRMED","2026-05-08 18:13:06","12"
+"348","High velocity (5 trans. in < 3min)","762.5","Travel","Hotel Booking","0.6","REJECTED","2026-05-08 18:13:08","12"
+"349","Standard transaction","316.0","Clothes","Zara","0.0","CONFIRMED","2026-05-08 18:40:29.069462","18"
+"350","High amount","543.0","Shopping","Pet Shop Supplies","0.3","REJECTED","2026-05-08 19:00:29.070462","24"
+"351","High amount","219.0","Entertainment","Cinema","0.3","REJECTED","2026-05-08 19:20:29.072464","82"
+"352","Suspicious keyword in non-cyber category","1200.0","Travel","Hire-a-Hacker professional services deposit","0.7","REJECTED","2026-05-08 19:21:00","82"
+"353","Standard transaction","10.99","Subscriptions","Spotify","0.0","CONFIRMED","2026-05-08 19:40:29.073465","3"
+"354","Standard transaction","9.95","Subscriptions","Audible Subscription","0.0","CONFIRMED","2026-05-08 20:00:29.075981","29"
+"355","Anomaly amount","1231.0","Travel","Travel Agency Package","0.5","REJECTED","2026-05-08 20:20:29.077985","17"
+"356","Standard transaction","238.0","Entertainment","Golf Course Fee","0.0","CONFIRMED","2026-05-08 20:40:29.080998","20"
+"357","Standard transaction","12.0","Subscriptions","Online Newspaper","0.0","CONFIRMED","2026-05-08 21:00:29.081981","17"
+"358","High amount","469.0","Shopping","Apple Store","0.25","CONFIRMED","2026-05-08 21:20:29.083982","48"
+"359","Standard transaction","329.0","Utilities","Software License","0.0","CONFIRMED","2026-05-08 21:40:29.086067","76"
+"360","High amount; High-risk category (Cyber); Unusual nighttime hour","2425.0","Cyber","VPN Service","1.0","REJECTED","2026-05-08 22:00:29.087066","19"
+"361","Unusual nighttime hour, not for online shop","257.0","Travel","Ryanair","0.1","CONFIRMED","2026-05-08 22:20:29.089068","58"
+"362","Unusual nighttime hour, not for online shop","301.0","Clothes","Nike Store","0.1","REJECTED","2026-05-08 22:40:29.092071","2"
+"363","Unusual nighttime hour","96.0","Food","Patisserie","0.15","CONFIRMED","2026-05-08 23:00:29.096535","77"
+"364","Unusual nighttime hour","46.0","Transport","Public Transport Pass","0.15","CONFIRMED","2026-05-08 23:20:29.098545","51"
+"365","Unusual nighttime hour","13.49","Shopping","Amazon","0.15","CONFIRMED","2026-05-08 23:22:00","81"
+"366","Unusual nighttime hour","190.0","Health","Therapy Session","0.15","REJECTED","2026-05-08 23:40:29.100547","30"
+"367","Unusual nighttime hour","112.0","Food","Starbucks","0.15","CONFIRMED","2026-05-09 00:00:29.103544","85"
+"368","Unusual nighttime hour","31.0","Entertainment","Escape Room","0.15","CONFIRMED","2026-05-09 00:20:29.10756","62"
+"369","Unusual nighttime hour","9.99","Beauty","Amazon","0.15","CONFIRMED","2026-05-09 00:33:00","75"
+"370","Unusual nighttime hour","67.0","Beauty","Nail Salon","0.15","REJECTED","2026-05-09 00:40:29.112572","1"
+"371","Unusual nighttime hour","252.0","Shopping","Toy Store","0.15","REJECTED","2026-05-09 01:00:29.116962","11"
+"372","Unusual nighttime hour","47.0","Food","Street Food Festival","0.15","REJECTED","2026-05-09 01:20:29.11899","2"
+"373","Unusual nighttime hour","62.0","Food","Street Food Festival","0.15","REJECTED","2026-05-09 01:40:29.120965","2"
+"374","Unusual nighttime hour","70.0","Food","Sushi Bar","0.15","REJECTED","2026-05-09 02:00:29.125014","59"
+"375","Unusual nighttime hour","28.0","Transport","Parking Fee","0.15","CONFIRMED","2026-05-09 02:20:29.127622","30"
+"376","Unusual nighttime hour; Subscription price mismatch (expected $4.99)","10.99","Subscriptions","Amazon Prime","0.5","REJECTED","2026-05-09 02:30:00","34"
+"377","Anomaly amount; Unusual nighttime hour","405.0","Clothes","Children's Clothing","0.65","REJECTED","2026-05-09 02:40:29.130633","55"
+"378","Anomaly amount; High-risk category (Cyber); Unusual nighttime hour","1385.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-09 03:00:29.132798","27"
+"379","High amount; High-risk category (Cyber); Unusual nighttime hour","3979.0","Cyber","DarkWeb Entry","1.0","REJECTED","2026-05-09 03:20:29.13589","82"
+"380","Unusual nighttime hour","138.0","Entertainment","PlayStation Store","0.15","REJECTED","2026-05-09 03:40:29.138012","21"
+"381","Unusual nighttime hour","68.0","Health","Doctor Visit","0.15","REJECTED","2026-05-09 04:00:29.14016","47"
+"382","Anomaly amount; Unusual nighttime hour","250.0","Health","Yoga Class","0.65","REJECTED","2026-05-09 04:20:29.14235","75"
+"383","Unusual nighttime hour","184.0","Utilities","Water Bill","0.15","REJECTED","2026-05-09 04:40:29.146224","58"
+"384","Unusual nighttime hour","257.0","Clothes","Children's Clothing","0.15","REJECTED","2026-05-09 05:00:29.149238","97"
+"385","Unusual nighttime hour","161.0","Entertainment","Amusement Park","0.15","REJECTED","2026-05-09 05:20:29.151235","68"
+"386","Unusual nighttime hour","74.0","Food","McDonalds","0.15","REJECTED","2026-05-09 05:40:29.152232","50"
+"387","Unusual nighttime hour","270.0","Utilities","Online Course Subscription","0.15","REJECTED","2026-05-09 06:00:29.154257","77"
+"388","Unusual nighttime hour, not for automatic renewal","10.99","Subscriptions","Spotify","0.1","CONFIRMED","2026-05-09 06:20:29.156265","43"
+"389","Unusual nighttime hour","304.0","Insurance","Home Insurance","0.15","CONFIRMED","2026-05-09 06:40:29.157265","41"
+"390","Standard transaction","219.0","Utilities","VPN Service","0.0","CONFIRMED","2026-05-09 07:00:29.159266","100"
+"391","Standard transaction","216.0","Shopping","Amazon","0.0","CONFIRMED","2026-05-09 07:20:29.162268","37"
+"392","Standard transaction","25.0","Food","Sushi Bar","0.0","CONFIRMED","2026-05-09 07:40:29.164267","96"
+"393","High amount","275.0","Health","Yoga Class","0.3","REJECTED","2026-05-09 08:00:29.167471","3"
+"394","Anomaly amount","992.0","Insurance","Travel Insurance","0.5","REJECTED","2026-05-09 08:20:29.169472","9"
+"395","Standard transaction","20.0","Subscriptions","ChatGPT Plus","0.0","CONFIRMED","2026-05-09 08:40:29.173472","23"
+"396","Standard transaction","19.0","Health","Yoga Class","0.0","CONFIRMED","2026-05-09 09:00:29.175986","54"
+"397","Standard transaction","213.0","Shopping","Toy Store","0.0","CONFIRMED","2026-05-09 09:20:29.177989","97"
+"398","Standard transaction","25.99","Utilities","Workshop: Exploit Mitigation Techniques","0.0","CONFIRMED","2026-05-09 09:30:00","88"
+"399","Standard transaction","107.0","Beauty","Fragrance Store","0.0","CONFIRMED","2026-05-09 09:40:29.180986","36"
+"400","Standard transaction","63.0","Shopping","eBay Purchase","0.0","CONFIRMED","2026-05-09 10:00:29.182988","67"
+"401","Anomaly amount","443.0","Clothes","Nike Store","0.5","REJECTED","2026-05-09 10:20:29.186411","50"
+"402","Standard transaction","54.0","Health","Doctor Visit","0.0","CONFIRMED","2026-05-09 10:40:29.18841","68"
+"403","Standard transaction","86.0","Food","Sushi Bar","0.0","CONFIRMED","2026-05-09 11:00:29.190409","68"
+"404","Standard transaction","17.99","Subscriptions","Netflix","0.0","CONFIRMED","2026-05-09 11:20:29.192408","35"
+"405","High amount","283.0","Utilities","Gas Bill","0.25","REJECTED","2026-05-09 11:40:29.193431","36"
+"406","Standard transaction","183.0","Utilities","Internet Provider","0.0","CONFIRMED","2026-05-09 12:00:29.195951","27"
+"407","Standard transaction","124.0","Beauty","Hair Salon","0.0","CONFIRMED","2026-05-09 12:20:29.197956","1"
+"408","High amount","61.0","Health","Therapy Session","0.25","CONFIRMED","2026-05-09 12:40:29.200327","52"
+"409","Standard transaction","47.0","Health","Vitamin Store","0.0","CONFIRMED","2026-05-09 13:00:29.202641","38"
+"410","Standard transaction","97.0","Shopping","IKEA Furniture","0.0","CONFIRMED","2026-05-09 13:20:29.203642","72"
+"411","Standard transaction","63.0","Health","Vitamin Store","0.0","CONFIRMED","2026-05-09 13:40:29.206201","3"
+"412","Standard transaction","40.5","Shopping","Amazon","0.0","CONFIRMED","2026-05-09 13:45:00","43"
+"413","Standard transaction","43.5","Shopping","Amazon","0.0","CONFIRMED","2026-05-09 13:45:02","43"
+"414","Standard transaction","46.5","Shopping","Amazon","0.0","CONFIRMED","2026-05-09 13:45:04","43"
+"415","Standard transaction","49.5","Shopping","Amazon","0.0","CONFIRMED","2026-05-09 13:45:06","43"
+"416","High velocity (5 trans. in < 3min)","52.5","Shopping","Amazon","0.6","REJECTED","2026-05-09 13:45:08","43"
+"417","Standard transaction","166.0","Shopping","eBay Purchase","0.0","CONFIRMED","2026-05-09 14:00:29.208489","19"
+"418","High amount","586.0","Shopping","eBay Purchase","0.3","REJECTED","2026-05-09 14:20:29.209926","99"
+"419","Anomaly amount","1123.0","Travel","Ryanair","0.5","CONFIRMED","2026-05-09 14:40:29.212933","51"
+"420","Standard transaction","94.0","Food","Street Food Festival","0.0","CONFIRMED","2026-05-09 15:00:29.215439","80"
+"421","Standard transaction","63.0","Beauty","Barber Shop","0.0","CONFIRMED","2026-05-09 15:20:29.217447","44"
+"422","Standard transaction","29.0","Transport","Parking Fee","0.0","CONFIRMED","2026-05-09 15:40:29.21945","50"
+"423","Anomaly amount; High-risk category (Cyber)","5332.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-09 16:00:29.220448","96"
+"424","High amount","106.0","Utilities","Gas Bill","0.25","CONFIRMED","2026-05-09 16:20:29.222461","64"
+"425","Standard transaction","94.0","Food","Wine Shop","0.0","CONFIRMED","2026-05-09 16:40:29.223973","63"
+"426","New user with significant amount; High-risk category (Cyber)","2926.0","Cyber","VPN Service","0.8999999999999999","REJECTED","2026-05-09 17:00:29.224994","78"
+"427","Standard transaction","84.0","Entertainment","Golf Course Fee","0.0","CONFIRMED","2026-05-09 17:20:29.226019","34"
+"428","Anomaly amount; High-risk category (Cyber)","5912.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-09 17:40:29.229024","6"
+"429","High amount","182.0","Shopping","Office Supplies","0.25","CONFIRMED","2026-05-09 18:00:29.232084","62"
+"430","High-risk category (Cyber)","4089.0","Cyber","Crypto Exchange","0.7","REJECTED","2026-05-09 18:20:29.234066","82"
+"431","Standard transaction","29.0","Clothes","Luxury Fashion","0.0","CONFIRMED","2026-05-09 18:40:29.23613","17"
+"432","Anomaly amount; High-risk category (Cyber)","3495.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-09 19:00:29.23813","19"
+"433","High amount","273.0","Travel","Hotel Booking","0.25","CONFIRMED","2026-05-09 19:20:29.240137","68"
+"434","Standard transaction","41.0","Health","Optician Visit","0.0","CONFIRMED","2026-05-09 19:40:29.242328","57"
+"435","Standard transaction","9.95","Subscriptions","Audible Subscription","0.0","CONFIRMED","2026-05-09 20:00:29.246353","87"
+"436","Subscription price mismatch (expected $20.00)","200.0","Subscriptions","ChatGPT Plus","0.4","REJECTED","2026-05-09 20:10:00","66"
+"437","Standard transaction","10.99","Subscriptions","Spotify","0.0","CONFIRMED","2026-05-09 20:20:29.248366","3"
+"438","Standard transaction","131.0","Shopping","Electronics Store","0.0","REJECTED","2026-05-09 20:40:29.251373","24"
+"439","Standard transaction","4.99","Subscriptions","Amazon Prime","0.0","CONFIRMED","2026-05-09 21:00:29.25648","98"
+"440","High-risk category (Cyber)","2190.0","Cyber","DarkWeb Entry","0.7","REJECTED","2026-05-09 21:20:29.259998","99"
+"441","Unusual nighttime hour","62.0","Beauty","Sephora","0.15","REJECTED","2026-05-09 21:40:29.268574","51"
+"442","Unusual nighttime hour","169.99","Utilities","Ethical Hacker Certification Course","0.15","CONFIRMED","2026-05-09 21:45:00","27"
+"443","Unusual nighttime hour","25.0","Beauty","Barber Shop","0.15","CONFIRMED","2026-05-09 22:00:29.270562","51"
+"444","High-risk category (Cyber); Unusual nighttime hour","3982.0","Cyber","DarkWeb Entry","0.85","REJECTED","2026-05-09 22:20:29.272577","99"
+"445","Anomaly amount; High-risk category (Cyber); Unusual nighttime hour","4555.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-09 22:40:29.283496","54"
+"446","Unusual nighttime hour","33.4","Beauty","Amazon","0.15","CONFIRMED","2026-05-09 22:57:00","49"
+"447","High amount; Unusual nighttime hour","1270.0","Travel","Car Rental","0.5","REJECTED","2026-05-09 23:00:29.286016","96"
+"448","Unusual nighttime hour","136.0","Health","Doctor Visit","0.15","REJECTED","2026-05-09 23:20:29.288459","33"
+"449","Unusual nighttime hour","29.0","Food","Business Lunch","0.15","REJECTED","2026-05-09 23:40:29.290458","54"
+"450","Unusual nighttime hour","38.0","Transport","Highway Toll","0.15","CONFIRMED","2026-05-10 00:00:29.292458","18"
+"451","Unusual nighttime hour, not for automatic renewal","64.0","Utilities","Cloud Storage (iCloud/Drive)","0.1","CONFIRMED","2026-05-10 00:20:29.297127","11"
+"452","Unusual nighttime hour, not for automatic renewal","10.99","Subscriptions","Spotify","0.1","CONFIRMED","2026-05-10 00:40:29.30012","84"
+"453","Unusual nighttime hour","60.0","Beauty","Barber Shop","0.15","REJECTED","2026-05-10 01:00:29.302136","89"
+"454","Unusual nighttime hour","139.0","Entertainment","Concert Ticket","0.15","REJECTED","2026-05-10 01:20:29.30412","43"
+"455","High-risk category (Cyber); Unusual nighttime hour","7069.0","Cyber","VPN Service","0.85","REJECTED","2026-05-10 01:40:29.307176","99"
+"456","Anomaly amount; High-risk category (Cyber); Unusual nighttime hour","9124.0","Cyber","VPN Service","1.0","REJECTED","2026-05-10 02:00:29.30957","17"
+"457","High-risk category (Cyber); Unusual nighttime hour","2503.0","Cyber","Crypto Exchange","0.85","REJECTED","2026-05-10 02:20:29.313571","99"
+"458","High-risk category (Cyber); Unusual nighttime hour","1400.0","Cyber","DarkWeb Entry","0.85","REJECTED","2026-05-10 02:40:29.316002","99"
+"459","Unusual nighttime hour, not for automatic renewal","10.99","Subscriptions","Apple Music","0.1","CONFIRMED","2026-05-10 03:00:29.318003","99"
+"460","Unusual nighttime hour","407.0","Clothes","Hollister","0.15","REJECTED","2026-05-10 03:20:29.320022","54"
+"461","Unusual nighttime hour","117.0","Shopping","IKEA Furniture","0.15","REJECTED","2026-05-10 03:40:29.322018","33"
+"462","Unusual nighttime hour","127.0","Entertainment","Bowling Alley","0.15","REJECTED","2026-05-10 04:00:29.323531","91"
+"463","Unusual nighttime hour","146.0","Health","Yoga Class","0.15","REJECTED","2026-05-10 04:20:29.327236","75"
+"464","Unusual nighttime hour","278.0","Health","Dental Checkup","0.15","REJECTED","2026-05-10 04:40:29.330658","94"
+"465","Anomaly amount; Unusual nighttime hour","427.0","Shopping","Toy Store","0.65","REJECTED","2026-05-10 05:00:29.332658","52"
+"466","Unusual nighttime hour","113.0","Health","Yoga Class","0.15","REJECTED","2026-05-10 05:20:29.333658","6"
+"467","Unusual nighttime hour, not for automatic renewal","20.0","Subscriptions","ChatGPT Plus","0.1","CONFIRMED","2026-05-10 05:40:29.336193","84"
+"468","Unusual nighttime hour","58.0","Clothes","Children's Clothing","0.15","REJECTED","2026-05-10 06:00:29.33819","17"
+"469","Unusual nighttime hour","169.0","Health","Optician Visit","0.15","REJECTED","2026-05-10 06:20:29.34019","67"
+"470","Unusual nighttime hour","18.9","Shopping","Amazon","0.15","CONFIRMED","2026-05-10 06:25:00","55"
+"471","Unusual nighttime hour","102.0","Utilities","Cloud Storage (iCloud/Drive)","0.15","REJECTED","2026-05-10 06:40:29.342185","89"
+"472","Anomaly amount; High-risk category (Cyber)","5207.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-10 07:00:29.344236","15"
+"473","Standard transaction","52.0","Food","Farmers Market","0.0","CONFIRMED","2026-05-10 07:20:29.347277","94"
+"474","High amount","303.0","Utilities","Electricity Bill","0.3","REJECTED","2026-05-10 07:40:29.349286","23"
+"475","Standard transaction","175.0","Entertainment","Gym Membership","0.0","CONFIRMED","2026-05-10 08:00:29.351286","89"
+"476","Standard transaction","288.0","Utilities","Online Course Subscription","0.0","CONFIRMED","2026-05-10 08:20:29.353285","54"
+"477","Standard transaction","475.0","Shopping","Apple Store","0.0","CONFIRMED","2026-05-10 08:40:29.355822","24"
+"478","Standard transaction","9.99","Subscriptions","HBO Max","0.0","CONFIRMED","2026-05-10 09:00:29.357826","60"
+"479","Standard transaction","10.99","Subscriptions","Spotify","0.0","CONFIRMED","2026-05-10 09:12:00","49"
+"480","Standard transaction","10.99","Subscriptions","Spotify","0.0","CONFIRMED","2026-05-10 09:12:02","49"
+"481","Standard transaction","10.99","Subscriptions","Spotify","0.0","CONFIRMED","2026-05-10 09:12:04","49"
+"482","Standard transaction","10.99","Subscriptions","Spotify","0.0","CONFIRMED","2026-05-10 09:12:06","49"
+"483","High velocity (5 trans. in < 3min)","10.99","Subscriptions","Spotify","0.6","REJECTED","2026-05-10 09:12:08","49"
+"484","Suspicious keyword in non-cyber category","300.0","Travel","Anti-DDoS Bypass tool subscription","0.7","REJECTED","2026-05-10 09:10:00","54"
+"485","Standard transaction","80.0","Beauty","Spa Treatment","0.0","CONFIRMED","2026-05-10 09:20:29.358827","48"
+"486","Standard transaction","34.0","Entertainment","Museum Entry","0.0","CONFIRMED","2026-05-10 09:40:29.360967","6"
+"487","Standard transaction","82.0","Beauty","Hair Salon","0.0","CONFIRMED","2026-05-10 10:00:29.363975","70"
+"488","Standard transaction","178.0","Health","Dental Checkup","0.0","CONFIRMED","2026-05-10 10:20:29.366493","82"
+"489","Standard transaction","34.99","Subscriptions","LinkedIn Premium","0.0","CONFIRMED","2026-05-10 10:40:29.367492","56"
+"490","High amount","131.0","Clothes","Nike Store","0.25","CONFIRMED","2026-05-10 11:00:29.369493","49"
+"491","Anomaly amount; High-risk category (Cyber)","2377.0","Cyber","DarkWeb Entry","1.0","REJECTED","2026-05-10 11:20:29.371507","23"
+"492","Anomaly amount","689.0","Travel","Car Rental","0.5","REJECTED","2026-05-10 11:40:29.372507","81"
+"493","Anomaly amount","162.0","Entertainment","Museum Entry","0.5","REJECTED","2026-05-10 12:00:29.373495","61"
+"494","Standard transaction","119.0","Health","Therapy Session","0.0","CONFIRMED","2026-05-10 12:20:29.375019","30"
+"495","Standard transaction","303.0","Shopping","Office Supplies","0.0","CONFIRMED","2026-05-10 12:40:29.377026","78"
+"496","Standard transaction","17.99","Subscriptions","Netflix","0.0","CONFIRMED","2026-05-10 13:00:29.37903","2"
+"497","Subscription price mismatch (expected $10.99)","109.9","Subscriptions","Apple Music","0.4","REJECTED","2026-05-10 13:10:00","92"
+"498","Standard transaction","128.0","Utilities","Gas Bill","0.0","CONFIRMED","2026-05-10 13:20:29.38103","70"
+"499","Standard transaction","58.0","Beauty","Lush Cosmetics","0.0","CONFIRMED","2026-05-10 13:40:29.383027","5"
+"500","Anomaly amount","358.0","Clothes","Pull&Bear","0.5","CONFIRMED","2026-05-10 14:00:29.385538","61"
+"501","Anomaly amount","762.0","Travel","Ryanair","0.5","CONFIRMED","2026-05-10 14:20:29.387922","52"
+"502","High amount","539.0","Insurance","Travel Insurance","0.4","REJECTED","2026-05-10 14:40:29.388905","30"
+"503","Anomaly amount; High-risk category (Cyber)","6214.0","Cyber","DarkWeb Entry","1.0","REJECTED","2026-05-10 15:00:29.390894","37"
+"504","Anomaly amount; High-risk category (Cyber)","6392.0","Cyber","DarkWeb Entry","1.0","REJECTED","2026-05-10 15:20:29.391889","51"
+"505","Standard transaction","36.0","Health","Vitamin Store","0.0","CONFIRMED","2026-05-10 15:40:29.393891","41"
+"506","High amount; High-risk category (Cyber)","7300.0","Cyber","VPN Service","0.95","REJECTED","2026-05-10 16:00:29.39791","99"
+"507","Standard transaction","78.0","Food","Business Lunch","0.0","CONFIRMED","2026-05-10 16:20:29.399912","29"
+"508","Anomaly amount; High-risk category (Cyber)","3013.0","Cyber","VPN Service","1.0","REJECTED","2026-05-10 16:40:29.401908","14"
+"509","Standard transaction","217.0","Health","Vitamin Store","0.0","REJECTED","2026-05-10 17:00:29.403912","57"
+"510","Standard transaction","57.0","Entertainment","Gym Membership","0.0","CONFIRMED","2026-05-10 17:20:29.405437","5"
+"511","Standard transaction","8.0","Transport","Bike Rental","0.0","CONFIRMED","2026-05-10 17:40:29.40744","10"
+"512","High amount","217.0","Entertainment","Bowling Alley","0.3","REJECTED","2026-05-10 18:00:29.409443","10"
+"513","High-risk category (Cyber)","2215.0","Cyber","DarkWeb Entry","0.7","REJECTED","2026-05-10 18:20:29.410441","99"
+"514","Anomaly amount; High-risk category (Cyber)","2765.0","Cyber","VPN Service","1.0","REJECTED","2026-05-10 18:40:29.414862","93"
+"515","Standard transaction","56.0","Food","Supermarket","0.0","CONFIRMED","2026-05-10 19:00:29.417392","64"
+"516","Anomaly amount; High-risk category (Cyber)","1853.0","Cyber","DarkWeb Entry","1.0","REJECTED","2026-05-10 19:20:29.419392","27"
+"517","High-risk category (Cyber)","5089.0","Cyber","DarkWeb Entry","0.7","REJECTED","2026-05-10 19:40:29.421392","99"
+"518","Standard transaction","93.0","Insurance","Health Insurance","0.0","CONFIRMED","2026-05-10 20:00:29.423389","83"
+"519","Standard transaction","123.0","Beauty","Lush Cosmetics","0.0","CONFIRMED","2026-05-10 20:20:29.425364","4"
+"520","Standard transaction","81.0","Utilities","Software License","0.0","CONFIRMED","2026-05-10 20:40:29.427379","74"
+"521","Standard transaction","10.99","Subscriptions","Apple Music","0.0","CONFIRMED","2026-05-10 21:00:29.43038","92"
+"522","Standard transaction","169.0","Entertainment","Gym Membership","0.0","CONFIRMED","2026-05-10 21:20:29.433641","52"
+"523","High amount","270.0","Shopping","Pet Shop Supplies","0.2","REJECTED","2026-05-10 21:40:29.43515","24"
+"524","Unusual nighttime hour, not for automatic renewal","9.99","Subscriptions","HBO Max","0.1","CONFIRMED","2026-05-10 22:00:29.437196","44"
+"525","Unusual nighttime hour","12.9","Beauty","Amazon","0.15","CONFIRMED","2026-05-10 22:07:00","32"
+"526","Unusual nighttime hour","6.0","Transport","Electric Scooter Rental","0.15","CONFIRMED","2026-05-10 22:20:29.439192","77"
+"527","Unusual nighttime hour","7.0","Transport","Airport Duty Free","0.15","CONFIRMED","2026-05-10 22:40:29.441194","85"
+"528","Unusual nighttime hour","135.0","Travel","Ryanair","0.15","CONFIRMED","2026-05-10 23:00:29.443193","61"
+"529","High amount; Unusual nighttime hour","341.0","Shopping","IKEA Furniture","0.4","REJECTED","2026-05-10 23:20:29.445701","7"
+"530","Unusual nighttime hour","100.0","Food","Patisserie","0.15","REJECTED","2026-05-10 23:40:29.448721","21"
+"531","Unusual nighttime hour, not for online shop","1297.0","Travel","Travel Agency Package","0.1","CONFIRMED","2026-05-11 00:00:29.450722","69"
+"532","Anomaly amount; Unusual nighttime hour","180.0","Clothes","Zara","0.65","REJECTED","2026-05-11 00:20:29.45372","60"
+"533","Unusual nighttime hour","22.9","Shopping","Amazon","0.15","CONFIRMED","2026-05-11 00:21:00","36"
+"534","Unusual nighttime hour","326.0","Shopping","Apple Store","0.15","REJECTED","2026-05-11 00:40:29.456241","48"
+"535","Unusual nighttime hour","349.0","Clothes","Children's Clothing","0.15","REJECTED","2026-05-11 01:00:29.458244","2"
+"536","High-risk category (Cyber); Unusual nighttime hour","5209.0","Cyber","Crypto Exchange","0.85","REJECTED","2026-05-11 01:20:29.459236","99"
+"537","Unusual nighttime hour","273.0","Utilities","Electricity Bill","0.15","REJECTED","2026-05-11 01:40:29.461242","98"
+"538","High-risk category (Cyber); Unusual nighttime hour","5710.0","Cyber","VPN Service","0.85","REJECTED","2026-05-11 02:00:29.468264","99"
+"539","Suspicious keyword in non-cyber category; Unusual nighttime hour","30.0","Beauty","SQL Injection Tutorial Premium","0.85","REJECTED","2026-05-11 02:10:00","6"
+"540","Unusual nighttime hour","34.99","Subscriptions","LinkedIn Premium","0.15","REJECTED","2026-05-11 02:20:29.473266","83"
+"541","Unusual nighttime hour","984.0","Travel","Car Rental","0.15","REJECTED","2026-05-11 02:40:29.475268","33"
+"542","Unusual nighttime hour","165.0","Travel","Hotel Booking","0.15","REJECTED","2026-05-11 03:00:29.481808","90"
+"543","Unusual nighttime hour","223.0","Insurance","Home Insurance","0.15","REJECTED","2026-05-11 03:20:29.483852","48"
+"544","Unusual nighttime hour","30.0","Insurance","Health Insurance","0.15","REJECTED","2026-05-11 03:40:29.486955","84"
+"545","New user with significant amount; High-risk category (Cyber); Unusual nighttime hour","1241.0","Cyber","VPN Service","1.0","REJECTED","2026-05-11 04:00:29.488965","71"
+"546","Unusual nighttime hour","77.0","Health","Yoga Class","0.15","REJECTED","2026-05-11 04:20:29.490981","66"
+"547","Anomaly amount; Unusual nighttime hour","502.0","Shopping","Pet Shop Supplies","0.65","REJECTED","2026-05-11 04:40:29.491978","79"
+"548","High-risk category (Cyber); Unusual nighttime hour","2921.0","Cyber","VPN Service","0.85","REJECTED","2026-05-11 05:00:29.492979","99"
+"549","Unusual nighttime hour","146.0","Health","Vitamin Store","0.15","REJECTED","2026-05-11 05:20:29.497497","37"
+"550","Unusual nighttime hour","17.0","Entertainment","Golf Course Fee","0.15","REJECTED","2026-05-11 05:40:29.499516","84"
+"551","Unusual nighttime hour","72.0","Entertainment","Escape Room","0.15","REJECTED","2026-05-11 06:00:29.501497","51"
+"552","Unusual nighttime hour","99.0","Insurance","Home Insurance","0.15","REJECTED","2026-05-11 06:20:29.505009","39"
+"553","High amount; Unusual nighttime hour","153.0","Health","Doctor Visit","0.4","REJECTED","2026-05-11 06:40:29.507019","60"
+"554","Anomaly amount","587.0","Travel","Travel Agency Package","0.5","CONFIRMED","2026-05-11 07:00:29.509021","65"
+"555","Standard transaction","237.0","Entertainment","PlayStation Store","0.0","CONFIRMED","2026-05-11 07:20:29.512892","79"
+"556","Anomaly amount","556.0","Shopping","Toy Store","0.5","REJECTED","2026-05-11 07:40:29.516019","55"
+"557","Standard transaction","63.5","Utilities","VPN Service","0.0","CONFIRMED","2026-05-11 07:53:00","84"
+"558","Standard transaction","66.5","Utilities","VPN Service","0.0","CONFIRMED","2026-05-11 07:53:02","84"
+"559","Standard transaction","69.5","Utilities","VPN Service","0.0","CONFIRMED","2026-05-11 07:53:04","84"
+"560","Standard transaction","72.5","Utilities","VPN Service","0.0","CONFIRMED","2026-05-11 07:53:06","84"
+"561","High velocity (5 trans. in < 3min)","52.5","Utilities","VPN Service","0.6","REJECTED","2026-05-11 07:53:08","84"
+"562","Standard transaction","91.0","Food","Supermarket","0.0","CONFIRMED","2026-05-11 08:00:29.518425","78"
+"563","High amount; High-risk category (Cyber)","8340.0","Cyber","DarkWeb Entry","0.95","REJECTED","2026-05-11 08:20:29.520795","99"
+"564","High-risk category (Cyber)","3498.0","Cyber","DarkWeb Entry","0.7","REJECTED","2026-05-11 08:40:29.524866","99"
+"565","Standard transaction","105.0","Shopping","IKEA Furniture","0.0","CONFIRMED","2026-05-11 09:00:29.526878","33"
+"566","Standard transaction","23.0","Entertainment","Golf Course Fee","0.0","CONFIRMED","2026-05-11 09:20:29.53228","17"
+"567","Standard transaction","10.99","Subscriptions","Apple Music","0.0","CONFIRMED","2026-05-11 09:40:29.534274","100"
+"568","Anomaly amount; High-risk category (Cyber)","5209.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-11 10:00:29.536627","73"
+"569","Standard transaction","117.0","Entertainment","Amusement Park","0.0","CONFIRMED","2026-05-11 10:20:29.540634","20"
+"570","Standard transaction","25.9","Utilities","Manual: SQL Injection Prevention","0.0","CONFIRMED","2026-05-11 10:25:00","65"
+"571","Standard transaction","83.0","Health","Pharmacy","0.0","CONFIRMED","2026-05-11 10:40:29.542701","19"
+"572","Anomaly amount; High-risk category (Cyber)","3527.0","Cyber","VPN Service","1.0","REJECTED","2026-05-11 11:00:29.54651","52"
+"573","Standard transaction","4.99","Subscriptions","Amazon Prime","0.0","CONFIRMED","2026-05-11 11:20:29.548529","3"
+"574","Standard transaction","15.0","Transport","Train Ticket","0.0","CONFIRMED","2026-05-11 11:40:29.551529","92"
+"575","Standard transaction","177.0","Health","Vitamin Store","0.0","CONFIRMED","2026-05-12 11:48:33.446622","57"
+"576","Suspicious keyword in non-cyber category","45.0","Shopping","Hacker Exploit Kit v2","0.7","REJECTED","2026-05-12 11:44:00","31"
+"577","Standard transaction","519.0","Shopping","Home Decor","0.0","CONFIRMED","2026-05-12 11:48:38.441316","8"
+"578","Standard transaction","25.0","Transport","Airport Duty Free","0.0","CONFIRMED","2026-05-12 11:48:43.444716","27"
+"579","Standard transaction","27.0","Entertainment","PlayStation Store","0.0","CONFIRMED","2026-05-12 11:48:48.441586","82"
+"580","High amount","199.0","Health","Massage Therapy","0.3","REJECTED","2026-05-12 11:48:53.443002","81"
+"581","Standard transaction","348.0","Shopping","Toy Store","0.0","CONFIRMED","2026-05-12 11:48:58.44642","30"
+"582","Anomaly amount; High-risk category (Cyber)","521.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-12 11:49:03.439955","60"
+"583","Standard transaction","12.0","Subscriptions","Online Newspaper","0.0","CONFIRMED","2026-05-12 11:49:08.436846","58"
+"584","Standard transaction","80.0","Food","Gourmet Market","0.0","CONFIRMED","2026-05-12 11:49:13.435505","32"
+"585","Standard transaction","52.0","Entertainment","Concert Ticket","0.0","CONFIRMED","2026-05-12 11:49:18.43893","63"
+"586","Anomaly amount","535.0","Shopping","Pet Shop Supplies","0.5","REJECTED","2026-05-12 11:49:23.449408","34"
+"587","Standard transaction","76.0","Entertainment","Concert Ticket","0.0","CONFIRMED","2026-05-12 11:49:28.439382","77"
+"588","Anomaly amount","1209.0","Travel","Hotel Booking","0.5","CONFIRMED","2026-05-12 11:49:33.440393","68"
+"589","Standard transaction","487.0","Travel","Travel Agency Package","0.0","CONFIRMED","2026-05-12 11:49:38.435036","6"
+"590","Standard transaction","89.0","Clothes","H&M","0.0","CONFIRMED","2026-05-12 11:49:43.441888","7"
+"591","Standard transaction","194.0","Utilities","VPN Service","0.0","CONFIRMED","2026-05-12 11:49:48.434795","8"
+"592","Standard transaction","49.0","Entertainment","Cinema","0.0","CONFIRMED","2026-05-12 11:49:53.438474","81"
+"593","High-risk category (Cyber)","5243.0","Cyber","VPN Service","0.7","REJECTED","2026-05-12 11:49:58.435417","99"
+"594","Standard transaction","68.0","Beauty","Spa Treatment","0.0","CONFIRMED","2026-05-12 11:50:03.436486","57"
+"595","Anomaly amount; High-risk category (Cyber)","8390.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-12 11:50:08.441053","8"
+"596","High amount","408.0","Clothes","Footwear Store","0.2","REJECTED","2026-05-12 11:50:13.445665","53"
+"597","Standard transaction","1302.0","Travel","Hotel Booking","0.0","CONFIRMED","2026-05-12 11:50:18.444721","5"
+"598","Standard transaction","113.0","Entertainment","Bowling Alley","0.0","REJECTED","2026-05-12 11:50:23.4428","72"
+"599","Standard transaction","12.0","Subscriptions","Online Newspaper","0.0","CONFIRMED","2026-05-12 11:50:28.444881","7"
+"600","Standard transaction","151.0","Insurance","Health Insurance","0.0","CONFIRMED","2026-05-12 11:50:33.441458","48"
+"601","Standard transaction","10.99","Subscriptions","Apple Music","0.0","CONFIRMED","2026-05-12 11:50:38.440441","87"
+"602","Standard transaction","153.0","Clothes","Pull&Bear","0.0","CONFIRMED","2026-05-12 11:50:43.445067","55"
+"603","Standard transaction","150.0","Clothes","Luxury Fashion","0.0","CONFIRMED","2026-05-12 11:50:48.448386","94"
+"604","Standard transaction","9.95","Subscriptions","Audible Subscription","0.0","CONFIRMED","2026-05-12 11:50:53.439385","16"
+"605","Standard transaction","117.0","Health","Massage Therapy","0.0","CONFIRMED","2026-05-12 11:50:58.438632","28"
+"606","Standard transaction","436.0","Travel","Travel Agency Package","0.0","CONFIRMED","2026-05-12 11:51:03.450174","2"
+"607","Standard transaction","51.0","Health","Pharmacy","0.0","CONFIRMED","2026-05-12 11:51:08.440809","82"
+"608","Standard transaction","34.99","Subscriptions","LinkedIn Premium","0.0","CONFIRMED","2026-05-12 11:51:13.445896","51"
+"609","Standard transaction","167.0","Shopping","Electronics Store","0.0","CONFIRMED","2026-05-12 11:51:18.437845","8"
+"610","Anomaly amount; High-risk category (Cyber)","1487.0","Cyber","DarkWeb Entry","1.0","REJECTED","2026-05-12 11:51:23.449785","68"
+"611","Standard transaction","9.99","Subscriptions","HBO Max","0.0","CONFIRMED","2026-05-12 11:51:28.439764","79"
+"612","Standard transaction","15.0","Transport","Uber","0.0","CONFIRMED","2026-05-12 11:51:33.448037","81"
+"613","Standard transaction","143.0","Clothes","Sportswear Shop","0.0","CONFIRMED","2026-05-12 11:51:38.443938","30"
+"614","High amount","110.0","Food","Starbucks","0.2","REJECTED","2026-05-12 11:51:43.43564","69"
+"615","Standard transaction","16.0","Beauty","Amazon","0.0","CONFIRMED","2026-05-12 11:51:48.442843","89"
+"616","Standard transaction","35.0","Transport","Electric Scooter Rental","0.0","CONFIRMED","2026-05-12 11:51:53.438059","72"
+"617","Standard transaction","28.0","Entertainment","Steam","0.0","CONFIRMED","2026-05-12 11:51:58.446132","56"
+"618","Standard transaction","291.0","Shopping","eBay Purchase","0.0","CONFIRMED","2026-05-12 11:52:03.447846","45"
+"619","High amount","353.0","Shopping","eBay Purchase","0.3","REJECTED","2026-05-12 11:52:08.447767","4"
+"620","Anomaly amount; High-risk category (Cyber)","4598.0","Cyber","VPN Service","1.0","REJECTED","2026-05-12 11:52:13.439546","93"
+"621","High amount; High-risk category (Cyber)","4744.0","Cyber","VPN Service","0.95","REJECTED","2026-05-12 11:52:18.436048","5"
+"622","Standard transaction","30.0","Transport","Airport Duty Free","0.0","CONFIRMED","2026-05-12 11:52:23.436616","55"
+"623","Standard transaction","133.0","Utilities","Software License","0.0","CONFIRMED","2026-05-12 11:52:28.435628","88"
+"624","Standard transaction","13.0","Beauty","Barber Shop","0.0","CONFIRMED","2026-05-12 11:52:33.44107","34"
+"625","Standard transaction","10.99","Subscriptions","Apple Music","0.0","CONFIRMED","2026-05-12 11:52:38.436757","5"
+"626","Standard transaction","92.0","Beauty","Hair Salon","0.0","CONFIRMED","2026-05-12 11:52:43.439451","36"
+"627","Standard transaction","120.0","Health","Vitamin Store","0.0","CONFIRMED","2026-05-12 11:52:48.437635","42"
+"628","Anomaly amount","1313.0","Travel","Ryanair","0.5","CONFIRMED","2026-05-12 11:52:53.445124","28"
+"629","Standard transaction","48.0","Transport","Uber","0.0","CONFIRMED","2026-05-12 11:52:58.443894","95"
+"630","High-risk category (Cyber)","7446.0","Cyber","DarkWeb Entry","0.7","REJECTED","2026-05-12 11:53:03.450383","99"
+"631","Anomaly amount; High-risk category (Cyber)","3558.0","Cyber","VPN Service","1.0","REJECTED","2026-05-12 11:53:08.439867","38"
+"632","Anomaly amount; High-risk category (Cyber)","2220.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-12 11:53:13.445852","63"
+"633","Standard transaction","10.99","Subscriptions","Spotify","0.0","CONFIRMED","2026-05-12 11:53:18.440671","84"
+"634","Standard transaction","86.0","Utilities","Waste Tax","0.0","CONFIRMED","2026-05-12 11:53:23.447883","52"
+"635","Anomaly amount; High-risk category (Cyber)","8427.0","Cyber","VPN Service","1.0","REJECTED","2026-05-12 11:53:28.434968","87"
+"636","High amount","137.0","Beauty","Fragrance Store","0.25","CONFIRMED","2026-05-12 11:53:33.444573","92"
+"637","Standard transaction","253.0","Shopping","Toy Store","0.0","CONFIRMED","2026-05-12 11:53:38.435043","35"
+"638","Standard transaction","136.0","Shopping","Bookstore","0.0","CONFIRMED","2026-05-12 11:53:43.444434","97"
+"639","Standard transaction","5.0","Transport","Luggage Storage","0.0","CONFIRMED","2026-05-12 11:53:48.435117","32"
+"640","High-risk category (Cyber)","1210.0","Cyber","DarkWeb Entry","0.7","REJECTED","2026-05-12 11:53:53.439932","99"
+"641","Standard transaction","25.0","Transport","Train Ticket","0.0","CONFIRMED","2026-05-12 11:53:58.440255","9"
+"642","High amount","303.0","Utilities","Electricity Bill","0.4","REJECTED","2026-05-12 11:54:03.442802","71"
+"643","High amount","251.0","Shopping","Electronics Store","0.25","CONFIRMED","2026-05-12 11:54:08.440601","40"
+"644","Standard transaction","234.0","Shopping","Electronics Store","0.0","CONFIRMED","2026-05-12 11:54:13.441355","22"
+"645","Standard transaction","12.0","Subscriptions","Online Newspaper","0.0","CONFIRMED","2026-05-12 11:54:18.44216","24"
+"646","High amount; High-risk category (Cyber)","4916.0","Cyber","VPN Service","0.95","REJECTED","2026-05-12 11:54:23.444385","87"
+"647","Standard transaction","36.0","Transport","Gas Station","0.0","CONFIRMED","2026-05-12 11:54:28.441507","19"
+"648","High-risk category (Cyber)","8481.0","Cyber","DarkWeb Entry","0.7","REJECTED","2026-05-12 11:54:33.441037","99"
+"649","High Amount","232.0","Health","Yoga Class","0.3","REJECTED","2026-05-12 11:54:38.436537","48"
+"650","Anomaly amount; High-risk category (Cyber)","9195.0","Cyber","VPN Service","1.0","REJECTED","2026-05-12 11:54:49.335718","6"
+"651","Anomaly amount; High-risk category (Cyber)","6418.0","Cyber","DarkWeb Entry","1.0","REJECTED","2026-05-12 12:03:57.382909","14"
+"652","Standard transaction","87.0","Health","Personal Trainer Session","0.0","CONFIRMED","2026-05-12 12:16:52.00038","31"
+"653","Subscription price mismatch (expected $17.99)","100.0","Subscriptions","Netflix","0.4","REJECTED","2026-05-12 12:20:00","7"
+"654","Standard transaction","14.0","Transport","Electric Scooter Rental","0.0","CONFIRMED","2026-05-12 12:31:24.144166","13"
+"655","Standard transaction","9.99","Subscriptions","HBO Max","0.0","CONFIRMED","2026-05-12 14:43:00","6"
+"656","Standard transaction","9.99","Subscriptions","HBO Max","0.0","CONFIRMED","2026-05-12 14:43:02","6"
+"657","Standard transaction","9.99","Subscriptions","HBO Max","0.0","CONFIRMED","2026-05-12 14:43:04","6"
+"658","Standard transaction","9.99","Subscriptions","HBO Max","0.0","CONFIRMED","2026-05-12 14:43:06","6"
+"659","High velocity (5 trans. in < 3min)","9.99","Subscriptions","HBO Max","0.6","REJECTED","2026-05-12 14:43:08","6"
+"660","Standard transaction","10.99","Subscriptions","Apple Music","0.0","CONFIRMED","2026-05-12 15:13:07.4373","92"
+"661","Standard transaction","29.9","Utilities","Book: How to stop a Hacker","0.0","CONFIRMED","2026-05-12 15:15:00","43"
+"662","High-risk category (Cyber)","8232.0","Cyber","VPN Service","0.7","REJECTED","2026-05-12 15:16:00.656253","99"
+"663","Anomaly amount; High-risk category (Cyber)","5022.0","Cyber","Crypto Exchange","1.0","REJECTED","2026-05-12 15:28:07.398379","57"
+"664","High-risk category (Cyber)","1679.0","Cyber","DarkWeb Entry","0.7","REJECTED","2026-05-12 15:28:12.38361","99"
+"665","Standard transaction","17.99","Subscriptions","Netflix","0.0","CONFIRMED","2026-05-12 15:28:17.387591","64"
+"666","Standard transaction","26.0","Utilities","VPN Service","0.0","CONFIRMED","2026-05-12 15:28:22.384618","23"
+"667","Anomaly amount; High-risk category (Cyber)","1064.0","Cyber","VPN Service","1.0","REJECTED","2026-05-12 15:28:27.386428","85"
+"668","Standard transaction","140.0","Beauty","Sephora","0.0","CONFIRMED","2026-05-12 15:28:32.378972","38"
+"669","Standard transaction","98.0","Food","Supermarket","0.0","CONFIRMED","2026-05-12 15:28:37.388785","98"
+"670","Standard transaction","34.0","Food","Street Food Festival","0.0","CONFIRMED","2026-05-12 15:28:42.387967","38"
+"671","Standard transaction","144.0","Shopping","Home Decor","0.0","CONFIRMED","2026-05-12 15:28:47.379043","70"
+"672","Standard transaction","441.0","Shopping","eBay Purchase","0.0","CONFIRMED","2026-05-12 15:28:52.389418","58"
+"673","High-risk category (Cyber)","2529.0","Cyber","DarkWeb Entry","0.7","REJECTED","2026-05-12 15:28:57.392142","99"
+"674","High amount","182.0","Health","Massage Therapy","0.3","REJECTED","2026-05-12 15:29:02.389322","72"
+"675","Standard transaction","40.0","Entertainment","PlayStation Store","0.0","CONFIRMED","2026-05-12 15:29:07.381683","79"
+"676","Standard transaction","165.0","Shopping","Toy Store","0.0","CONFIRMED","2026-05-12 15:29:12.382916","24"
+"677","High-risk category (Cyber)","3986.0","Cyber","VPN Service","0.7","REJECTED","2026-05-12 15:29:17.390556","99"
+"678","Standard transaction","10.99","Subscriptions","Apple Music","0.0","CONFIRMED","2026-05-12 15:29:22.37684","46"
+"679","Standard transaction","55.0","Food","Sushi Bar","0.0","CONFIRMED","2026-05-12 15:29:27.380959","60"
+"680","Standard transaction","202.0","Clothes","Footwear Store","0.0","CONFIRMED","2026-05-12 15:29:32.386599","90"
+"681","Standard transaction","8.99","Subscriptions","Disney+","0.0","CONFIRMED","2026-05-12 15:29:37.37582","94"
+"682","Standard transaction","21.0","Food","Sushi Bar","0.0","CONFIRMED","2026-05-12 15:29:42.382969","29"
+"683","Standard transaction","10.0","Transport","Electric Scooter Rental","0.0","CONFIRMED","2026-05-12 15:29:46.113851","31"
+"684","Standard transaction","11.0","Transport","Highway Toll","0.0","CONFIRMED","2026-05-12 15:29:51.102369","36"
+"685","Standard transaction","251.0","Clothes","Sportswear Shop","0.0","CONFIRMED","2026-05-12 15:29:56.10221","51"
+"686","High amount; High-risk category (Cyber)","1987.0","Cyber","VPN Service","0.95","REJECTED","2026-05-12 15:30:01.112068","54"
+"687","Standard transaction","58.0","Food","Supermarket","0.0","CONFIRMED","2026-05-12 15:30:06.103451","69"
+"688","Standard transaction","69.0","Insurance","Travel Insurance","0.0","CONFIRMED","2026-05-12 15:30:11.110149","21"
+"689","Anomaly amount; High-risk category (Cyber)","9724.0","Cyber","VPN Service","1.0","REJECTED","2026-05-12 15:30:16.107542","92"
+"690","Standard transaction","239.0","Clothes","Sportswear Shop","0.0","CONFIRMED","2026-05-12 15:30:21.108937","51"
+"691","Standard transaction","84.0","Entertainment","Escape Room","0.0","CONFIRMED","2026-05-12 15:30:26.110507","70"
+"692","Standard transaction","72.0","Health","Dental Checkup","0.0","CONFIRMED","2026-05-12 15:30:31.108504","11"
+"693","Standard transaction","151.0","Insurance","Travel Insurance","0.0","CONFIRMED","2026-05-12 15:30:36.110056","25"
+"694","Standard transaction","12.0","Entertainment","Gym Membership","0.0","CONFIRMED","2026-05-12 15:30:41.111964","74"
+"695","Standard transaction","115.0","Entertainment","Concert Ticket","0.0","CONFIRMED","2026-05-12 15:30:46.112143","48"
+"696","Standard transaction","141.0","Health","Dental Checkup","0.0","CONFIRMED","2026-05-12 15:30:51.113692","10"
+"697","Standard transaction","56.0","Entertainment","Golf Course Fee","0.0","CONFIRMED","2026-05-12 15:30:56.10229","48"
+"698","Standard transaction","8.99","Subscriptions","Disney+","0.0","CONFIRMED","2026-05-12 15:31:01.110693","59"
+"699","Standard transaction","159.0","Shopping","Electronics Store","0.0","CONFIRMED","2026-05-12 15:31:06.11302","51"
+"700","Standard transaction","66.0","Food","Coffee Roastery","0.0","CONFIRMED","2026-05-12 15:31:11.10132","18"
+"701","Standard transaction","42.0","Transport","Gas Station","0.0","CONFIRMED","2026-05-12 15:31:16.101758","50"
+"702","Standard transaction","145.0","Beauty","Skincare Clinic","0.0","CONFIRMED","2026-05-12 15:31:21.101438","9"
+"703","Standard transaction","166.0","Insurance","Pet Insurance","0.0","CONFIRMED","2026-05-12 15:31:26.105691","99"
+"704","Standard transaction","99.0","Food","Patisserie","0.0","CONFIRMED","2026-05-12 15:31:31.106039","8"
+"705","Standard transaction","47.0","Transport","Car Wash","0.0","CONFIRMED","2026-05-12 15:31:36.106059","18"
+"706","High amount","272.0","Shopping","IKEA Furniture","0.25","CONFIRMED","2026-05-12 15:31:41.112589","46"
+"707","Standard transaction","179.0","Insurance","Health Insurance","0.0","CONFIRMED","2026-05-12 15:31:46.108102","14"
+"708","High amount","571.0","Travel","Car Rental","0.3","REJECTED","2026-05-12 15:31:51.107609","71"
+"709","Standard transaction","29.0","Food","Business Lunch","0.0","CONFIRMED","2026-05-12 15:31:56.115691","22"
+"710","Standard transaction","126.0","Health","Yoga Class","0.0","CONFIRMED","2026-05-12 15:32:01.104191","51"
+"711","Standard transaction","491.0","Shopping","IKEA Furniture","0.0","CONFIRMED","2026-05-12 15:32:06.110997","28"
+"712","Standard transaction","91.0","Shopping","Pet Shop Supplies","0.0","CONFIRMED","2026-05-12 15:32:11.102237","16"
+"713","Standard transaction","384.0","Clothes","Nike Store","0.0","CONFIRMED","2026-05-12 15:32:16.104443","44"
+"714","Standard transaction","15.0","Transport","Car Wash","0.0","CONFIRMED","2026-05-12 15:32:21.11403","78"
+"715","High amount","135.0","Beauty","Fragrance Store","0.25","REJECTED","2026-05-12 15:32:26.10875","74"
+"716","Standard transaction","145.0","Health","Dental Checkup","0.0","CONFIRMED","2026-05-12 15:32:31.104135","50"
+"717","Standard transaction","243.0","Shopping","Apple Store","0.0","CONFIRMED","2026-05-12 15:32:36.102923","51"
+"718","Standard transaction","102.0","Food","Poke","0.0","CONFIRMED","2026-05-12 15:32:41.10135","65"
+"719","Standard transaction","66.0","Insurance","Health Insurance","0.0","CONFIRMED","2026-05-12 15:32:46.101405","22"
+"720","Standard transaction","33.0","Utilities","Waste Tax","0.0","CONFIRMED","2026-05-12 15:32:51.103961","99"
+"721","High amount","190.0","Utilities","Mobile Phone Plan","0.2","REJECTED","2026-05-12 15:32:56.112554","79"
+"722","Standard transaction","65.0","Food","Wine Shop","0.0","CONFIRMED","2026-05-12 15:33:01.106136","52"
+"723","Standard transaction","337.0","Shopping","Bookstore","0.0","REJECTED","2026-05-12 15:33:06.106365","90"
+"724","Anomaly amount","450.0","Shopping","eBay Purchase","0.5","REJECTED","2026-05-12 15:33:11.111571","7"
+"725","Standard transaction","91.0","Entertainment","Escape Room","0.0","CONFIRMED","2026-05-12 15:33:16.104492","70"
+"726","High-risk category (Cyber)","6897.0","Cyber","VPN Service","0.7","REJECTED","2026-05-12 15:33:21.107135","99"
+"727","Standard transaction","10.99","Subscriptions","Spotify","0.0","CONFIRMED","2026-05-12 15:33:26.102847","100"
+"728","Standard transaction","132.0","Utilities","Water Bill","0.0","CONFIRMED","2026-05-12 15:33:31.11077","49"
+"729","Standard transaction","57.0","Transport","Car Wash","0.0","CONFIRMED","2026-05-12 15:33:36.114056","51"
+"730","High amount","345.0","Shopping","Office Supplies","0.25","REJECTED","2026-05-12 15:33:41.112424","32"
+"731","High-risk category (Cyber)","6287.0","Cyber","VPN Service","0.7","REJECTED","2026-05-12 15:33:46.115172","99"
+"732","Standard transaction","63.0","Insurance","Pet Insurance","0.0","CONFIRMED","2026-05-12 15:33:51.106332","41"
+"733","Standard transaction","168.0","Clothes","Clothing Boutique","0.0","CONFIRMED","2026-05-12 15:33:56.102296","8"
+"734","High amount","355.0","Shopping","Amazon","0.25","CONFIRMED","2026-05-12 15:34:01.109483","94"
+"735","Standard transaction","49.0","Transport","Highway Toll","0.0","CONFIRMED","2026-05-12 15:34:06.102133","86"
+"736","Standard transaction","49.0","Food","Sushi Bar","0.0","CONFIRMED","2026-05-12 15:34:11.100298","78"
+"737","Standard transaction","140.0","Entertainment","PlayStation Store","0.0","CONFIRMED","2026-05-12 15:34:16.113657","39"
+"738","Standard transaction","16.0","Transport","Bike Rental","0.0","CONFIRMED","2026-05-12 15:34:21.101904","80"
+"739","Standard transaction","159.0","Shopping","Apple Store","0.0","CONFIRMED","2026-06-11 10:17:06.466777","87"
+"740","Anomaly amount; High-risk category (Cyber)","704.0","Cyber","DarkWeb Entry","1.0","REJECTED","2026-06-11 10:24:02.649262","4"
+"741","Standard transaction","117.0","Clothes","Pull&Bear","0.0","CONFIRMED","2026-06-11 10:27:46.1861","38"
+"742","Standard transaction","99.0","Entertainment","Tennis Court Rental","0.0","CONFIRMED","2026-06-11 10:29:40.47022","50"
+"743","Standard transaction","8.99","Subscriptions","Disney+","0.0","CONFIRMED","2026-06-11 10:30:41.869433","88"
+"744","Subscription price mismatch (expected 17.99)","13.0","Subscriptions","Netflix","0.4","REJECTED","2026-06-11 10:32:14.689916","14"
+"745","Standard transaction","39.0","Shopping","Apple Store","0.0","CONFIRMED","2026-06-11 10:32:16.689916","14"
+"746","Standard transaction","363.0","Clothes","Footwear Store","0.0","CONFIRMED","2026-06-11 10:32:18.689916","14"
+"747","Standard transaction","34.0","Entertainment","Cinema","0.0","CONFIRMED","2026-06-11 10:32:20.689916","14"
+"748","Standard transaction","69.0","Food","Food Truck","0.0","CONFIRMED","2026-06-11 10:32:22.689916","14"
+"749","Standard transaction","137.0","Health","Optician Visit","0.0","CONFIRMED","2026-06-11 10:33:48.728593","99"
+"750","Standard transaction","134.0","Utilities","Electricity Bill","0.0","CONFIRMED","2026-06-11 10:33:53.712715","28"
+"751","Standard transaction","95.0","Health","Vitamin Store","0.0","CONFIRMED","2026-06-11 10:33:58.713251","77"
+"752","Anomaly amount [AI BLOCK]","805.0","Travel","Airbnb Stay","0.5","REJECTED","2026-06-11 10:34:03.712417","34"
+"753","Standard transaction","283.0","Clothes","Zara","0.0","CONFIRMED","2026-06-11 10:34:08.715658","69"
+"754","Standard transaction","8.99","Subscriptions","Disney+","0.0","CONFIRMED","2026-06-11 10:34:13.717042","90"
+"755","Standard transaction","70.0","Utilities","Internet Provider","0.0","CONFIRMED","2026-06-11 10:34:18.714605","86"
+"756","Standard transaction","586.0","Shopping","eBay Purchase","0.0","CONFIRMED","2026-06-11 11:19:33.47246","24"
+"757","Standard transaction","12.0","Subscriptions","Online Newspaper","0.0","CONFIRMED","2026-06-11 11:19:43.469096","91"
+"758","Standard transaction","167.0","Insurance","Life Insurance","0.0","CONFIRMED","2026-06-11 11:19:53.475471","25"
+"759","Anomaly amount; High-risk category (Cyber) [AI BLOCK]","4939.0","Cyber","Hacker Exploit Kit v2,0.7","1.0","REJECTED","2026-06-11 11:20:03.474535","61"
+"760","Anomaly amount; High-risk category (Cyber) [AI BLOCK]","4908.0","Cyber","DarkWeb Entry","1.0","REJECTED","2026-06-11 11:20:13.473149","70"
+"761","Standard transaction","90.0","Beauty","Sephora","0.0","CONFIRMED","2026-06-11 15:31:37.556071","62"
+"762","Standard transaction","122.0","Health","Yoga Class","0.0","CONFIRMED","2026-06-11 15:31:47.542435","63"
+"763","Standard transaction","8.99","Subscriptions","Disney+","0.0","CONFIRMED","2026-06-11 15:31:57.54803","40"
+"764","Standard transaction","61.0","Food","Gourmet Market","0.0","CONFIRMED","2026-06-11 15:32:07.547013","99"
+"765","Standard transaction","113.0","Clothes","Nike Store","0.0","CONFIRMED","2026-06-11 15:32:17.547281","93"
+"766","Standard transaction","157.0","Utilities","Manual: SQL Injection Prevention","0.0","CONFIRMED","2026-06-11 15:32:27.554769","94"
+"767","Standard transaction","114.0","Health","Optician Visit","0.0","CONFIRMED","2026-06-11 15:32:29.554769","94"
+"768","Standard transaction","68.0","Insurance","Health Insurance","0.0","CONFIRMED","2026-06-11 15:32:31.554769","94"
+"769","Standard transaction","39.0","Food","Farmers Market","0.0","CONFIRMED","2026-06-11 15:32:33.554769","94"
+"770","Subscription price mismatch (expected 34.99) [AI BLOCK]","19.0","Subscriptions","LinkedIn Premium","0.4","REJECTED","2026-06-11 15:32:35.554769","94"
+"771","Standard transaction","319.0","Clothes","Hollister","0.0","CONFIRMED","2026-06-11 15:32:37.552938","69"
+"772","Standard transaction","103.0","Beauty","Lush Cosmetics","0.0","CONFIRMED","2026-06-11 15:32:47.548331","2"
+"773","Standard transaction","135.0","Health","Optician Visit","0.0","CONFIRMED","2026-06-11 15:32:57.555398","47"
+"774","Standard transaction","41.0","Health","Dental Checkup","0.0","CONFIRMED","2026-06-11 15:33:07.548644","31"
+"775","Standard transaction","36.0","Beauty","Spa Treatment","0.0","CONFIRMED","2026-06-11 15:33:17.545275","40"
+"776","Standard transaction","48.0","Health","Optician Visit","0.0","CONFIRMED","2026-06-11 15:33:27.548957","53"
+"777","Standard transaction","133.0","Health","Optician Visit","0.0","CONFIRMED","2026-06-11 15:33:37.545998","55"
+"778","Standard transaction","87.0","Health","Yoga Class","0.0","CONFIRMED","2026-06-11 15:36:10.605047","80"
+"779","Standard transaction","115.0","Entertainment","Escape Room","0.0","CONFIRMED","2026-06-11 15:36:20.603425","22"
+"780","Standard transaction","34.99","Subscriptions","LinkedIn Premium","0.0","CONFIRMED","2026-06-11 15:36:30.613434","95"
+"781","Standard transaction","41.0","Food","Business Lunch","0.0","CONFIRMED","2026-06-11 15:36:40.606819","54"
+"782","Anomaly amount; High-risk category (Cyber) [AI BLOCK]","7190.0","Cyber","DarkWeb Entry","1.0","REJECTED","2026-06-11 15:36:50.607634","45"
+"783","Standard transaction","124.0","Health","Doctor Visit","0.0","CONFIRMED","2026-06-11 15:37:00.605943","40"
+"784","Standard transaction","152.0","Shopping","Toy Store","0.0","CONFIRMED","2026-06-11 15:37:10.604511","25"
+"785","Standard transaction","106.0","Utilities","Water Bill","0.0","CONFIRMED","2026-06-11 15:37:20.614201","65"
+"786","Suspicious keyword in non-cyber category [AI BLOCK]","267.0","Travel","Hire-a-Hacker professional services deposit","0.7","REJECTED","2026-06-11 15:37:30.604177","17"
+"787","Standard transaction","9.99","Subscriptions","HBO Max","0.0","CONFIRMED","2026-06-11 15:37:40.616369","87"
+"788","Standard transaction","300.0","Clothes","Children's Clothing","0.0","CONFIRMED","2026-06-11 15:37:50.607613","56"
+"789","Anomaly amount; High-risk category (Cyber) [AI BLOCK]","7980.0","Cyber","SQL Injection Tutorial Premium","1.0","REJECTED","2026-06-11 15:38:00.616732","92"
+"790","Standard transaction","110.0","Food","Food Truck","0.0","CONFIRMED","2026-06-11 15:38:10.608163","52"
+"791","High amount","222.0","Utilities","Mobile Phone Plan","0.25","REJECTED","2026-06-11 15:38:20.610102","41"
+"792","Anomaly amount; High-risk category (Cyber) [AI BLOCK]","3458.0","Cyber","Zero-day Exploit Kit v.4.2","1.0","REJECTED","2026-06-11 15:38:30.609881","23"
+"793","Standard transaction","108.0","Food","Business Lunch","0.0","CONFIRMED","2026-06-11 15:38:40.614479","33"
+"794","Standard transaction","60.0","Shopping","Electronics Store","0.0","CONFIRMED","2026-06-11 15:38:50.614811","10"
+"795","Standard transaction","9.99","Subscriptions","HBO Max","0.0","CONFIRMED","2026-06-11 15:39:00.618984","90"
+"796","Standard transaction","40.0","Beauty","Makeup Artist","0.0","CONFIRMED","2026-06-11 15:39:10.606353","41"
+"797","Standard transaction","106.0","Health","Massage Therapy","0.0","CONFIRMED","2026-06-11 15:39:12.606353","41"
+"798","Suspicious keyword in non-cyber category","148.0","Utilities","Anti-Hacker Firewall Annual Subscription","0.7","REJECTED","2026-06-11 15:39:14.606353","41"
+"799","Subscription price mismatch (expected 8.99) [AI BLOCK]","39.0","Subscriptions","Disney+","0.4","REJECTED","2026-06-11 15:39:16.606353","41"
+"800","High velocity (5 trans. in < 3min) [AI BLOCK]","119.0","Entertainment","Cinema","0.6","REJECTED","2026-06-11 15:39:18.606353","41"
+"801","Standard transaction","99.0","Insurance","Travel Insurance","0.0","CONFIRMED","2026-06-11 15:39:20.606313","34"
+"802","Standard transaction","3.0","Transport","Gas Station","0.0","CONFIRMED","2026-06-11 15:39:30.607567","78"
+"803","Anomaly amount; High-risk category (Cyber)","1097.0","Cyber","Zero-day Exploit Kit v.4.2","1.0","REJECTED","2026-06-11 15:39:40.608457","94"
+"804","Standard transaction","219.0","Travel","Car Rental","0.0","CONFIRMED","2026-06-11 15:39:50.612107","63"
+"805","High amount","230.0","Clothes","Footwear Store","0.25","CONFIRMED","2026-06-11 15:40:00.618852","1"
+"806","Standard transaction","157.0","Clothes","Footwear Store","0.0","CONFIRMED","2026-06-11 15:40:10.605015","92"
+"807","Standard transaction","47.0","Transport","Luggage Storage","0.0","CONFIRMED","2026-06-11 15:40:20.619083","94"
+"808","Standard transaction","99.0","Clothes","Hollister","0.0","CONFIRMED","2026-06-11 15:40:30.606509","76"
+"809","Anomaly amount; High-risk category (Cyber)","3013.0","Cyber","Zero-day Exploit Kit v.4.2","1.0","REJECTED","2026-06-11 15:40:40.607368","10"
+"810","Standard transaction","113.0","Entertainment","Concert Ticket","0.0","CONFIRMED","2026-06-11 15:40:50.615471","100"
+"811","Standard transaction","183.0","Insurance","Car Insurance","0.0","CONFIRMED","2026-06-11 15:41:00.604593","60"
+"812","Standard transaction","35.0","Beauty","Sephora","0.0","CONFIRMED","2026-06-11 15:41:10.605626","7"
+"813","Standard transaction","65.0","Insurance","Home Insurance","0.0","CONFIRMED","2026-06-11 15:41:20.615357","99"
+"814","Anomaly amount [AI BLOCK]","769.0","Travel","Ryanair","0.5","REJECTED","2026-06-11 15:41:30.605292","35"
+"815","Standard transaction","47.0","Entertainment","Gym Membership","0.0","CONFIRMED","2026-06-11 15:41:40.619119","35"
+"816","Standard transaction","104.0","Beauty","Barber Shop","0.0","CONFIRMED","2026-06-11 15:41:50.619787","20"
+"817","Standard transaction","17.0","Transport","Airport Duty Free","0.0","CONFIRMED","2026-06-11 15:42:00.612431","80"
+"818","Standard transaction","165.0","Utilities","Ethical Hacker Certification Course","0.0","CONFIRMED","2026-06-11 15:42:10.607887","86"
+"819","Standard transaction","68.0","Entertainment","Amusement Park","0.0","CONFIRMED","2026-06-11 15:42:20.606399","74"
+"820","Standard transaction","42.0","Health","Massage Therapy","0.0","CONFIRMED","2026-06-11 15:42:30.613325","54"
+"821","Standard transaction","35.0","Health","Optician Visit","0.0","CONFIRMED","2026-06-11 15:42:40.608547","96"
+"822","Standard transaction","146.0","Utilities","Internet Provider","0.0","CONFIRMED","2026-06-11 15:42:50.617477","41"
+"823","Subscription price mismatch (expected 20.0)","33.0","Subscriptions","ChatGPT Plus","0.4","REJECTED","2026-06-11 15:43:00.607811","12"
+"824","High amount","404.0","Clothes","Sportswear Shop","0.25","CONFIRMED","2026-06-11 15:43:10.610544","46"
+"825","Standard transaction","383.0","Shopping","Amazon","0.0","CONFIRMED","2026-06-11 15:43:20.618329","26"
+"826","Anomaly amount; High-risk category (Cyber) [AI BLOCK]","4171.0","Cyber","VPN Service","1.0","REJECTED","2026-06-11 15:43:30.610168","22"
+"827","Suspicious keyword in non-cyber category [AI BLOCK]","207.0","Utilities","Anti-Hacker Firewall Annual Subscription","0.7","REJECTED","2026-06-11 15:43:40.611087","9"
+"828","Standard transaction","22.0","Beauty","Lush Cosmetics","0.0","CONFIRMED","2026-06-11 15:43:42.611087","9"
+"829","Standard transaction","346.0","Clothes","Pull&Bear","0.0","CONFIRMED","2026-06-11 15:43:44.611087","9"
+"830","Anomaly amount","1473.0","Travel","Travel Agency Package","0.5","CONFIRMED","2026-06-11 15:43:46.611087","9"
+"831","Standard transaction [AI BLOCK]","103.0","Shopping","Electronics Store","0.0","CONFIRMED","2026-06-11 15:43:48.611087","9"
+"832","Anomaly amount; High-risk category (Cyber) [AI BLOCK]","5032.0","Cyber","Premium DarkWeb Forum Access - Lifetime","1.0","REJECTED","2026-06-11 15:43:50.613166","4"
+"833","Standard transaction","387.0","Shopping","IKEA Furniture","0.0","CONFIRMED","2026-06-11 15:44:00.620191","33"
+"834","Standard transaction","125.0","Entertainment","Tennis Court Rental","0.0","CONFIRMED","2026-06-11 15:44:10.617912","76"
+"835","Standard transaction","17.99","Subscriptions","Netflix","0.0","CONFIRMED","2026-06-11 15:44:20.606619","15"
+"836","Standard transaction","23.0","Health","Vitamin Store","0.0","CONFIRMED","2026-06-11 15:44:30.606394","68"
+"837","Standard transaction","111.0","Insurance","Health Insurance","0.0","CONFIRMED","2026-06-11 15:44:40.61141","16"
+"838","Standard transaction","20.0","Beauty","Fragrance Store","0.0","CONFIRMED","2026-06-11 15:44:50.609231","29"
+"839","Standard transaction","235.0","Utilities","Software License","0.0","CONFIRMED","2026-06-11 15:45:00.611432","20"
+"840","Standard transaction","10.99","Subscriptions","Apple Music","0.0","CONFIRMED","2026-06-11 15:45:10.613575","64"
+"841","Standard transaction","45.0","Transport","Highway Toll","0.0","CONFIRMED","2026-06-11 15:45:20.61916","42"
+"842","Standard transaction","344.0","Travel","Airbnb Stay","0.0","CONFIRMED","2026-06-11 15:45:30.609121","82"
+"843","Standard transaction","89.0","Insurance","Home Insurance","0.0","CONFIRMED","2026-06-11 15:45:40.61142","81"
+"844","Standard transaction","44.0","Food","McDonalds","0.0","CONFIRMED","2026-06-11 15:45:50.614336","79"
+"845","Standard transaction","186.0","Utilities","Manual: SQL Injection Prevention","0.0","CONFIRMED","2026-06-11 15:46:00.607242","86"
+"846","Standard transaction","98.0","Beauty","Lush Cosmetics","0.0","CONFIRMED","2026-06-11 15:46:10.611575","16"
+"847","Standard transaction","111.0","Beauty","Barber Shop","0.0","CONFIRMED","2026-06-11 15:46:20.610411","2"
+"848","Anomaly amount; High-risk category (Cyber) [AI BLOCK]","9190.0","Cyber","Hacker Exploit Kit v2,0.7","1.0","REJECTED","2026-06-11 15:46:30.612693","65"
+"849","Standard transaction","38.0","Transport","Gas Station","0.0","CONFIRMED","2026-06-11 15:46:40.614513","54"
+"850","Subscription price mismatch (expected 9.95)","9.0","Subscriptions","Audible Subscription","0.4","REJECTED","2026-06-11 15:46:50.61538","74"
+"851","Standard transaction","45.0","Entertainment","PlayStation Store","0.0","CONFIRMED","2026-06-11 15:47:00.609516","32"
+"852","Standard transaction","34.99","Subscriptions","LinkedIn Premium","0.0","CONFIRMED","2026-06-11 15:47:10.608883","29"
+"853","Anomaly amount; High-risk category (Cyber) [AI BLOCK]","7489.0","Cyber","Premium DarkWeb Forum Access - Lifetime","1.0","REJECTED","2026-06-11 15:47:20.617148","49"
+"854","Standard transaction","123.0","Entertainment","Golf Course Fee","0.0","CONFIRMED","2026-06-11 15:47:30.620186","1"
+"855","Standard transaction","136.0","Beauty","Fragrance Store","0.0","CONFIRMED","2026-06-11 15:47:40.6232","36"
+"856","Suspicious keyword in non-cyber category","108.0","Entertainment","Hire-a-Hacker professional services deposit","0.7","REJECTED","2026-06-11 15:47:50.611383","15"
+"857","Standard transaction","81.0","Food","Sushi Bar","0.0","CONFIRMED","2026-06-11 15:48:00.612482","5"
+"858","Standard transaction","137.0","Beauty","Lush Cosmetics","0.0","CONFIRMED","2026-06-11 15:48:10.618265","50"
+"859","High-risk category (Cyber)","510.0","Cyber","Zero-day Exploit Kit v.4.2","0.7","REJECTED","2026-06-11 15:48:20.610572","19"
+"860","Standard transaction [AI BLOCK]","410.0","Clothes","Clothing Boutique","0.0","CONFIRMED","2026-06-11 15:48:30.612368","6"
+"861","High-risk category (Cyber) [AI BLOCK]","2804.0","Cyber","VPN Service","0.7","REJECTED","2026-06-11 15:48:40.622773","70"
+"862","Standard transaction","152.0","Clothes","Hollister","0.0","CONFIRMED","2026-06-11 15:48:50.620192","87"
+"863","Standard transaction","52.0","Transport","Car Wash","0.0","CONFIRMED","2026-06-11 15:49:00.615415","79"
+"864","Standard transaction","112.0","Travel","Ryanair","0.0","CONFIRMED","2026-06-11 15:49:10.613949","46"
+"865","Standard transaction","72.0","Utilities","Manual: SQL Injection Prevention","0.0","CONFIRMED","2026-06-11 15:49:20.611123","5"
+"866","Standard transaction","102.0","Food","Wine Shop","0.0","CONFIRMED","2026-06-11 15:49:30.612606","67"
+"867","Standard transaction","117.0","Food","McDonalds","0.0","CONFIRMED","2026-06-11 15:49:40.620801","42"
+"868","Anomaly amount; High-risk category (Cyber) [AI BLOCK]","3473.0","Cyber","Anti-DDoS Bypass tool subscription","1.0","REJECTED","2026-06-11 15:49:50.608602","78"
+"869","Standard transaction","267.0","Shopping","Bookstore","0.0","CONFIRMED","2026-06-11 15:50:00.61","92"
+"870","Standard transaction","62.0","Entertainment","Concert Ticket","0.0","CONFIRMED","2026-06-11 15:50:10.608704","38"
+"871","Anomaly amount [AI BLOCK]","310.0","Clothes","Nike Store","0.5","REJECTED","2026-06-11 15:50:20.612362","43"
+"872","Standard transaction","26.0","Health","Personal Trainer Session","0.0","CONFIRMED","2026-06-11 15:50:30.611775","82"
+"873","Standard transaction","55.0","Food","Wine Shop","0.0","CONFIRMED","2026-06-11 15:50:40.615417","22"
+"874","Standard transaction","120.0","Clothes","H&M","0.0","CONFIRMED","2026-06-11 15:50:50.609988","25"
+"875","Standard transaction","20.0","Subscriptions","ChatGPT Plus","0.0","CONFIRMED","2026-06-11 15:51:00.619507","67"
+"876","Standard transaction","138.0","Insurance","Travel Insurance","0.0","CONFIRMED","2026-06-11 15:51:10.621169","47"
+"877","Standard transaction","179.0","Shopping","Bookstore","0.0","CONFIRMED","2026-06-11 15:51:20.611452","38"
+"878","Standard transaction","34.0","Entertainment","Bowling Alley","0.0","CONFIRMED","2026-06-11 15:51:30.610203","72"
+"879","Standard transaction","12.0","Entertainment","Tennis Court Rental","0.0","CONFIRMED","2026-06-11 15:51:40.614307","34"
+"880","Standard transaction","139.0","Entertainment","Cinema","0.0","CONFIRMED","2026-06-11 15:51:50.61278","27"
+"881","Standard transaction","146.0","Beauty","Spa Treatment","0.0","CONFIRMED","2026-06-11 15:52:00.611754","92"
+"882","Standard transaction","38.0","Transport","Luggage Storage","0.0","CONFIRMED","2026-06-11 15:52:10.620662","31"
+"883","High amount","177.0","Utilities","Gas Bill","0.25","CONFIRMED","2026-06-11 15:52:20.631627","80"
+"884","Standard transaction","74.0","Entertainment","Concert Ticket","0.0","CONFIRMED","2026-06-11 15:52:30.612041","89"
+"885","Standard transaction","84.0","Food","Patisserie","0.0","CONFIRMED","2026-06-11 15:52:40.610938","99"
+"886","Standard transaction","9.99","Subscriptions","HBO Max","0.0","CONFIRMED","2026-06-11 15:52:50.610457","15"
+"887","Standard transaction","388.0","Clothes","Zara","0.0","CONFIRMED","2026-06-11 15:53:00.610446","11"
+"888","Standard transaction","52.0","Transport","Electric Scooter Rental","0.0","CONFIRMED","2026-06-11 15:53:10.612151","74"
+"889","Standard transaction","97.0","Beauty","Skincare Clinic","0.0","CONFIRMED","2026-06-11 15:53:20.622642","61"
+"890","Standard transaction","105.0","Insurance","Life Insurance","0.0","CONFIRMED","2026-06-11 15:53:30.612219","9"
+"891","Standard transaction","58.0","Utilities","Online Course Subscription","0.0","CONFIRMED","2026-06-11 15:53:40.619034","44"
+"892","Standard transaction","411.0","Shopping","Bookstore","0.0","CONFIRMED","2026-06-11 15:53:50.619282","82"

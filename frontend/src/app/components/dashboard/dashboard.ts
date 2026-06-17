@@ -23,71 +23,71 @@ export class Dashboard implements OnInit, OnDestroy {
   public rejectionRate: number = 0;
   private sub: Subscription | undefined;
 
-  public chartOptions: any = {
-    series: [
-      {
-        name: 'Importo Transazioni',
-        data: []
-      }
-    ],
+ public chartOptions: any = {
+    series: [],
     chart: {
-      type: 'area',
+      type: 'line',
       height: 350,
-      animations: {
-        enabled: true,
-        easing: 'linear',
-        dynamicAnimation: {
-          speed: 1000
-        }
-      },
-      toolbar: {
-        show: false
-      }
+      toolbar: { show: false },
+      animations: { enabled: false }
     },
-    colors: ['#0891b2'],
-    dataLabels: {
-      enabled: false
-    },
+    colors: ['#10b981', '#ef4444'],
     stroke: {
-      curve: 'smooth',
-      width: 3
+      width: [2, 1],
+      curve: 'smooth'
     },
     fill: {
-      type: 'gradient',
+      type: ['gradient', 'solid'],
       gradient: {
         shadeIntensity: 1,
-        opacityFrom: 0.7,
-        opacityTo: 0.2,
-        stops: [0, 90, 100]
+        opacityFrom: 0.4,
+        opacityTo: 0.1,
+        stops: [0, 100]
       }
     },
+    dataLabels: { enabled: false },
     xaxis: {
       type: 'datetime',
       labels: {
         datetimeUTC: false,
-        style: {
-          colors: '#64748b'
-        }
+        style: { colors: '#64748b' }
       }
     },
-    yaxis: {
-      labels: {
-        formatter: (val: number) => `€${val.toFixed(2)}`,
-        style: {
-          colors: '#64748b'
-        }
+    yaxis: [
+      {
+        seriesName: 'Transazioni Legittime',
+        title: { 
+          text: 'Legittime (€)',
+          style: { color: '#10b981' }
+        },
+        labels: {
+          formatter: (val: number) => `€${val.toFixed(0)}`,
+          style: { colors: '#10b981' }
+        },
+        min: 0,
+        forceNiceScale: true
       },
-      min: 0,
-      forceNiceScale: true
-    },
-    tooltip: {
-      x: {
-        format: 'dd/MM/yy HH:mm:ss'
+      {
+        opposite: true,
+        seriesName: 'Tentativi di Frode',
+        title: { 
+          text: 'Frodi (€)',
+          style: { color: '#ef4444' }
+        },
+        labels: {
+          formatter: (val: number) => `€${val.toFixed(0)}`,
+          style: { colors: '#ef4444' }
+        },
+        min: 0,
+        forceNiceScale: true
       }
+    ],
+    tooltip: {
+      shared: true,
+      intersect: false,
+      x: { format: 'dd/MM/yy HH:mm:ss' }
     },
-    grid: {
-      borderColor: '#f1f5f9'
-    }
+    grid: { borderColor: '#f1f5f9' }
   };
 
   ngOnInit() {
@@ -117,13 +117,29 @@ export class Dashboard implements OnInit, OnDestroy {
 
           this.updateTotals();
 
-          this.chartOptions.series = [{
-            name: 'Importo Transazione',
-            data: sortedData.map(tx => [
-              new Date(tx.timestamp).getTime(),
-              Number(tx.amount)
-            ])
-          }];
+          const rollingData = sortedData.slice(-50); // Torniamo a 50 transazioni scorrevoli
+
+          const legitTx = rollingData.filter(tx => tx.status !== 'REJECTED');
+          const fraudTx = rollingData.filter(tx => tx.status === 'REJECTED');
+
+          this.chartOptions.series = [
+            {
+              name: 'Transazioni Legittime',
+              type: 'area', 
+              data: legitTx.map(tx => [
+                new Date(tx.timestamp).getTime(),
+                Number(tx.amount)
+              ])
+            },
+            {
+              name: 'Tentativi di Frode',
+              type: 'column', // <-- LA MAGIA È QUI
+              data: fraudTx.map(tx => [
+                new Date(tx.timestamp).getTime(),
+                Number(tx.amount)
+              ])
+            }
+          ];
 
           this.cdr.detectChanges();
 

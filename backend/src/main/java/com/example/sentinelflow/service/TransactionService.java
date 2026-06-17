@@ -28,7 +28,7 @@ public class TransactionService {
         this.transactionAnalyzer = transactionAnalyzer;
     }
 
-    @Scheduled(fixedRate = 5000, initialDelay = 200000000)
+    @Scheduled(fixedRate = 10000, initialDelay = 2000)
     public void generateTransaction() {
         generateTransaction(java.time.LocalDateTime.now());
     }
