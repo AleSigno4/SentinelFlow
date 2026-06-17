@@ -16,17 +16,16 @@ export class Dashboard implements OnInit, OnDestroy {
   private service = inject(TransactionService);
   private cdr = inject(ChangeDetectorRef);
 
-  public transactions: Transaction[] = []; // Array limitato per il rendering della tabella
+  public transactions: Transaction[] = [];
   public totalAmount: number = 0;
   public averageAmount: number = 0;
   public pendingTransactions: Transaction[] = [];
   public rejectionRate: number = 0;
-  
-  // Nuove proprietà di controllo per la paginazione lato client
+
   public totalTransactionsCount: number = 0;
   public limitTabella: number = 100;
-  private fullSortedTransactions: Transaction[] = []; // Contenitore master di tutte le transazioni
-  
+  private fullSortedTransactions: Transaction[] = [];
+
   private sub: Subscription | undefined;
 
   public chartOptions: any = {
@@ -62,7 +61,7 @@ export class Dashboard implements OnInit, OnDestroy {
     yaxis: [
       {
         seriesName: 'Transazioni Legittime',
-        title: { 
+        title: {
           text: 'Legittime (€)',
           style: { color: '#10b981' }
         },
@@ -76,7 +75,7 @@ export class Dashboard implements OnInit, OnDestroy {
       {
         opposite: true,
         seriesName: 'Tentativi di Frode',
-        title: { 
+        title: {
           text: 'Frodi (€)',
           style: { color: '#ef4444' }
         },
@@ -97,7 +96,7 @@ export class Dashboard implements OnInit, OnDestroy {
   };
 
   ngOnInit() {
-    this.sub = interval(5000)
+    this.sub = interval(10000)
       .pipe(
         startWith(0),
         switchMap(() => this.service.getTransactions())
@@ -118,18 +117,20 @@ export class Dashboard implements OnInit, OnDestroy {
           this.fullSortedTransactions = sortedData;
           this.totalTransactionsCount = sortedData.length;
 
-          this.updateTotals(this.fullSortedTransactions);
+          const processedTransactions = sortedData.filter(tx => tx.status !== 'PENDING');
+
+          this.updateTotals(processedTransactions);
 
           this.renderTabella();
 
           const rollingData = sortedData.slice(-50);
-          const legitTx = rollingData.filter(tx => tx.status !== 'REJECTED');
+          const legitTx = rollingData.filter(tx => tx.status === 'CONFIRMED');
           const fraudTx = rollingData.filter(tx => tx.status === 'REJECTED');
 
           this.chartOptions.series = [
             {
               name: 'Transazioni Legittime',
-              type: 'area', 
+              type: 'area',
               data: legitTx.map(tx => [new Date(tx.timestamp).getTime(), Number(tx.amount)])
             },
             {

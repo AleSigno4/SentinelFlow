@@ -31,6 +31,8 @@ public class Transaction {
     private LocalDateTime timestamp;
     private Double riskScore;
     private String aiReason;
+    private Boolean manualOverride;
+    private LocalDateTime manualOverrideTimestamp;
 
     public Transaction(Long userId, Double amount, String description, String category, TransactionStatus status, LocalDateTime timestamp, Double riskScore, String aiReason) {
         this.userId = userId;
@@ -41,5 +43,7 @@ public class Transaction {
         this.timestamp = timestamp;
         this.riskScore = riskScore;
         this.aiReason = aiReason;
+        this.manualOverride = false;
+        this.manualOverrideTimestamp = null;
     }
 }

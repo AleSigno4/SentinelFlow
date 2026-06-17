@@ -1,5 +1,6 @@
 package com.example.sentinelflow.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -150,6 +151,8 @@ public class TransactionService {
         Transaction transaction = transactionRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Transaction not found"));
         transaction.setStatus(status);
+        transaction.setManualOverride(true);
+        transaction.setManualOverrideTimestamp(LocalDateTime.now());
         return transactionRepository.save(transaction);
     }
 }

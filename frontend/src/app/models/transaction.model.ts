@@ -9,4 +9,6 @@ export interface Transaction {
     isProcessing?: boolean;
     riskScore: number;
     aiReason: string;
+    manualOverride: boolean;
+    manualOverrideTimestamp: string | null;
 }
