@@ -26,6 +26,8 @@ export class Dashboard implements OnInit, OnDestroy {
   public limitTabella: number = 100;
   private fullSortedTransactions: Transaction[] = [];
 
+  public activeMenuId: number | null = null;
+
   private sub: Subscription | undefined;
 
   public chartOptions: any = {
@@ -172,6 +174,14 @@ export class Dashboard implements OnInit, OnDestroy {
     this.cdr.detectChanges();
   }
 
+  public toggleMenu(id: number) {
+    this.activeMenuId = this.activeMenuId === id ? null : id;
+  }
+
+  public closeMenu() {
+    this.activeMenuId = null;
+  }
+
   private updateTotals(listaModello: Transaction[]) {
     this.totalAmount = listaModello.reduce((sum, tx) => sum + tx.amount, 0);
     this.averageAmount = listaModello.length > 0 ? this.totalAmount / listaModello.length : 0;
@@ -181,24 +191,51 @@ export class Dashboard implements OnInit, OnDestroy {
     this.rejectionRate = listaModello.length > 0 ? (rejectedCount / listaModello.length) * 100 : 0;
   }
 
-  updateTransactionStatus(transaction: Transaction, newStatus: 'CONFIRMED' | 'REJECTED') {
+  public handleAction(transaction: Transaction, newStatus: 'CONFIRMED' | 'REJECTED' | 'PENDING') {
+    this.closeMenu();
+
     transaction.isProcessing = true;
 
     this.service.updateTransactionStatus(transaction.id, newStatus).subscribe({
       next: () => {
-        transaction.status = newStatus;
-        transaction.isProcessing = false;
-        this.updateTotals(this.fullSortedTransactions);
+        this.fullSortedTransactions = this.fullSortedTransactions.map(t => 
+          t.id === transaction.id 
+            ? { ...t, status: newStatus, manualOverride: (newStatus !== 'PENDING'), isProcessing: false }
+            : t
+        );
+
+        const processedTransactions = this.fullSortedTransactions.filter(tx => tx.status !== 'PENDING');
+        this.updateTotals(processedTransactions);
+
         this.renderTabella();
+
+        const rollingData = this.fullSortedTransactions.slice(-50);
+        const legitTx = rollingData.filter(tx => tx.status === 'CONFIRMED');
+        const fraudTx = rollingData.filter(tx => tx.status === 'REJECTED');
+
+        this.chartOptions.series = [
+          {
+            name: 'Transazioni Legittime',
+            type: 'area',
+            data: legitTx.map(tx => [new Date(tx.timestamp).getTime(), Number(tx.amount)])
+          },
+          {
+            name: 'Tentativi di Frode',
+            type: 'column',
+            data: fraudTx.map(tx => [new Date(tx.timestamp).getTime(), Number(tx.amount)])
+          }
+        ];
+
         this.cdr.detectChanges();
       },
       error: (err) => {
         transaction.isProcessing = false;
-        console.error(err);
+        this.cdr.detectChanges();
+        console.error('Errore nell\'aggiornamento:', err);
       }
     });
   }
-
+  
   getRiskClass(score: number): string {
     if (score <= 0.15) return 'bg-green-100 text-green-700';
     if (score >= 0.75) return 'bg-red-100 text-red-700';

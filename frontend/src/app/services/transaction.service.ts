@@ -13,7 +13,7 @@ export class TransactionService {
     return this.http.get<Transaction[]>(this.url);
   }
 
-  updateTransactionStatus(transactionId: number, newStatus: 'CONFIRMED' | 'REJECTED') {
+  updateTransactionStatus(transactionId: number, newStatus: 'CONFIRMED' | 'REJECTED' | 'PENDING') {
     return this.http.patch(`${this.url}/${transactionId}/status`, { status: newStatus });
   }
 
