@@ -59,7 +59,7 @@ public class TransactionAnalyzer {
                     txCount3min,
                     timeDiff
             );
-            
+
             FraudDetectionResponse response = aiRestClient.post()
                     .uri("/predict")
                     .contentType(MediaType.APPLICATION_JSON)
@@ -82,29 +82,29 @@ public class TransactionAnalyzer {
         }
 
         return switch (category.trim()) {
-            case "Beauty" ->
-                0;
-            case "Clothes" ->
-                1;
-            case "Cyber" ->
-                2;
-            case "Entertainment" ->
-                3;
             case "Food" ->
-                4;
-            case "Health" ->
-                5;
-            case "Insurance" ->
-                6;
+                0;
             case "Shopping" ->
-                7;
+                1;
+            case "Clothes" ->
+                2;
+            case "Beauty" ->
+                3;
+            case "Entertainment" ->
+                4;
             case "Subscriptions" ->
-                8;
-            case "Transport" ->
-                9;
-            case "Travel" ->
-                10;
+                5;
             case "Utilities" ->
+                6;
+            case "Travel" ->
+                7;
+            case "Transport" ->
+                8;
+            case "Cyber" ->
+                9;
+            case "Insurance" ->
+                10;
+            case "Health" ->
                 11;
             default ->
                 11;
