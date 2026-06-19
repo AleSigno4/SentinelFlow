@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +24,8 @@ public class TransactionService {
     private final Map<String, List<String>> categories = TransactionRules.CATEGORIES;
     private final Map<String, TransactionRules.Range> categoryRanges = TransactionRules.CATEGORYRANGES;
     private final Map<String, Double> fixedPrices = TransactionRules.FIXEDPRICES;
+
+    private static final Logger logger = LoggerFactory.getLogger(TransactionService.class);
 
     Random random = new Random();
 
@@ -65,7 +70,7 @@ public class TransactionService {
         String description = categories.get(category).get(random.nextInt(categories.get(category).size()));
         double amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
         Long userId = (long) (random.nextInt(100) + 1);
-        System.out.println("⚠️ ALERT: Generata transazione sospetta!");
+        logger.warn("⚠️ ALERT: Suspicious transaction generated!");
         saveTransaction(userId, amount, description, category, timestamp);
     }
 
@@ -74,7 +79,7 @@ public class TransactionService {
         String description = categories.get("Cyber").get(random.nextInt(categories.get("Cyber").size()));
         double amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
         Long userId = (long) (random.nextInt(100) + 1);
-        System.out.println("⚠️ ALERT: Generata transazione con descrizione anomala!");
+        logger.warn("⚠️ ALERT: Anomalous description transaction generated!");
         saveTransaction(userId, amount, description, category, timestamp);
     }
 
@@ -83,7 +88,7 @@ public class TransactionService {
         String description = categories.get(category).get(random.nextInt(categories.get(category).size()));
         double amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
         Long userId = (long) (random.nextInt(100) + 1);
-        System.out.println("⚠️ ALERT: Generata transazione di abbonamento con prezzo anomalo!");
+        logger.warn("⚠️ ALERT: Anomalous subscription transaction generated!");
         saveTransaction(userId, amount, description, category, timestamp);
     }
 
@@ -98,7 +103,7 @@ public class TransactionService {
             saveTransaction(userId, amount, description, category, timestamp.plusSeconds(i * 2));
         }
 
-        System.out.println("⚠️ ALERT: Generato burst di transazioni!");
+        logger.warn("⚠️ ALERT: Generated burst of transactions!");
     }
 
     private void generateAnomalousAmountTransaction(LocalDateTime timestamp) {
@@ -106,7 +111,7 @@ public class TransactionService {
         String description = categories.get(category).get(random.nextInt(categories.get(category).size()));
         double amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min()) * (random.nextInt(5) + 1);
         Long userId = (long) (random.nextInt(100) + 1);
-        System.out.println("⚠️ ALERT: Generata transazione con importo anomalo!");
+        logger.warn("⚠️ ALERT: Generated transaction with anomalous amount!");
         saveTransaction(userId, amount, description, category, timestamp);
     }
 
@@ -120,6 +125,7 @@ public class TransactionService {
             amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
         }
         Long userId = (long) (random.nextInt(100) + 1);
+        logger.info("✅ Generating normal transaction...");
         saveTransaction(userId, amount, description, category, timestamp);
     }
 
@@ -143,7 +149,7 @@ public class TransactionService {
         if (isFraudByAI) {
             transaction.setStatus(TransactionStatus.REJECTED);
             transaction.setAiReason(transaction.getAiReason() + " [AI BLOCK]");
-            System.out.println("🤖 L'IA ha intercettato una frode! Stato impostato su REJECTED.");
+            logger.info("🤖 AI detected fraud! Status set to REJECTED.");
         } else {
             transaction.setStatus(TransactionStatus.CONFIRMED);
         }
@@ -153,7 +159,10 @@ public class TransactionService {
 
     public Transaction updateStatus(Long id, TransactionStatus status) {
         Transaction transaction = transactionRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Transaction not found"));
+            .orElseThrow(() -> {
+                logger.warn("Trying to update non-existent transaction: ID={}", id);
+                throw new RuntimeException("Transaction not found");
+            });
         transaction.setStatus(status);
         transaction.setManualOverride(true);
         transaction.setManualOverrideTimestamp(LocalDateTime.now());

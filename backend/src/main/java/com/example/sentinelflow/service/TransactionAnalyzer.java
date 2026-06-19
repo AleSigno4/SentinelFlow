@@ -5,6 +5,9 @@ import java.time.temporal.ChronoUnit;
 import java.util.AbstractMap;
 import java.util.Arrays;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
@@ -22,6 +25,8 @@ public class TransactionAnalyzer {
 
     private final TransactionRepository transactionRepository;
     private final RestClient aiRestClient;
+
+    private static final Logger logger = LoggerFactory.getLogger(TransactionAnalyzer.class);
 
     public TransactionAnalyzer(TransactionRepository transactionRepository, @Value("${ai.service.url}") String aiServiceUrl) {
         this.transactionRepository = transactionRepository;
@@ -72,7 +77,7 @@ public class TransactionAnalyzer {
             return response != null && response.isFraud();
 
         } catch (Exception e) {
-            System.err.println("🚨 Errore durante la chiamata a FastAPI: " + e.getMessage());
+            logger.error("🚨 Error calling FastAPI: " + e.getMessage());
             return false;
         }
     }
