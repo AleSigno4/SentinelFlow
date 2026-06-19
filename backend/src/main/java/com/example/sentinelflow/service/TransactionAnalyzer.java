@@ -5,6 +5,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.AbstractMap;
 import java.util.Arrays;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
@@ -22,10 +23,10 @@ public class TransactionAnalyzer {
     private final TransactionRepository transactionRepository;
     private final RestClient aiRestClient;
 
-    public TransactionAnalyzer(TransactionRepository transactionRepository) {
+    public TransactionAnalyzer(TransactionRepository transactionRepository, @Value("${ai.service.url}") String aiServiceUrl) {
         this.transactionRepository = transactionRepository;
         this.aiRestClient = RestClient.builder()
-                .baseUrl("http://localhost:8000")
+                .baseUrl(aiServiceUrl)
                 .requestFactory(new SimpleClientHttpRequestFactory())
                 .build();
     }
