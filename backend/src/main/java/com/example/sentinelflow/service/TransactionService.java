@@ -35,89 +35,95 @@ public class TransactionService {
     }
 
     public void generateTransaction(java.time.LocalDateTime timestamp) {
-        String category;
-        String description;
-        double amount;
-        Long userId;
-
         int chance = random.nextInt(100);
 
-        switch(chance) {
+        switch (chance) {
             case 0, 1, 2 -> {
-                category = "Cyber";
-                description = categories.get(category).get(random.nextInt(categories.get(category).size()));
-                amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
-                userId = (long) (random.nextInt(100) + 1);
-                System.out.println("⚠️ ALERT: Generata transazione sospetta!");
+                generateCyberTransaction(timestamp);
             }
             case 3, 4 -> {
-                category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
-                description = categories.get("Cyber").get(random.nextInt(categories.get("Cyber").size()));
-                amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
-                userId = (long) (random.nextInt(100) + 1);
-                System.out.println("⚠️ ALERT: Generata transazione con descrizione anomala!");
+                generateAnomalousDescriptionTransaction(timestamp);
             }
             case 5, 6 -> {
-                category = "Subscriptions";
-                description = categories.get(category).get(random.nextInt(categories.get(category).size()));
-                amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
-                userId = (long) (random.nextInt(100) + 1);
-                System.out.println("⚠️ ALERT: Generata transazione di abbonamento con prezzo anomalo!");
+                generateAnomalousSubscriptionTransaction(timestamp);
             }
             case 7, 8 -> {
-                userId = (long) (random.nextInt(100) + 1);
-                for(int i = 0; i < 5; i++) {
-                    category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
-                    description = categories.get(category).get(random.nextInt(categories.get(category).size()));
-                    amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
-                    Transaction transaction = new Transaction(
-                            userId,
-                            amount,
-                            description,
-                            category,
-                            TransactionStatus.PENDING,
-                            timestamp.plusSeconds(i * 2),
-                            0.0,
-                            "N/A"
-                    );
-                    
-                    // Calcolo delle regole storiche
-                    var aiResult = transactionAnalyzer.calculateRiskScore(transaction);
-                    transaction.setRiskScore(aiResult.getKey());
-                    transaction.setAiReason(aiResult.getValue());
-
-                    // --- INTEGRAZIONE IA PER IL BURST ---
-                    boolean isFraud = transactionAnalyzer.isFraudulentByAI(transaction);
-                    if (isFraud) {
-                        transaction.setStatus(TransactionStatus.REJECTED);
-                        transaction.setAiReason(transaction.getAiReason() + " [AI BLOCK]");
-                    } else {
-                        transaction.setStatus(TransactionStatus.CONFIRMED);
-                    }
-
-                    this.transactionRepository.save(transaction);
-                }
-                return;
+                generateBurstTransactions(timestamp);
             }
             case 9, 10 -> {
-                category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
-                description = categories.get(category).get(random.nextInt(categories.get(category).size()));
-                amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min()) * (random.nextInt(5) + 1);
-                userId = (long) (random.nextInt(100) + 1);
-                System.out.println("⚠️ ALERT: Generata transazione con importo anomalo!");
+                generateAnomalousAmountTransaction(timestamp);
             }
             default -> {
-                category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
-                description = categories.get(category).get(random.nextInt(categories.get(category).size()));
-                if (fixedPrices.containsKey(description)) {
-                    amount = fixedPrices.get(description);
-                } else {
-                    amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
-                }
-                userId = (long) (random.nextInt(100) + 1);
+                generateNormalTransaction(timestamp);
             }
         }
-        
+
+    }
+
+    private void generateCyberTransaction(LocalDateTime timestamp) {
+        String category = "Cyber";
+        String description = categories.get(category).get(random.nextInt(categories.get(category).size()));
+        double amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
+        Long userId = (long) (random.nextInt(100) + 1);
+        System.out.println("⚠️ ALERT: Generata transazione sospetta!");
+        saveTransaction(userId, amount, description, category, timestamp);
+    }
+
+    private void generateAnomalousDescriptionTransaction(LocalDateTime timestamp) {
+        String category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
+        String description = categories.get("Cyber").get(random.nextInt(categories.get("Cyber").size()));
+        double amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
+        Long userId = (long) (random.nextInt(100) + 1);
+        System.out.println("⚠️ ALERT: Generata transazione con descrizione anomala!");
+        saveTransaction(userId, amount, description, category, timestamp);
+    }
+
+    private void generateAnomalousSubscriptionTransaction(LocalDateTime timestamp) {
+        String category = "Subscriptions";
+        String description = categories.get(category).get(random.nextInt(categories.get(category).size()));
+        double amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
+        Long userId = (long) (random.nextInt(100) + 1);
+        System.out.println("⚠️ ALERT: Generata transazione di abbonamento con prezzo anomalo!");
+        saveTransaction(userId, amount, description, category, timestamp);
+    }
+
+    private void generateBurstTransactions(LocalDateTime timestamp) {
+        Long userId = (long) (random.nextInt(100) + 1);
+
+        for (int i = 0; i < 5; i++) {
+            String category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
+            String description = categories.get(category).get(random.nextInt(categories.get(category).size()));
+            double amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
+
+            saveTransaction(userId, amount, description, category, timestamp.plusSeconds(i * 2));
+        }
+
+        System.out.println("⚠️ ALERT: Generato burst di transazioni!");
+    }
+
+    private void generateAnomalousAmountTransaction(LocalDateTime timestamp) {
+        String category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
+        String description = categories.get(category).get(random.nextInt(categories.get(category).size()));
+        double amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min()) * (random.nextInt(5) + 1);
+        Long userId = (long) (random.nextInt(100) + 1);
+        System.out.println("⚠️ ALERT: Generata transazione con importo anomalo!");
+        saveTransaction(userId, amount, description, category, timestamp);
+    }
+
+    private void generateNormalTransaction(LocalDateTime timestamp) {
+        String category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
+        String description = categories.get(category).get(random.nextInt(categories.get(category).size()));
+        double amount;
+        if (fixedPrices.containsKey(description)) {
+            amount = fixedPrices.get(description);
+        } else {
+            amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
+        }
+        Long userId = (long) (random.nextInt(100) + 1);
+        saveTransaction(userId, amount, description, category, timestamp);
+    }
+
+    private void saveTransaction(Long userId, double amount, String description, String category, LocalDateTime timestamp) {
         Transaction transaction = new Transaction(
                 userId,
                 amount,
@@ -129,12 +135,10 @@ public class TransactionService {
                 "N/A"
         );
 
-        // Calcolo vecchio basato sulle regole hardcoded
         var aiResult = transactionAnalyzer.calculateRiskScore(transaction);
         transaction.setRiskScore(aiResult.getKey());
         transaction.setAiReason(aiResult.getValue());
 
-        // --- INTEGRAZIONE CHIAMATA FASTAPI (IA) ---
         boolean isFraudByAI = transactionAnalyzer.isFraudulentByAI(transaction);
         if (isFraudByAI) {
             transaction.setStatus(TransactionStatus.REJECTED);
