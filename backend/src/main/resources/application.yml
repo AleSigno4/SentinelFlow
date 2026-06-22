@@ -26,3 +26,7 @@ spring:
 ai:
   service:
     url: http://localhost:8000
+
+jwt:
+  secret: 40b7d388-1355-4910-8874-e3db7521f8fde993fc02-dac2-4294-82d3-bbcc7f594dbe
+  expiration: 86400000
