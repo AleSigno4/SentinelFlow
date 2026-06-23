@@ -1,5 +1,5 @@
 import { Component, inject, OnDestroy, OnInit, ChangeDetectorRef } from '@angular/core';
-import { TransactionService } from '../../services/transaction.service';
+import { TransactionService } from '../../core/services/transaction.service';
 import { Transaction } from '../../models/transaction.model';
 import { CommonModule } from '@angular/common';
 import { interval, startWith, Subscription, switchMap } from 'rxjs';
@@ -235,7 +235,7 @@ export class Dashboard implements OnInit, OnDestroy {
       }
     });
   }
-  
+
   getRiskClass(score: number): string {
     if (score <= 0.25) return 'bg-green-100 text-green-700';
     if (score >= 0.75) return 'bg-red-100 text-red-700';

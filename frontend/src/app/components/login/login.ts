@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { TransactionService } from '../../services/transaction.service';
+import { TransactionService } from '../../core/services/transaction.service';
 
 @Component({
   selector: 'app-login',
