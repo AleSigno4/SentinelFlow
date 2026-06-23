@@ -17,4 +17,8 @@ export class TransactionService {
     return this.http.patch(`${this.url}/${transactionId}/status`, { status: newStatus });
   }
 
+  login(username: string, password: string) {
+    return this.http.post<{ token: string }>('http://localhost:8081/api/auth/login', { username, password });
+  }
+
 }

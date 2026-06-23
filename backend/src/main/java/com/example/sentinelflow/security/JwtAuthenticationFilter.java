@@ -10,7 +10,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import io.jsonwebtoken.JwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -33,34 +32,31 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             FilterChain filterChain)
             throws ServletException, IOException {
         try {
-            // 1. Estrai il token dall'header Authorization
             String authHeader = request.getHeader("Authorization");
             String token = null;
 
             if (authHeader != null && authHeader.startsWith("Bearer ")) {
-                token = authHeader.substring(7);  // Toglie "Bearer "
+                token = authHeader.substring(7);
             }
 
-            // 2. Se il token esiste, validalo
             if (token != null && jwtUtil.validateToken(token)) {
                 String username = jwtUtil.extractUsername(token);
                 jwtAuthLogger.info("Token validated for user: {}", username);
 
-                // 3. Crea un UsernamePasswordAuthenticationToken
                 UsernamePasswordAuthenticationToken auth
                         = new UsernamePasswordAuthenticationToken(
-                                username, // principal (l'utente)
-                                null, // credentials (null)
-                                new ArrayList<>() // authorities (permessi, vuoto per ora)
+                                username,
+                                null,
+                                new ArrayList<>()
                         );
 
-                SecurityContextHolder.getContext().setAuthentication(auth);
+                SecurityContextHolder.getContext().setAuthentication(auth);  // ← QUESTO ERA MANCANTE!
+                jwtAuthLogger.info("Authentication set for user: {}", username);
             }
 
-            // 4. Continua con la prossima richiesta
             filterChain.doFilter(request, response);
 
-        } catch (JwtException | ServletException | IOException e) {
+        } catch (Exception e) {
             jwtAuthLogger.error("JWT filter error: {}", e.getMessage());
             filterChain.doFilter(request, response);
         }
