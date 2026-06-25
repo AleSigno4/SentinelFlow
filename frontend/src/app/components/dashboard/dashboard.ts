@@ -153,7 +153,6 @@ export class Dashboard implements OnInit, OnDestroy {
           }, 1000);
         },
         error: (err) => {
-          console.error('ERRORE NEL FLUSSO:', err);
         }
       });
   }
@@ -231,7 +230,6 @@ export class Dashboard implements OnInit, OnDestroy {
       error: (err) => {
         transaction.isProcessing = false;
         this.cdr.detectChanges();
-        console.error('Errore nell\'aggiornamento:', err);
       }
     });
   }

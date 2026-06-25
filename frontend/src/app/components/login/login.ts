@@ -26,11 +26,8 @@ export class LoginComponent {
 
     this.transactionService.login(this.username, this.password).subscribe({
       next: (response: any) => {
-        console.log('Login successful, token:', response.token);
         localStorage.setItem('token', response.token);
-        console.log('Token saved to localStorage');
-
-        // Prova a fare refresh della pagina
+        
         setTimeout(() => {
           window.location.href = '/dashboard';
         }, 500);
