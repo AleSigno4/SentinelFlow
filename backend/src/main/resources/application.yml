@@ -6,7 +6,7 @@ spring:
     name: sentinelflow
   
   datasource:
-    url: jdbc:h2:file:./data/sentinelflow;DB_CLOSE_ON_EXIT=FALSE
+    url: ${SPRING_DATASOURCE_URL}
     driver-class-name: org.h2.Driver
     username: sa
     password: ""
@@ -25,8 +25,8 @@ spring:
 
 ai:
   service:
-    url: http://localhost:8000
+    url: ${AI_SERVICE_URL}
 
 jwt:
-  secret: 40b7d388-1355-4910-8874-e3db7521f8fde993fc02-dac2-4294-82d3-bbcc7f594dbe
+  secret: ${JWT_SECRET}
   expiration: 86400000
