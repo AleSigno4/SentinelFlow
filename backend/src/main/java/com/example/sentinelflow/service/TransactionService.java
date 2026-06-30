@@ -10,12 +10,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.sentinelflow.config.TransactionRules;
 import com.example.sentinelflow.exceptions.TransactionNotFoundException;
 import com.example.sentinelflow.model.Transaction;
 import com.example.sentinelflow.model.TransactionStatus;
 import com.example.sentinelflow.repository.TransactionRepository;
+
 
 @Service
 public class TransactionService {
@@ -130,6 +132,8 @@ public class TransactionService {
         saveTransaction(userId, amount, description, category, timestamp);
     }
 
+    //This annotation works only if the method is invoked from outside the class (by Spring proxy), so it won't work if called from another method in this class.
+    @Transactional
     private void saveTransaction(Long userId, double amount, String description, String category, LocalDateTime timestamp) {
         Transaction transaction = new Transaction(
                 userId,
