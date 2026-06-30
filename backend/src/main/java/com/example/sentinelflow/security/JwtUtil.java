@@ -15,11 +15,13 @@ import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
 
 @Component
 public class JwtUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(JwtUtil.class);
+    private SecretKey key;
 
     @Value("${jwt.secret}")
     private String secret;
@@ -27,8 +29,12 @@ public class JwtUtil {
     @Value("${jwt.expiration}")
     private long expiration;
 
+    @PostConstruct
+    public void createKey() {
+        this.key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
+    }
+
     public String generateToken(String username) {
-        SecretKey key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + expiration);
 
@@ -36,7 +42,7 @@ public class JwtUtil {
                 .setSubject(username)
                 .setIssuedAt(now)
                 .setExpiration(expiryDate)
-                .signWith(key, SignatureAlgorithm.HS256)
+                .signWith(this.key, SignatureAlgorithm.HS256)
                 .compact();
         logger.info("JWT generated for user: {}", username);
         return token;
@@ -44,8 +50,7 @@ public class JwtUtil {
 
     public boolean validateToken(String token) {
         try {
-            SecretKey key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
-            Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
+            Jwts.parserBuilder().setSigningKey(this.key).build().parseClaimsJws(token);
             return true;
         } catch (JwtException e) {
             logger.error("Invalid JWT token: {}", e.getMessage());
@@ -55,8 +60,7 @@ public class JwtUtil {
 
     public String extractUsername(String token) {
         try {
-            SecretKey key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
-            Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
+            Claims claims = Jwts.parserBuilder().setSigningKey(this.key).build().parseClaimsJws(token).getBody();
             return claims.getSubject();
         } catch (JwtException e) {
             logger.error("Error extracting username from JWT token: {}", e.getMessage());

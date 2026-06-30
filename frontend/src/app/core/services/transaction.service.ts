@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Transaction } from '../../models/transaction.model';
+import { environment } from '../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TransactionService {
   private http = inject(HttpClient);
-  url = 'http://localhost:8081/api/transactions';
+  url = `${environment.apiUrl}/transactions`;
 
   getTransactions() {
     return this.http.get<Transaction[]>(this.url);
@@ -18,7 +19,7 @@ export class TransactionService {
   }
 
   login(username: string, password: string) {
-    return this.http.post<{ token: string }>('http://localhost:8081/api/auth/login', { username, password });
+    return this.http.post<{ token: string }>(`${environment.apiUrl}/auth/login`, { username, password });
   }
 
 }

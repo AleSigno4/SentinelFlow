@@ -28,9 +28,7 @@ export class LoginComponent {
       next: (response: any) => {
         localStorage.setItem('token', response.token);
         
-        setTimeout(() => {
-          window.location.href = '/dashboard';
-        }, 500);
+        this.router.navigate(['/dashboard']);
       },
       error: (error: any) => {
         this.errorMessage = 'Invalid username or password.';

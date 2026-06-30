@@ -1,11 +1,14 @@
 package com.example.sentinelflow.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import com.example.sentinelflow.exceptions.ErrorResponse;
+import com.example.sentinelflow.exceptions.TransactionNotFoundException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -28,16 +31,11 @@ public class GlobalExceptionHandler {
                 .body(new ErrorResponse("Generic error", e.getMessage()));
     }
     
-    public static class ErrorResponse {
-        private final String error;
-        private final String message;
-
-        public ErrorResponse(String error, String message) {
-            this.error = error;
-            this.message = message;
-        }
-
-        public String getError() { return error; }
-        public String getMessage() { return message; }
+    @ExceptionHandler(TransactionNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleTransactionNotFoundException(TransactionNotFoundException e) {
+        logger.warn("Transaction not found", e);
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(new ErrorResponse("Transaction not found", e.getMessage()));
     }
 }
