@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,6 @@ import com.example.sentinelflow.model.Transaction;
 import com.example.sentinelflow.model.TransactionStatus;
 import com.example.sentinelflow.repository.TransactionRepository;
 
-
 @Service
 public class TransactionService {
 
@@ -29,8 +28,6 @@ public class TransactionService {
     private final Map<String, Double> fixedPrices = TransactionRules.FIXEDPRICES;
 
     private static final Logger logger = LoggerFactory.getLogger(TransactionService.class);
-
-    Random random = new Random();
 
     public TransactionService(TransactionRepository transactionRepository, TransactionAnalyzer transactionAnalyzer) {
         this.transactionRepository = transactionRepository;
@@ -43,7 +40,7 @@ public class TransactionService {
     }
 
     public void generateTransaction(java.time.LocalDateTime timestamp) {
-        int chance = random.nextInt(100);
+        int chance = ThreadLocalRandom.current().nextInt(100);
 
         switch (chance) {
             case 0, 1, 2 -> {
@@ -70,38 +67,39 @@ public class TransactionService {
 
     private void generateCyberTransaction(LocalDateTime timestamp) {
         String category = "Cyber";
-        String description = categories.get(category).get(random.nextInt(categories.get(category).size()));
-        double amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
-        Long userId = (long) (random.nextInt(100) + 1);
+        String description = categories.get(category).get(ThreadLocalRandom.current().nextInt(categories.get(category).size()));
+        double amount = Math.round((ThreadLocalRandom.current().nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
+        Long userId = (long) (ThreadLocalRandom.current().nextInt(100) + 1);
         logger.warn("⚠️ ALERT: Suspicious transaction generated!");
         saveTransaction(userId, amount, description, category, timestamp);
     }
 
     private void generateAnomalousDescriptionTransaction(LocalDateTime timestamp) {
-        String category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
-        String description = categories.get("Cyber").get(random.nextInt(categories.get("Cyber").size()));
-        double amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
-        Long userId = (long) (random.nextInt(100) + 1);
+        String category = categories.keySet().stream().skip(ThreadLocalRandom.current().nextInt(categories.size())).findFirst().orElse("MISC");
+        String description = categories.get("Cyber").get(ThreadLocalRandom.current().nextInt(categories.get("Cyber").size()));
+        double amount = Math.round((ThreadLocalRandom.current().nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
+        Long userId = (long) (ThreadLocalRandom.current().nextInt(100) + 1);
         logger.warn("⚠️ ALERT: Anomalous description transaction generated!");
         saveTransaction(userId, amount, description, category, timestamp);
     }
 
     private void generateAnomalousSubscriptionTransaction(LocalDateTime timestamp) {
         String category = "Subscriptions";
-        String description = categories.get(category).get(random.nextInt(categories.get(category).size()));
-        double amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
-        Long userId = (long) (random.nextInt(100) + 1);
+        String description = categories.get(category).get(ThreadLocalRandom.current().nextInt(categories.get(category).size()));
+        double amount = Math.round((ThreadLocalRandom.current().nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
+        Long userId = (long) (ThreadLocalRandom.current().nextInt(100) + 1);
         logger.warn("⚠️ ALERT: Anomalous subscription transaction generated!");
         saveTransaction(userId, amount, description, category, timestamp);
     }
 
     private void generateBurstTransactions(LocalDateTime timestamp) {
-        Long userId = (long) (random.nextInt(100) + 1);
+        Long userId = (long) (ThreadLocalRandom.current().nextInt(100) + 1);
+        ThreadLocalRandom rnd = ThreadLocalRandom.current();
 
         for (int i = 0; i < 5; i++) {
-            String category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
-            String description = categories.get(category).get(random.nextInt(categories.get(category).size()));
-            double amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
+            String category = categories.keySet().stream().skip(rnd.nextInt(categories.size())).findFirst().orElse("MISC");
+            String description = categories.get(category).get(rnd.nextInt(categories.get(category).size()));
+            double amount = Math.round((rnd.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
 
             saveTransaction(userId, amount, description, category, timestamp.plusSeconds(i * 2));
         }
@@ -110,24 +108,24 @@ public class TransactionService {
     }
 
     private void generateAnomalousAmountTransaction(LocalDateTime timestamp) {
-        String category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
-        String description = categories.get(category).get(random.nextInt(categories.get(category).size()));
-        double amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min()) * (random.nextInt(5) + 1);
-        Long userId = (long) (random.nextInt(100) + 1);
+        String category = categories.keySet().stream().skip(ThreadLocalRandom.current().nextInt(categories.size())).findFirst().orElse("MISC");
+        String description = categories.get(category).get(ThreadLocalRandom.current().nextInt(categories.get(category).size()));
+        double amount = Math.round((ThreadLocalRandom.current().nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min()) * (ThreadLocalRandom.current().nextInt(5) + 1);
+        Long userId = (long) (ThreadLocalRandom.current().nextInt(100) + 1);
         logger.warn("⚠️ ALERT: Generated transaction with anomalous amount!");
         saveTransaction(userId, amount, description, category, timestamp);
     }
 
     private void generateNormalTransaction(LocalDateTime timestamp) {
-        String category = categories.keySet().stream().skip(random.nextInt(categories.size())).findFirst().orElse("MISC");
-        String description = categories.get(category).get(random.nextInt(categories.get(category).size()));
+        String category = categories.keySet().stream().skip(ThreadLocalRandom.current().nextInt(categories.size())).findFirst().orElse("MISC");
+        String description = categories.get(category).get(ThreadLocalRandom.current().nextInt(categories.get(category).size()));
         double amount;
         if (fixedPrices.containsKey(description)) {
             amount = fixedPrices.get(description);
         } else {
-            amount = Math.round((random.nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
+            amount = Math.round((ThreadLocalRandom.current().nextDouble() * (categoryRanges.get(category).max() - categoryRanges.get(category).min())) + categoryRanges.get(category).min());
         }
-        Long userId = (long) (random.nextInt(100) + 1);
+        Long userId = (long) (ThreadLocalRandom.current().nextInt(100) + 1);
         logger.info("✅ Generating normal transaction...");
         saveTransaction(userId, amount, description, category, timestamp);
     }
