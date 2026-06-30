@@ -123,22 +123,7 @@ export class Dashboard implements OnInit, OnDestroy {
 
           this.renderTabella();
 
-          const rollingData = sortedData.slice(-50);
-          const legitTx = rollingData.filter(tx => tx.status === 'CONFIRMED');
-          const fraudTx = rollingData.filter(tx => tx.status === 'REJECTED');
-
-          this.chartOptions.series = [
-            {
-              name: 'Transazioni Legittime',
-              type: 'area',
-              data: legitTx.map(tx => [new Date(tx.timestamp).getTime(), Number(tx.amount)])
-            },
-            {
-              name: 'Tentativi di Frode',
-              type: 'column',
-              data: fraudTx.map(tx => [new Date(tx.timestamp).getTime(), Number(tx.amount)])
-            }
-          ];
+          this.updateChartSeries(sortedData);
 
           this.cdr.detectChanges();
 
@@ -153,6 +138,25 @@ export class Dashboard implements OnInit, OnDestroy {
         error: (err) => {
         }
       });
+  }
+
+  private updateChartSeries(sortedData: Transaction[]) {
+    const rollingData = sortedData.slice(-50);
+    const legitTx = rollingData.filter(tx => tx.status === 'CONFIRMED');
+    const fraudTx = rollingData.filter(tx => tx.status === 'REJECTED');
+
+    this.chartOptions.series = [
+      {
+        name: 'Transazioni Legittime',
+        type: 'area',
+        data: legitTx.map(tx => [new Date(tx.timestamp).getTime(), Number(tx.amount)])
+      },
+      {
+        name: 'Tentativi di Frode',
+        type: 'column',
+        data: fraudTx.map(tx => [new Date(tx.timestamp).getTime(), Number(tx.amount)])
+      }
+    ];
   }
 
   ngOnDestroy() {
@@ -186,7 +190,7 @@ export class Dashboard implements OnInit, OnDestroy {
     this.averageAmount = filteredTransactions.length > 0 ? this.totalAmount / filteredTransactions.length : 0;
     this.pendingTransactions = listaModello.filter(tx => tx.status === 'PENDING');
 
-    const rejectedCount = listaModello.filter(tx => tx.status === 'REJECTED').length;
+    const rejectedCount = filteredTransactions.filter(tx => tx.status === 'REJECTED').length;
     this.rejectionRate = filteredTransactions.length > 0 ? (rejectedCount / filteredTransactions.length) * 100 : 0;
   }
 
@@ -207,22 +211,7 @@ export class Dashboard implements OnInit, OnDestroy {
 
         this.renderTabella();
 
-        const rollingData = this.fullSortedTransactions.slice(-50);
-        const legitTx = rollingData.filter(tx => tx.status === 'CONFIRMED');
-        const fraudTx = rollingData.filter(tx => tx.status === 'REJECTED');
-
-        this.chartOptions.series = [
-          {
-            name: 'Transazioni Legittime',
-            type: 'area',
-            data: legitTx.map(tx => [new Date(tx.timestamp).getTime(), Number(tx.amount)])
-          },
-          {
-            name: 'Tentativi di Frode',
-            type: 'column',
-            data: fraudTx.map(tx => [new Date(tx.timestamp).getTime(), Number(tx.amount)])
-          }
-        ];
+        this.updateChartSeries(this.fullSortedTransactions);
 
         this.cdr.detectChanges();
       },
