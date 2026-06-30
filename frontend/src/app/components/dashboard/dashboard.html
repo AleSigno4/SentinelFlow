@@ -1,6 +1,12 @@
 <div class="bg-gray-100 min-h-screen p-8" (click)="closeMenu()">
   <h1 class="text-3xl font-extrabold mb-6 text-gray-800">Dashboard Transazioni</h1>
 
+  @if (errorMessage) {
+    <div class="bg-red-100 border border-red-300 text-red-700 px-4 py-3 rounded mb-4">
+      {{ errorMessage }}
+    </div>
+  }
+
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
     <div class="bg-cyan-50 shadow-md rounded-xl border border-gray-200 overflow-hidden p-4">
       <h3 class="font-bold text-cyan-800 uppercase">

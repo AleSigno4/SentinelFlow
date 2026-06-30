@@ -28,6 +28,8 @@ export class Dashboard implements OnInit, OnDestroy {
 
   public activeMenuId: number | null = null;
 
+  public errorMessage: string | null = null;
+
   private sub: Subscription | undefined;
 
   public chartOptions: any = {
@@ -105,6 +107,7 @@ export class Dashboard implements OnInit, OnDestroy {
       )
       .subscribe({
         next: (data) => {
+          this.errorMessage = null;
           const sortedData = [...data].sort((a, b) =>
             new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
           );
@@ -136,6 +139,7 @@ export class Dashboard implements OnInit, OnDestroy {
           }, 1000);
         },
         error: (err) => {
+          this.errorMessage = 'Error during data update.';
         }
       });
   }
