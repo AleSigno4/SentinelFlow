@@ -119,9 +119,7 @@ export class Dashboard implements OnInit, OnDestroy {
           this.fullSortedTransactions = sortedData;
           this.totalTransactionsCount = sortedData.length;
 
-          const processedTransactions = sortedData.filter(tx => tx.status !== 'PENDING');
-
-          this.updateTotals(processedTransactions);
+          this.updateTotals(sortedData);
 
           this.renderTabella();
 
@@ -182,12 +180,14 @@ export class Dashboard implements OnInit, OnDestroy {
   }
 
   private updateTotals(listaModello: Transaction[]) {
-    this.totalAmount = listaModello.reduce((sum, tx) => sum + tx.amount, 0);
-    this.averageAmount = listaModello.length > 0 ? this.totalAmount / listaModello.length : 0;
+    const filteredTransactions = listaModello.filter(tx => tx.status !== 'PENDING');
+
+    this.totalAmount = filteredTransactions.reduce((sum, tx) => sum + tx.amount, 0);
+    this.averageAmount = filteredTransactions.length > 0 ? this.totalAmount / filteredTransactions.length : 0;
     this.pendingTransactions = listaModello.filter(tx => tx.status === 'PENDING');
 
     const rejectedCount = listaModello.filter(tx => tx.status === 'REJECTED').length;
-    this.rejectionRate = listaModello.length > 0 ? (rejectedCount / listaModello.length) * 100 : 0;
+    this.rejectionRate = filteredTransactions.length > 0 ? (rejectedCount / filteredTransactions.length) * 100 : 0;
   }
 
   public handleAction(transaction: Transaction, newStatus: 'CONFIRMED' | 'REJECTED' | 'PENDING') {
@@ -203,8 +203,7 @@ export class Dashboard implements OnInit, OnDestroy {
             : t
         );
 
-        const processedTransactions = this.fullSortedTransactions.filter(tx => tx.status !== 'PENDING');
-        this.updateTotals(processedTransactions);
+        this.updateTotals(this.fullSortedTransactions);
 
         this.renderTabella();
 
