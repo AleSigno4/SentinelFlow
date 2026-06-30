@@ -3,15 +3,16 @@ package com.example.sentinelflow.service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Random;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.example.sentinelflow.config.TransactionRules;
+import com.example.sentinelflow.exceptions.TransactionNotFoundException;
 import com.example.sentinelflow.model.Transaction;
 import com.example.sentinelflow.model.TransactionStatus;
 import com.example.sentinelflow.repository.TransactionRepository;
@@ -158,11 +159,12 @@ public class TransactionService {
     }
 
     public Transaction updateStatus(Long id, TransactionStatus status) {
-        Transaction transaction = transactionRepository.findById(id)
-            .orElseThrow(() -> {
-                logger.warn("Trying to update non-existent transaction: ID={}", id);
-                throw new RuntimeException("Transaction not found");
-            });
+        Optional<Transaction> result = transactionRepository.findById(id);
+        if (result.isEmpty()) {
+            logger.warn("Trying to update non-existent transaction: ID={}", id);
+            throw new TransactionNotFoundException("Transaction not found with id: " + id);
+        }
+        Transaction transaction = result.get();
         transaction.setStatus(status);
         transaction.setManualOverride(true);
         transaction.setManualOverrideTimestamp(LocalDateTime.now());
