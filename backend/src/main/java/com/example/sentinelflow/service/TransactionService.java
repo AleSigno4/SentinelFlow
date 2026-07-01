@@ -144,6 +144,22 @@ public class TransactionService {
                 "N/A"
         );
 
+        analyzeAndPersist(transaction);
+    }
+
+    @Transactional
+    public Transaction createTransaction(Long userId, Double amount, String description, String category) {
+        if (!categories.containsKey(category)) {
+            throw new IllegalArgumentException("Unknown category: " + category);
+        }
+        Transaction transaction = new Transaction(
+                userId, amount, description, category,
+                TransactionStatus.PENDING, LocalDateTime.now(), 0.0, "N/A"
+        );
+        return analyzeAndPersist(transaction);
+    }
+
+    private Transaction analyzeAndPersist(Transaction transaction) {
         var aiResult = transactionAnalyzer.calculateRiskScore(transaction);
         transaction.setRiskScore(aiResult.getKey());
         transaction.setAiReason(aiResult.getValue());
@@ -157,7 +173,7 @@ public class TransactionService {
             transaction.setStatus(TransactionStatus.CONFIRMED);
         }
 
-        this.transactionRepository.save(transaction);
+        return this.transactionRepository.save(transaction);
     }
 
     public Transaction updateStatus(Long id, TransactionStatus status) {
