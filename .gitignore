@@ -1,16 +1,8 @@
-# Compiled class file
+# Java
 *.class
-
-# Log file
 *.log
-
-# BlueJ files
 *.ctxt
-
-# Mobile Tools for Java (J2ME)
 .mtj.tmp/
-
-# Package Files #
 *.jar
 *.war
 *.nar
@@ -18,16 +10,17 @@
 *.zip
 *.tar.gz
 *.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
 
+# Python
 __pycache__/
 *.pyc
 *.joblib
 
+# Environment
+.env
 
-if (!(Select-String -Path .gitignore -Pattern "\.env" -Quiet)) {
-    Add-Content .gitignore ".env"
-}
+# Database
+*.mv.db
+*.trace.db
